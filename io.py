@@ -510,3 +510,5 @@ if __name__ == "__main__":   #funkcja glowna
             except Exception as e:   
                 print(e)      
                 say("Coś poszło nie tak.")      
+                
+#License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
