@@ -1,5 +1,5 @@
 
-#License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+#License: gplv3
 
 import speech_recognition # automatic speech recognition (ASR), computer speech recognition, or speech-to-text, is a capability which enables a program to process human speech into a written format.
 import speech_recognition as s_r #
@@ -511,4 +511,4 @@ if __name__ == "__main__":   #funkcja glowna
                 print(e)      
                 say("Coś poszło nie tak.")      
                 
-#License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+#License: gplv3
