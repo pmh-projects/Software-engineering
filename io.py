@@ -1,55 +1,51 @@
 
-import speech_recognition
-import speech_recognition as sr
-import wikipedia
-import random
-import datetime
-import webbrowser
-import os
-import pyttsx3
-import csv
-import pyaudio
-import sys
-import operator
-import pickle
-import random
-from time import sleep
-from datetime import datetime
-from pyowm import OWM
-from pyowm.utils import config
-from pyowm.utils import timestamps
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
+#License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+
+import speech_recognition # automatic speech recognition (ASR), computer speech recognition, or speech-to-text, is a capability which enables a program to process human speech into a written format.
+import speech_recognition as s_r #
+import wikipedia #Wikipedia is a Python library that makes it easy to access and parse data from Wikipedia.
+import random #his module implements pseudo-random number generators for various distributions.
+import webbrowser #The webbrowser module provides a high-level interface to allow displaying Web-based documents to users.
+import os #The OS module in Python provides functions for interacting with the operating system.
+import pyttsx3 # yttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3. 
+import csv 
+import pyaudio #PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O library. With PyAudio, you can easily use Python to play and record audio on a variety of platforms. 
+import sys #This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
+import operator #The operator module exports a set of efficient functions corresponding to the intrinsic operators of Python. For example, operator. add(x, y) is equivalent to the expression x+y 
+#import pickle #The pickle module can transform a complex object into a byte stream and it can transform the byte stream into an object with the same internal structure.
+from time import sleep #This module provides various time-related functions. For related functionality, see also the datetime and calendar modules.. The sleep() function suspends (waits) execution of the current thread for a given number of seconds.
+
+#Voice mechanism
+voice_mech = pyttsx3.init('sapi5')
 
 wikipedia.set_lang("pl")
 
 def say(audio):
-    engine.say(audio)
-    engine.runAndWait()
-
+    voice_mech.say(audio)
+    voice_mech.runAndWait()
 
 def introduction():
         say("Witaj w asystencie głosowym")
         print("Witaj w asystencie głosowym")
 
-
 def command_recognition():
-   
-    r = sr.Recognizer()
+
+    #Create voice recognition
+    r = s_r.Recognizer()
     record=''
   
-    with sr.Microphone() as source:
+    with s_r.Microphone() as source:
         sleep(2)
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
         print("Lista dostępnych funkcji:\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii.\nOtwórz stronę uniwersytetu - uruchamia przegladarke.\nzapisz plik - funkcja zapisujaca plik o podanym głosowo tytule i zawartośći podanej.\notwórz plik - otwieranie zapisanego pliku.\nkalkulator - dodawanie, odejmowanie, mnożenie i dzielenie\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.\notwórz google - otwiera stronę google.\npomocy - masz problem z kodem? Otworzę stackoverflow.\notwórz youtube - chcesz posłuchać muzyki?\notwórz playlistę - funkcja otwierajaca zadeklarowana playlistę.\nutwór drugi - otwiera drugi utwór na playliście.\nutwór trzeci - otwiera trzeci utwór na playliście.\ngra - rozerwij się i ogadnij wylosowana liczbę\nzamknij - wyjście z programu.")
         say("Słucham Cię.")
         print("Słucham Cię.")
-        r.pause_threshold = 1      
+        #period of silence allowed
+        r.pause_threshold = 1     
+        #listening to calibrate the energy threshold for ambient noise levels 
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
-   
        
-
     try:
         print("Sprawdzam co powiedziano.") 
         record = r.recognize_google(audio, language='pl-PL')
@@ -66,9 +62,9 @@ def command_recognition():
 # def command_recognition2():
 
 #     # inicjalizacja Recognizer
-#     r2 = sr.Recognizer()
+#     r2 = s_r.Recognizer()
 #     # Użycie domyślnego mikrofonu jako źródła = source
-#     with sr.Microphone() as source:
+#     with s_r.Microphone() as source:
 
 #         print("Slucham jak się masz?")
 #         r2.adjust_for_ambient_noise(source)
@@ -92,9 +88,9 @@ def command_recognition():
  
 
 def save_to_file_title():
-    p = sr.Recognizer()
+    p = s_r.Recognizer()
 
-    with sr.Microphone() as source:
+    with s_r.Microphone() as source:
         say("Podaj tytuł pliku.")
         print("Slucham...")
         p.pause_threshold = 1      
@@ -117,8 +113,8 @@ def save_to_file_title():
     return record2    
 
 def save_to_file_content():
-    w = sr.Recognizer()
-    with sr.Microphone() as source:
+    w = s_r.Recognizer()
+    with s_r.Microphone() as source:
         say("Podaj tekst zapisu")
         print("Slucham...")
         w.pause_threshold = 2     
@@ -145,8 +141,8 @@ def save_to_file_content():
 
 def wikipedia_search():
 
-    wiki = sr.Recognizer()
-    with sr.Microphone() as source:
+    wiki = s_r.Recognizer()
+    with s_r.Microphone() as source:
         say("Co mam znaleźć na wikipedii?")
 
         wiki.pause_threshold = 2 
@@ -164,8 +160,8 @@ def wikipedia_search():
 
 
 def open_from_file():
-    q = sr.Recognizer()
-    with sr.Microphone() as source:
+    q = s_r.Recognizer()
+    with s_r.Microphone() as source:
         say("Jaki plik mam otworzyć?")
         print("Slucham...")
         q.pause_threshold = 2     
@@ -240,12 +236,12 @@ def guess_the_number():
 
     number = random.randint(1, 100)
     running = True
-    audio_in0 = sr.Recognizer()
+    audio_in0 = s_r.Recognizer()
     print(number)
 
     while running:
     
-        with sr.Microphone() as source:
+        with s_r.Microphone() as source:
             
             try:
 
@@ -288,23 +284,6 @@ def guess_the_number():
         print('Gra skończona.')  
 
 
-
-# def lista_prac():
-
-#     lista=[]
-#     uzytkownicy=[]
-    
-#     say("Podaj dane użytkownika:")
-#     x=input("Dodaj użytkownika: ")
-#     say("Podaj identyfikator")
-#     y=input("Identyfikator: ")
-#     lista.append(y)
-#     uzytkownicy.append(x)
-#     i=0
-#     with open('plik_uzytkownicy.csv','a') as plik:
-#         zapis=csv.writer(plik)
-#         for i in range(len(lista)):
-#             zapis.writerow([lista[i], uzytkownicy[i]])   
 
 
 def calculator():
