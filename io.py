@@ -234,12 +234,7 @@ def lotto_draw():
         audio_in2 = s_r.Recognizer()
         audio_in3 = s_r.Recognizer()
         audio_in4 = s_r.Recognizer()
-        a = ''
-        b = ''
-        c = ''
-        d = ''
-        f = ''
-        g = ''
+
         with s_r.Microphone() as source:
 
             try:
@@ -250,80 +245,90 @@ def lotto_draw():
                 audio_in0.pause_threshold = 2
                 audio_listuj0 = audio_in0.listen(source)
                 print(audio_listuj0)
-                record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
+                record10 = int(audio_in0.recognize_google(audio_listuj0, language='pl-PL'))
                 a = int(record10)
                 print(a)
                 if a <= 1 or a > 49:
                     say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                     a = int(input("Podaj liczbę: "))
 
-                # while a == b:
-                #     say("Podaj drugą liczbę")
-                #     print("Podaj drugą liczbę")
-                #     audio_in1 = s_r.Recognizer()
-                #     audio_in1.pause_threshold = 2
-                #     audio_listuj1 = audio_in1.listen(source)
-                #     print(audio_listuj1)
-                #     record20 = audio_in1.recognize_google(audio_listuj1, language='pl-PL')
-                #     b = int(record20)
-                #     say(b)
+                b = a
+                while a == b:
 
-                if b <= 0 or b > 49:
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    b = int(input("Podaj liczbę: "))
+                    say("Podaj drugą liczbę")
+                    print("Podaj drugą liczbę")
+                    audio_in1 = s_r.Recognizer()
+                    audio_in1.pause_threshold = 2
+                    audio_listuj1 = audio_in1.listen(source)
+                    print(audio_listuj1)
+                    record20 = int(audio_in1.recognize_google(audio_listuj1, language='pl-PL'))
+                    b = int(record20)
+                    say(b)
 
-                say("Podaj trzecią liczbę")
-                print("Podaj trzecią liczbę")
-                audio_in2 = s_r.Recognizer()
-                audio_in2.pause_threshold = 2
-                audio_listuj2 = audio_in2.listen(source)
-                print(audio_listuj2)
-                record30 = audio_in2.recognize_google(audio_listuj2, language='pl-PL')
-                c = int(record30)
-                say(c)
-                if c <= 0 or c > 49:
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    c = int(input("Podaj liczbę: "))
+                    if b <= 0 or b > 49:
+                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+                        b = int(input("Podaj liczbę: "))
 
-                say("Podaj czwartą liczbę")
-                print("Podaj czwartą liczbę")
-                audio_in3 = s_r.Recognizer()
-                audio_in3.pause_threshold = 2
-                audio_listuj3 = audio_in3.listen(source)
-                print(audio_listuj3)
-                record40 = audio_in3.recognize_google(audio_listuj3, language='pl-PL')
-                d = int(record40)
-                say(d)
-                if d <= 0 or d > 49:
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    d = int(input("Podaj liczbę: "))
+                c = a
+                while a == c or b == c:
 
-                say("Podaj piątą liczbę")
-                print("Podaj piątą liczbę")
-                audio_in4 = s_r.Recognizer()
-                audio_in4.pause_threshold = 2
-                audio_listuj4 = audio_in4.listen(source)
-                print(audio_listuj4)
-                record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
-                f = int(record50)
-                say(f)
-                if f <= 0 or f > 49:
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    f = int(input("Podaj liczbę: "))
+                    say("Podaj trzecią liczbę")
+                    print("Podaj trzecią liczbę")
+                    audio_in2 = s_r.Recognizer()
+                    audio_in2.pause_threshold = 2
+                    audio_listuj2 = audio_in2.listen(source)
+                    print(audio_listuj2)
+                    record30 = int(audio_in2.recognize_google(audio_listuj2, language='pl-PL'))
+                    c = int(record30)
+                    say(c)
+                    if c <= 0 or c > 49:
+                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+                        c = int(input("Podaj liczbę: "))
 
-                say("Podaj szóstą liczbę")
-                print("Podaj szóstą liczbę")
-                audio_in4 = s_r.Recognizer()
-                audio_in4.pause_threshold = 2
-                audio_listuj4 = audio_in4.listen(source)
-                print(audio_listuj4)
-                record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
-                g = int(record50)
-                say(g)
-                if g <= 0 or g > 49:
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    g = int(input("Podaj liczbę: "))
+                d = a
+                while a == d or b == d or c == d:
+                    say("Podaj czwartą liczbę")
+                    print("Podaj czwartą liczbę")
+                    audio_in3 = s_r.Recognizer()
+                    audio_in3.pause_threshold = 2
+                    audio_listuj3 = audio_in3.listen(source)
+                    print(audio_listuj3)
+                    record40 = int(audio_in3.recognize_google(audio_listuj3, language='pl-PL'))
+                    d = int(record40)
+                    say(d)
+                    if d <= 0 or d > 49:
+                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+                        d = int(input("Podaj liczbę: "))
 
+                f = a
+                while a == f or b == f or c == f or d == f:
+                    say("Podaj piątą liczbę")
+                    print("Podaj piątą liczbę")
+                    audio_in4 = s_r.Recognizer()
+                    audio_in4.pause_threshold = 2
+                    audio_listuj4 = audio_in4.listen(source)
+                    print(audio_listuj4)
+                    record50 = int(audio_in4.recognize_google(audio_listuj4, language='pl-PL'))
+                    f = int(record50)
+                    say(f)
+                    if f <= 0 or f > 49:
+                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+                        f = int(input("Podaj liczbę: "))
+
+                g = a
+                while a == g or b == g or c == g or d == g or f == g:
+                    say("Podaj szóstą liczbę")
+                    print("Podaj szóstą liczbę")
+                    audio_in4 = s_r.Recognizer()
+                    audio_in4.pause_threshold = 2
+                    audio_listuj4 = audio_in4.listen(source)
+                    print(audio_listuj4)
+                    record50 = int(audio_in4.recognize_google(audio_listuj4, language='pl-PL'))
+                    g = int(record50)
+                    say(g)
+                    if g <= 0 or g > 49:
+                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+                        g = int(input("Podaj liczbę: "))
 
             except Exception as e:
                 print(e)
