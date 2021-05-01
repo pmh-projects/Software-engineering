@@ -722,3 +722,5 @@ if __name__ == "__main__":  # funkcja glowna
 
 
 #License: gplv3
+
+#License: gplv3
