@@ -63,7 +63,7 @@ def command_recognition():
 
     except Exception as e:
         print(e)
-        say("Nie rozumiem co do mnie mówisz.")
+        say("Spróbuj jeszcze raz.")
 
     return record
 
@@ -189,7 +189,7 @@ def wikipedia_search():
 
             except Exception as y:
                 print(y)
-                say("Nie rozumiem co do mnie mówisz.")
+                say("Spróbuj jeszcze raz.")
 
             # return record_wiki
             #
@@ -478,6 +478,102 @@ def calculator():
             print("Nieobsługiwany błąd", sys.exc_info()[0])
 
 
+def klawiatura():
+    say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
+
+    Klawisze = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+                'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                'u', 'v', 'w', 'x', 'y', 'z', 'f1', 'f10', 'f11', 'f12',
+                'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'stop']
+
+    spacebar = 'spacja'
+    capslock = 'caps lock'
+    backspace = 'back space'
+    select = 'zaznacz wszystko'
+    copy = 'kopiuj'
+    past = 'wklej'
+    back = 'cofnij'
+    delete = 'usuń'
+    unselect = 'odznacz'
+    right = 'prawo'
+    left = 'lewo'
+    volumedown = 'ścisz'
+    volumeup = 'podgłośnij'
+    volumemute = 'wycisz'
+    dot = 'kropka'
+    comma = 'przecinek'
+    em = 'wykrzynik'
+
+
+
+    rec_klawisz = ''
+    while rec_klawisz != 'stop':
+
+        try:
+            rec = s_r.Recognizer()
+            with s_r.Microphone() as source:
+
+                say("Wybierz klawisz?")
+
+                rec.adjust_for_ambient_noise(source)
+                rec_audio = rec.listen(source)
+                rec_klawisz = rec.recognize_google(rec_audio, language='pl-PL').lower()
+
+                print(rec_klawisz)
+
+                try:
+                    for x in Klawisze:
+                        if x == rec_klawisz:
+                            pag.press(x)
+
+                    if rec_klawisz == spacebar:
+                        pag.press("space")
+
+                    if rec_klawisz == capslock:
+                        pag.press("capslock")
+
+                    if rec_klawisz == backspace:
+                        pag.press("backspace")
+
+                    if rec_klawisz == select:
+                        pag.hotkey('ctrl', 'a')
+                    if rec_klawisz == copy:
+                        pag.hotkey('ctrl', 'c')
+                    if rec_klawisz == past:
+                        pag.hotkey('ctrl', 'v')
+                    if rec_klawisz == back:
+                        pag.hotkey('ctrl', 'z')
+                    if rec_klawisz == delete:
+                        pag.hotkey('del')
+                    if rec_klawisz == unselect:
+                        pag.hotkey('ctrl', 'right')
+                    if rec_klawisz == right:
+                        pag.hotkey('right')
+                    if rec_klawisz == left:
+                        pag.hotkey('left')
+                    if rec_klawisz == volumedown:
+                        pag.hotkey('volumedown')
+                    if rec_klawisz == volumeup:
+                        pag.hotkey('volumeup')
+                    if rec_klawisz == volumemute:
+                        pag.hotkey('volumemute')
+                    if rec_klawisz == dot:
+                        pag.press('.')
+                    if rec_klawisz == comma:
+                        pag.press(',')
+                    if rec_klawisz == em:
+                        pag.press('!')
+
+                except Exception as e:
+                    print(e)
+                    say("Nie zrozumiałam, spróbuj jeszcze raz")
+
+        except Exception as e:
+            print(e)
+            say("Spróbuj jeszcze raz")
+
+
 if __name__ == "__main__":  # funkcja glowna
 
     introduction()
@@ -496,6 +592,9 @@ if __name__ == "__main__":  # funkcja glowna
 
                 print(e)
                 say("Brak wyników w wikipedi...")
+
+        if 'klawiatura' in record:
+            klawiatura()
 
         if 'otwórz youtube' in record:
 
@@ -620,5 +719,6 @@ if __name__ == "__main__":  # funkcja glowna
             except Exception as e:
                 print(e)
                 say("Coś poszło nie tak.")
+
 
 #License: gplv3
