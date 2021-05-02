@@ -1,25 +1,36 @@
-
-#License: gplv3
 import \
-    speech_recognition  # automatic speech recognition (ASR), computer speech recognition, or speech-to-text, is a capability which enables a program to process human speech into a written format.
+    speech_recognition  # automatic speech recognition (ASR),
+# computer speech recognition, or speech-to-text, is a capability which
+# enables a program to process human speech into a written format.
 import speech_recognition as s_r  #
 import wikipedia  # Wikipedia is a Python library that makes it easy to access and parse data from Wikipedia.
 import random  # his module implements pseudo-random number generators for various distributions.
 import \
-    webbrowser  # The webbrowser module provides a high-level interface to allow displaying Web-based documents to users.
+    webbrowser  # The webbrowser module provides a high-level interface
+# to allow displaying Web-based documents to users.
 import os  # The OS module in Python provides functions for interacting with the operating system.
 import \
-    pyttsx3  # yttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
-import csv
+    pyttsx3  # yttsx3 is a text-to-speech conversion library in Python.
+# Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
+import pyaudio  # PyAudio provides Python bindings for PortAudio,
+# the cross-platform audio I/O library. With PyAudio, you can easily
+# use Python to play and record audio on a variety of platforms.
 import \
-    pyaudio  # PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O library. With PyAudio, you can easily use Python to play and record audio on a variety of platforms.
+    sys  # This module provides access to some variables used or
+# maintained by the interpreter and to
+# functions that interact strongly with the interpreter.
 import \
-    sys  # This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
-import \
-    operator  # The operator module exports a set of efficient functions corresponding to the intrinsic operators of Python. For example, operator. add(x, y) is equivalent to the expression x+y
-# import pickle #The pickle module can transform a complex object into a byte stream and it can transform the byte stream into an object with the same internal structure.
+    operator  # The operator module exports a set of efficient
+# functions corresponding to the intrinsic operators of Python.
+# For example, operator. add(x, y) is equivalent to the expression x+y
+# import pickle #The pickle module can transform a complex object
+# into a byte stream and it can transform
+# the byte stream into an object with the same internal structure.
 from time import \
-    sleep  # This module provides various time-related functions. For related functionality, see also the datetime and calendar modules.. The sleep() function suspends (waits) execution of the current thread for a given number of seconds.
+    sleep  # This module provides various time-related functions.
+# For related functionality, see also the datetime and calendar modules..
+# The sleep() function suspends (waits) execution
+# of the current thread for a given number of seconds.
 import pyautogui as pag
 
 # Voice mechanism
@@ -46,8 +57,17 @@ def command_recognition():
     with s_r.Microphone() as source:
         sleep(2)
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
+
         print(
-            "Lista dostępnych funkcji:\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii.\nOtwórz stronę uniwersytetu - uruchamia przegladarke.\nzapisz plik - funkcja zapisujaca plik o podanym głosowo tytule i zawartośći podanej.\notwórz plik - otwieranie zapisanego pliku.\nkalkulator - dodawanie, odejmowanie, mnożenie i dzielenie\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.\notwórz google - otwiera stronę google.\npomocy - masz problem z kodem? Otworzę stackoverflow.\notwórz youtube - chcesz posłuchać muzyki?\nmuzyka - funkcja otwierajaca zadeklarowana playlistę.\ngra - rozerwij się i ogadnij wylosowaną liczbę\nzamknij - wyjście z programu.")
+            "Lista dostępnych funkcji:\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii."
+            "\nOtwórz stronę uniwersytetu - uruchamia przegladarke.\nzapisz plik - funkcja zapisujaca "
+            "plik o podanym głosowo tytule i zawartośći podanej.\notwórz plik - otwieranie zapisanego pliku."
+            "\nkalkulator - dodawanie, odejmowanie, mnożenie i dzielenie\nlotto - symulator lotto. "
+            "Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
+            "\notwórz google - otwiera stronę google.\npomocy - masz problem z kodem? Otworzę stackoverflow."
+            "\notwórz youtube - chcesz posłuchać muzyki?\nmuzyka - funkcja otwierajaca zadeklarowana playlistę."
+            "\ngra - rozerwij się i ogadnij wylosowaną liczbę\nzamknij - wyjście z programu.")
+
         say("Słucham Cię.")
         print("Słucham Cię.")
         # period of silence allowed
@@ -70,7 +90,7 @@ def command_recognition():
 
 def save_to_file_title():
     p = s_r.Recognizer()
-
+    record2 = ''
     with s_r.Microphone() as source:
         say("Podaj tytuł pliku.")
         print("Slucham...")
@@ -83,20 +103,19 @@ def save_to_file_title():
         record2 = p.recognize_google(audio2, language='pl-PL')
         print(f"Powiedziano: {record2}\n")
 
-
     except Exception as e:
         print(e)
         say("Polecenie było dla mnie niezrozumiałe...")
 
-    except:
-        print("Nieoblisugwany blad", sys.exc_info()[0])
+    # else:
+    #     print("Nieoblisugwany blad", sys.exc_info()[0])
 
     return record2
 
 
 def save_to_file_content():
     w = s_r.Recognizer()
-
+    record3 = ''
     with s_r.Microphone() as source:
         say("Podaj tekst zapisu")
         print("Slucham...")
@@ -117,8 +136,8 @@ def save_to_file_content():
         print(e)
         say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem...")
 
-    else:
-        print("Nieobsługiwany błąd", sys.exc_info()[0])
+    # else:
+    #     print("Nieobsługiwany błąd", sys.exc_info()[0])
 
     return record3
 
@@ -144,13 +163,13 @@ def wikipedia_search():
 
         r = s_r.Recognizer()
 
-        with s_r.Microphone() as source:
+        with s_r.Microphone() as source2:
             say("Czy zapisać treść do pliku?")
             print("Czy zapisać treść do pliku?")
             r.pause_threshold = 1
             # listening to calibrate the energy threshold for ambient noise levels
-            r.adjust_for_ambient_noise(source)
-            audio = r.listen(source)
+            r.adjust_for_ambient_noise(source2)
+            audio = r.listen(source2)
 
             try:
                 print("Słucham...")
@@ -198,6 +217,7 @@ def wikipedia_search():
 
 def open_from_file():
     q = s_r.Recognizer()
+    record4 = ''
 
     with s_r.Microphone() as source:
         say("Jaki plik mam otworzyć?")
@@ -219,8 +239,8 @@ def open_from_file():
         print(e)
         say("Nie zrozumiałam, może następnym razem...")
 
-    else:
-        print("Nieoblisugwany blad", sys.exc_info()[0])
+    # else:
+    #     print("Nieoblisugwany blad", sys.exc_info()[0])
 
     return record4
 
@@ -229,11 +249,11 @@ def lotto_draw():
     try:
         say("Wybierz liczby:")
         print("Wybierz liczby:")
-        audio_in0 = s_r.Recognizer()
-        audio_in1 = s_r.Recognizer()
-        audio_in2 = s_r.Recognizer()
-        audio_in3 = s_r.Recognizer()
-        audio_in4 = s_r.Recognizer()
+        # audio_in0 = s_r.Recognizer()
+        # audio_in1 = s_r.Recognizer()
+        # audio_in2 = s_r.Recognizer()
+        # audio_in3 = s_r.Recognizer()
+        # audio_in4 = s_r.Recognizer()
 
         with s_r.Microphone() as source:
 
@@ -368,7 +388,6 @@ def lotto_draw():
         say(trafiony)
         print(trafiony)
 
-
     except Exception as e:
         print(e)
         say("Coś poszło nie tak")
@@ -434,7 +453,9 @@ def calculator():
             x = float(input("Pierwsza: "))
             y = float(input("Druga: "))
             dzialanie = int(input(
-                "Jakie działanie wykonać? \n1. Dodawanie 2. Odejmowanie 3. Mnożenie 4. Dzielenie \nAby wyjść kliknij 00\n "))
+                "Jakie działanie wykonać? "
+                "\n1. Dodawanie 2. Odejmowanie 3. Mnożenie 4. Dzielenie "
+                "\nAby wyjść kliknij 00\n "))
 
             if (dzialanie == 1):
                 z = round((x + y), 2)
@@ -474,14 +495,14 @@ def calculator():
 
         except ValueError:
             print("Bład wartości")
-        except:
+        except Exception as e:
             print("Nieobsługiwany błąd", sys.exc_info()[0])
 
 
 def klawiatura():
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
-    Klawisze = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    klawisze = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
                 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
                 'u', 'v', 'w', 'x', 'y', 'z', 'f1', 'f10', 'f11', 'f12',
@@ -505,8 +526,6 @@ def klawiatura():
     comma = 'przecinek'
     em = 'wykrzynik'
 
-
-
     rec_klawisz = ''
     while rec_klawisz != 'stop':
 
@@ -523,7 +542,7 @@ def klawiatura():
                 print(rec_klawisz)
 
                 try:
-                    for x in Klawisze:
+                    for x in klawisze:
                         if x == rec_klawisz:
                             pag.press(x)
 
@@ -719,8 +738,4 @@ if __name__ == "__main__":  # funkcja glowna
             except Exception as e:
                 print(e)
                 say("Coś poszło nie tak.")
-
-
-#License: gplv3
-
-#License: gplv3
+#License gplv3
