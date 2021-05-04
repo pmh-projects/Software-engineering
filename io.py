@@ -1,5 +1,4 @@
-import \
-    speech_recognition  # automatic speech recognition (ASR),
+import speech_recognition  # automatic speech recognition (ASR),
 # computer speech recognition, or speech-to-text, is a capability which
 # enables a program to process human speech into a written format.
 import speech_recognition as s_r  #
