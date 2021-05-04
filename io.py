@@ -31,25 +31,26 @@ from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
 
-wikipedia.set_lang("pl")
-
-
 def say(audio):
+    
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
 
 
 def introduction():
+    
     say("Witaj w asystencie głosowym")
     print("Witaj w asystencie głosowym")
 
 
 def command_recognition():
+    
     # Create voice recognition
     r = s_r.Recognizer()
     record = ''
 
     with s_r.Microphone() as source:
+        
         sleep(2)
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
 
@@ -62,13 +63,13 @@ def command_recognition():
             "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
             "\n"
             "\nFunkcje NET:"
-            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
-            "\notwórz youtube - chcesz posłuchać muzyki?"
-            "\npomocy - masz problem z kodem? Otworzę stackoverflow."
             "\nStrona uniwersytetu - uruchamia stronę główną UG."
             "\nstrona wydziału - uruchamia stronę wydziału."
             "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
             "\nportal studenta - uruchamia stronę portalu studenta"
+            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
+            "\npomocy - masz problem z kodem? Otworzę stackoverflow."
+            "\notwórz youtube - chcesz posłuchać muzyki?"
             "\n"
             "\nFunkcje dodatkowe:"
             "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
@@ -84,11 +85,13 @@ def command_recognition():
         audio = r.listen(source)
 
     try:
+        
         print("Sprawdzam co powiedziano.")
         record = r.recognize_google(audio, language='pl-PL')
         print(f"Powiedziano: {record}\n")
 
     except Exception as e:
+        
         print(e)
         say("Spróbuj jeszcze raz.")
 
@@ -96,9 +99,11 @@ def command_recognition():
 
 
 def save_to_file_title():
+    
     p = s_r.Recognizer()
     record2 = ''
     with s_r.Microphone() as source:
+        
         say("Podaj tytuł pliku.")
         print("Slucham...")
         p.pause_threshold = 1
@@ -106,11 +111,13 @@ def save_to_file_title():
         audio2 = p.listen(source)
 
     try:
+        
         print("Sprawdzam co powiedziano")
         record2 = p.recognize_google(audio2, language='pl-PL')
         print(f"Powiedziano: {record2}\n")
 
     except Exception as e:
+        
         print(e)
         say("Polecenie było dla mnie niezrozumiałe...")
 
@@ -121,9 +128,12 @@ def save_to_file_title():
 
 
 def save_to_file_content():
+    
     w = s_r.Recognizer()
     record3 = ''
+    
     with s_r.Microphone() as source:
+        
         say("Podaj tekst zapisu")
         print("Slucham...")
         w.pause_threshold = 3
@@ -131,6 +141,7 @@ def save_to_file_content():
         audio3 = w.listen(source)
 
     try:
+        
         print("Sprawdzam co powiedziano")
         record3 = w.recognize_google(audio3, language='pl-PL')
         print(f"Powiedziano: {record3}\n")
@@ -150,8 +161,12 @@ def save_to_file_content():
 
 
 def wikipedia_search():
+    # wikipedia language declaration 
+    wikipedia.set_lang("pl")
+    
     wiki = s_r.Recognizer()
     with s_r.Microphone() as source:
+        
         say("Co mam znaleźć na wikipedii?")
 
         wiki.pause_threshold = 2
@@ -171,6 +186,7 @@ def wikipedia_search():
         r = s_r.Recognizer()
 
         with s_r.Microphone() as source2:
+            
             say("Czy zapisać treść do pliku?")
             print("Czy zapisać treść do pliku?")
             r.pause_threshold = 1
@@ -179,16 +195,19 @@ def wikipedia_search():
             audio = r.listen(source2)
 
             try:
+                
                 print("Słucham...")
                 record_wiki = r.recognize_google(audio, language='pl-PL')
                 print(f"Odpowiedziano: {record_wiki}\n")
 
                 if "tak" in record_wiki:
+                    
                     try:
 
                         p = s_r.Recognizer()
 
                         with s_r.Microphone() as source:
+                            
                             say("Podaj tytuł pliku.")
                             print("Slucham...")
                             p.pause_threshold = 1
@@ -196,6 +215,7 @@ def wikipedia_search():
                             audio2 = p.listen(source)
 
                         try:
+                            
                             print("Przetwarzam...")
                             record_title_wiki = p.recognize_google(audio2, language='pl-PL')
                             print(f"Podano tytuł: {record_title_wiki}\n")
@@ -205,14 +225,17 @@ def wikipedia_search():
                             print("Plik o nazwie " + record_title_wiki + " został zapisany.")
 
                         except Exception as e:
+                            
                             print(e)
                             say("Nie zrozumiałam, więc plik nie został zapisany")
 
                     except Exception as e:
+                        
                         print(e)
                         say("Coś poszło nie tak.")
 
             except Exception as y:
+                
                 print(y)
                 say("Spróbuj jeszcze raz.")
 
@@ -225,6 +248,7 @@ def google_search():
 
     google = s_r.Recognizer()
     with s_r.Microphone() as source:
+        
         say("Co mam znaleźć w GOOGLE?")
 
         google.pause_threshold = 2
@@ -233,6 +257,7 @@ def google_search():
         vargoogle = google.recognize_google(googlesearch, language='pl-PL')
 
         say("Przeszukuję GOOGLE w poszukiwaniu hasła")
+        
         for url in search(vargoogle, lang='pl'):
             print(url)
 
@@ -244,10 +269,12 @@ def google_search():
 
 
 def open_from_file():
+    
     q = s_r.Recognizer()
     record4 = ''
 
     with s_r.Microphone() as source:
+        
         say("Jaki plik mam otworzyć?")
         print("Słucham...")
         q.pause_threshold = 2
@@ -255,6 +282,7 @@ def open_from_file():
         audio4 = q.listen(source)
 
     try:
+        
         print("Otwieram plik...")
         record4 = q.recognize_google(audio4, language='pl-PL')
         print(f"Powiedziano: {record4}\n")
@@ -264,6 +292,7 @@ def open_from_file():
         webbrowser.open(record4 + ".txt")
 
     except Exception as e:
+        
         print(e)
         say("Nie zrozumiałam, może następnym razem...")
 
@@ -274,6 +303,7 @@ def open_from_file():
 
 
 def lotto_draw():
+    
     try:
         say("Wybierz liczby:")
         print("Wybierz liczby:")
@@ -304,6 +334,7 @@ def lotto_draw():
                 print(a)
 
                 if a < 1 or a > 49:
+                    
                     say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                     a = int(input("Podaj liczbę: "))
 
@@ -333,6 +364,7 @@ def lotto_draw():
                     print(b)
 
                     if b <= 0 or b > 49:
+                        
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         b = int(input("Podaj liczbę: "))
 
@@ -360,12 +392,15 @@ def lotto_draw():
                         c = int(record30)
 
                     print(c)
+                    
                     if c < 1 or c > 49:
+                        
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         c = int(input("Podaj liczbę: "))
 
                 d = a
                 while a == d or b == d or c == d:
+                    
                     say("Podaj czwartą liczbę")
                     print("Podaj czwartą liczbę")
                     audio_in3 = s_r.Recognizer()
@@ -388,11 +423,13 @@ def lotto_draw():
 
                     print(d)
                     if d < 1 or d > 49:
+                        
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         d = int(input("Podaj liczbę: "))
 
                 f = a
                 while a == f or b == f or c == f or d == f:
+                    
                     say("Podaj piątą liczbę")
                     print("Podaj piątą liczbę")
                     audio_in4 = s_r.Recognizer()
@@ -413,12 +450,15 @@ def lotto_draw():
                         f = int(record50)
 
                     print(f)
+                    
                     if f < 1 or f > 49:
+                        
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         f = int(input("Podaj liczbę: "))
 
                 g = a
                 while a == g or b == g or c == g or d == g or f == g:
+                    
                     say("Podaj szóstą liczbę")
                     print("Podaj szóstą liczbę")
                     audio_in4 = s_r.Recognizer()
@@ -441,10 +481,12 @@ def lotto_draw():
 
                     print(g)
                     if g < 1 or g > 49:
+                        
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         g = int(input("Podaj liczbę: "))
 
             except Exception as e:
+                
                 print(e)
                 say("Błędnie wprowadzone liczby.")
 
@@ -459,6 +501,7 @@ def lotto_draw():
                 losowanie_lotto.append(r)
                 i += 1
         trafiony = []
+        
         for x in losowanie_lotto:
             y = len(podane_liczby)
             t = 0
@@ -480,6 +523,7 @@ def lotto_draw():
         print(trafiony)
 
     except Exception as e:
+        
         print(e)
         say("Coś poszło nie tak")
 
@@ -548,10 +592,12 @@ def guess_the_number():
                     say('Hmm')
 
             except Exception as e:
+                
                 print(e)
                 say("Poproszę powiedz jeszcze raz")
 
     else:
+        
         print('Gra skończona.')
 
 #FUNKCJA WYCOFANA Z UWAGI NA PROBLEMY Z ROZPOZNAWANIEM LICZB
@@ -646,9 +692,11 @@ def guess_the_number():
 
 
 def screenshot():
+    
     try:
         s = s_r.Recognizer()
         with s_r.Microphone() as source:
+            
             say("Podaj nazwę pod jaką mam zapisać plik")
 
             s.adjust_for_ambient_noise(source)
@@ -656,20 +704,25 @@ def screenshot():
             s_screen = s.recognize_google(s_audio, language='pl-PL').lower()
 
             print(s_screen)
+            
             try:
+                
                 image = pyautogui.screenshot()
                 image.save(s_screen + '.png')
                 print("Zapisano")
 
             except Exception as e:
+                
                 print(e)
                 say("Błąd.")
 
     except Exception as e:
+        
         print(e)
         say("Nie zrozumiałam, spróbuj jeszcze raz")
 
 def klawiatura():
+    
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
     klawisze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -716,6 +769,7 @@ def klawiatura():
                 print(rec_klawisz)
 
                 try:
+                    
                     for x in klawisze:
                         if x == rec_klawisz:
                             pyautogui.press(x)
@@ -764,10 +818,12 @@ def klawiatura():
                         pyautogui.press('8')
 
                 except Exception as e:
+                    
                     print(e)
                     say("Nie zrozumiałam, spróbuj jeszcze raz")
 
         except Exception as e:
+            
             print(e)
             say("Spróbuj jeszcze raz")
 
@@ -790,6 +846,29 @@ if __name__ == "__main__":  # funkcja glowna
 
                 print(e)
                 say("Spróbuj jeszcze raz...")
+                
+        if 'zapisz plik' in record:
+
+            try:
+
+                record2 = save_to_file_title().lower()
+                record3 = save_to_file_content()
+
+            except Exception as e:
+                
+                print(e)
+                say("Coś poszło nie tak.")
+                
+        if "otwórz plik" in record:
+
+            try:
+
+                record4 = open_from_file().lower()
+
+            except Exception as e:
+                
+                print(e)
+                say("Coś poszło nie tak.")
 
         if 'google' in record:
 
@@ -801,44 +880,53 @@ if __name__ == "__main__":  # funkcja glowna
 
                 print(e)
                 say("Spróbuj jeszcze raz...")
-
-        if 'klawiatura' in record:
-            try:
-                klawiatura()
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
-
+                
         if 'screenshot' in record:
 
             try:
+                
                 screenshot()
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'otwórz youtube' in record:
-
+        if 'klawiatura' in record:
+            
             try:
-                say("Już otwieram.")
-                webbrowser.open("https://www.youtube.com")
+                
+                klawiatura()
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
-
-        if 'portal studenta' in record:
+                
+        if 'strona uniwersytetu' in record:
 
             try:
+
                 say("Już otwieram.")
-                webbrowser.open("https://ps.ug.edu.pl/")
+                webbrowser.open("https://ug.edu.pl/")
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
 
+        if 'strona wydziału' in record:
+
+            try:
+
+                say("Już otwieram.")
+                webbrowser.open("https://wzr.ug.edu.pl/")
+
+            except Exception as e:
+                
+                print(e)
+                say("Coś poszło nie tak.")
+                
         if 'portal edukacyjny' in record:
 
             try:
@@ -851,39 +939,54 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'strona wydziału' in record:
+        if 'portal studenta' in record:
+
+            try:
+                
+                say("Już otwieram.")
+                webbrowser.open("https://ps.ug.edu.pl/")
+
+            except Exception as e:
+                
+                print(e)
+                say("Coś poszło nie tak.")
+                
+        if "wyszukiwarka" in record:
+
+            try:
+                
+                say("Już otwieram.")
+                webbrowser.open("https:\\www.google.com")
+
+            except Exception as e:
+                
+                print(e)
+                say("Coś poszło nie tak.")
+                
+        if 'pomocy' in record:
 
             try:
 
                 say("Już otwieram.")
-                webbrowser.open("https://wzr.ug.edu.pl/")
+                webbrowser.open("stackoverflow.com")
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
-
-        if 'strona uniwersytetu' in record:
+                
+        if 'otwórz youtube' in record:
 
             try:
-
+                
                 say("Już otwieram.")
-                webbrowser.open("https://ug.edu.pl/")
+                webbrowser.open("https://www.youtube.com")
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
-
-        if 'zapisz plik' in record:
-
-            try:
-
-                record2 = save_to_file_title().lower()
-                record3 = save_to_file_content()
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
-
+                
         #FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
         # if 'kalkulator' in record:
         #
@@ -895,13 +998,15 @@ if __name__ == "__main__":  # funkcja glowna
         #         print(e)
         #         say("Coś poszło nie tak.")
 
-        if "otwórz plik" in record:
+        if "lotto" in record:
 
             try:
 
-                record4 = open_from_file().lower()
+                say("Witaj w symulatorze lotto:")
+                lotto_draw()
 
             except Exception as e:
+
                 print(e)
                 say("Coś poszło nie tak.")
 
@@ -912,38 +1017,7 @@ if __name__ == "__main__":  # funkcja glowna
                 guess_the_number()
 
             except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
-
-        if "lotto" in record:
-
-            try:
-
-                say("Witaj w symulatorze lotto:")
-                lotto_draw()
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
-
-        if "wyszukiwarka" in record:
-
-            try:
-                say("Już otwieram.")
-                webbrowser.open("https:\\www.google.com")
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
-
-        if 'pomocy' in record:
-
-            try:
-
-                say("Już otwieram.")
-                webbrowser.open("stackoverflow.com")
-
-            except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
 
@@ -960,9 +1034,11 @@ if __name__ == "__main__":  # funkcja glowna
         if 'zamknij' in record:
 
             try:
+                
                 say("Zamykam program. Do usłyszenia")
                 sys.exit()
 
             except Exception as e:
+                
                 print(e)
                 say("Coś poszło nie tak.")
