@@ -25,8 +25,8 @@ from time import sleep  # This module provides various time-related functions.
 # For related functionality, see also the datetime and calendar modules..
 # The sleep() function suspends (waits) execution
 # of the current thread for a given number of seconds.
-import pyautogui #https://github.com/asweigart/pyautogui BSD-3-Clause License
-from googlesearch import search #https://github.com/Nv7-GitHub/googlesearch on MIT License
+import pyautogui  # https://github.com/asweigart/pyautogui BSD-3-Clause License
+from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
@@ -67,6 +67,8 @@ def command_recognition():
             "\npomocy - masz problem z kodem? Otworzę stackoverflow."
             "\nStrona uniwersytetu - uruchamia stronę główną UG."
             "\nstrona wydziału - uruchamia stronę wydziału."
+            "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
+            "\nportal studenta - uruchamia stronę portalu studenta"
             "\n"
             "\nFunkcje dodatkowe:"
             "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
@@ -518,7 +520,6 @@ def guess_the_number():
                 else:
                     a = int(record10)
 
-
                 print(a)
                 # //say("Wybrałeś liczbę " + str(a))
 
@@ -643,6 +644,7 @@ def guess_the_number():
 #             print(e)
 #             say("Spróbuj jeszcze raz")
 
+
 def screenshot():
     try:
         s = s_r.Recognizer()
@@ -662,7 +664,6 @@ def screenshot():
             except Exception as e:
                 print(e)
                 say("Błąd.")
-
 
     except Exception as e:
         print(e)
@@ -762,7 +763,6 @@ def klawiatura():
                     if rec_klawisz == eight:
                         pyautogui.press('8')
 
-
                 except Exception as e:
                     print(e)
                     say("Nie zrozumiałam, spróbuj jeszcze raz")
@@ -822,15 +822,40 @@ if __name__ == "__main__":  # funkcja glowna
         if 'otwórz youtube' in record:
 
             try:
-                webbrowser.open("https:\\www.youtube.com")
+                say("Już otwieram.")
+                webbrowser.open("https://www.youtube.com")
 
             except Exception as e:
+                print(e)
+                say("Coś poszło nie tak.")
+
+        if 'portal studenta' in record:
+
+            try:
+                say("Już otwieram.")
+                webbrowser.open("https://ps.ug.edu.pl/")
+
+            except Exception as e:
+                print(e)
+                say("Coś poszło nie tak.")
+
+        if 'portal edukacyjny' in record:
+
+            try:
+
+                say("Już otwieram.")
+                webbrowser.open("https://pe.ug.edu.pl/")
+
+            except Exception as e:
+
                 print(e)
                 say("Coś poszło nie tak.")
 
         if 'strona wydziału' in record:
 
             try:
+
+                say("Już otwieram.")
                 webbrowser.open("https://wzr.ug.edu.pl/")
 
             except Exception as e:
@@ -840,6 +865,8 @@ if __name__ == "__main__":  # funkcja glowna
         if 'strona uniwersytetu' in record:
 
             try:
+
+                say("Już otwieram.")
                 webbrowser.open("https://ug.edu.pl/")
 
             except Exception as e:
@@ -849,13 +876,13 @@ if __name__ == "__main__":  # funkcja glowna
         if 'zapisz plik' in record:
 
             try:
+
                 record2 = save_to_file_title().lower()
                 record3 = save_to_file_content()
 
             except Exception as e:
                 print(e)
                 say("Coś poszło nie tak.")
-
 
         #FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
         # if 'kalkulator' in record:
@@ -902,6 +929,7 @@ if __name__ == "__main__":  # funkcja glowna
         if "wyszukiwarka" in record:
 
             try:
+                say("Już otwieram.")
                 webbrowser.open("https:\\www.google.com")
 
             except Exception as e:
@@ -911,20 +939,23 @@ if __name__ == "__main__":  # funkcja glowna
         if 'pomocy' in record:
 
             try:
+
+                say("Już otwieram.")
                 webbrowser.open("stackoverflow.com")
 
             except Exception as e:
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "muzyka" in record:
-
-            try:
-                webbrowser.open("https://www.youtube.com/watch?v=vpXlYbstRDs&list=PLIut9bR_W7KX9OK1BwJvLoidfirixgPPN")
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
+        # if "muzyka" in record:
+        #
+        #     try:
+        #
+        #         webbrowser.open("https://www.youtube.com/watch?v=vpXlYbstRDs&list=PLIut9bR_W7KX9OK1BwJvLoidfirixgPPN")
+        #
+        #     except Exception as e:
+        #         print(e)
+        #         say("Coś poszło nie tak.")
 
         if 'zamknij' in record:
 
