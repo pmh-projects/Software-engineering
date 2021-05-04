@@ -5,29 +5,24 @@ import \
 import speech_recognition as s_r  #
 import wikipedia  # Wikipedia is a Python library that makes it easy to access and parse data from Wikipedia.
 import random  # his module implements pseudo-random number generators for various distributions.
-import \
-    webbrowser  # The webbrowser module provides a high-level interface
+import webbrowser  # The webbrowser module provides a high-level interface
 # to allow displaying Web-based documents to users.
 import os  # The OS module in Python provides functions for interacting with the operating system.
-import \
-    pyttsx3  # yttsx3 is a text-to-speech conversion library in Python.
+import pyttsx3  # yttsx3 is a text-to-speech conversion library in Python.
 # Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
 import pyaudio  # PyAudio provides Python bindings for PortAudio,
 # the cross-platform audio I/O library. With PyAudio, you can easily
 # use Python to play and record audio on a variety of platforms.
-import \
-    sys  # This module provides access to some variables used or
+import sys  # This module provides access to some variables used or
 # maintained by the interpreter and to
 # functions that interact strongly with the interpreter.
-import \
-    operator  # The operator module exports a set of efficient
+import operator  # The operator module exports a set of efficient
 # functions corresponding to the intrinsic operators of Python.
 # For example, operator. add(x, y) is equivalent to the expression x+y
 # import pickle #The pickle module can transform a complex object
 # into a byte stream and it can transform
 # the byte stream into an object with the same internal structure.
-from time import \
-    sleep  # This module provides various time-related functions.
+from time import sleep  # This module provides various time-related functions.
 # For related functionality, see also the datetime and calendar modules..
 # The sleep() function suspends (waits) execution
 # of the current thread for a given number of seconds.
@@ -203,15 +198,14 @@ def wikipedia_search():
                             print("Przetwarzam...")
                             record_title_wiki = p.recognize_google(audio2, language='pl-PL')
                             print(f"Podano tytuł: {record_title_wiki}\n")
+                            f = open(record_title_wiki + '.txt', 'w+')
+                            f.write(wikifound)
+                            say("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                            print("Plik o nazwie " + record_title_wiki + " został zapisany.")
 
                         except Exception as e:
                             print(e)
-                            say("Nie zrozumiałam...")
-
-                        f = open(record_title_wiki + '.txt', 'w+')
-                        f.write(wikifound)
-                        say("Plik o nazwie " + record_title_wiki + " został zapisany.")
-                        print("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                            say("Nie zrozumiałam, więc plik nie został zapisany")
 
                     except Exception as e:
                         print(e)
