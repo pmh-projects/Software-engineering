@@ -28,12 +28,12 @@ lxml==4.6.3
 MouseInfo==0.1.3
 numpy==1.20.2
 packaging==20.9
-pandas @ file:///D:/UG_AIB/4_sem/Inzynieria_oprogramowania/io/pandas-1.2.4-cp39-cp39-win_amd64.whl
+pandas @ file:///D:/io/pandas-1.2.4-cp39-cp39-win_amd64.whl - > https://www.lfd.uci.edu/~gohlke/pythonlibs/
 pefile==2019.4.18
 Pillow==8.2.0
 pipwin==0.5.1
 py2exe==0.10.4.0
-PyAudio @ file:///C:/Users/Konto_codzienne/Downloads/PyAudio-0.2.11-cp39-cp39-win_amd64.whl
+PyAudio @ file://io/PyAudio-0.2.11-cp39-cp39-win_amd64.whl -> https://www.lfd.uci.edu/~gohlke/pythonlibs/
 PyAutoGUI==0.9.52
 pycparser==2.20
 PyGetWindow==0.0.9
