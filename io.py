@@ -221,7 +221,7 @@ def open_from_file():
 
     with s_r.Microphone() as source:
         say("Jaki plik mam otworzyć?")
-        print("Slucham...")
+        print("Słucham...")
         q.pause_threshold = 2
         q.adjust_for_ambient_noise(source)
         audio4 = q.listen(source)
@@ -249,11 +249,6 @@ def lotto_draw():
     try:
         say("Wybierz liczby:")
         print("Wybierz liczby:")
-        # audio_in0 = s_r.Recognizer()
-        # audio_in1 = s_r.Recognizer()
-        # audio_in2 = s_r.Recognizer()
-        # audio_in3 = s_r.Recognizer()
-        # audio_in4 = s_r.Recognizer()
 
         with s_r.Microphone() as source:
 
@@ -265,10 +260,22 @@ def lotto_draw():
                 audio_in0.pause_threshold = 2
                 audio_listuj0 = audio_in0.listen(source)
                 print(audio_listuj0)
-                record10 = int(audio_in0.recognize_google(audio_listuj0, language='pl-PL'))
-                a = int(record10)
+                record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
+
+                if record10 == 'pięć':
+                    a = 5
+                elif record10 == 'osiem':
+                    a = 8
+                elif record10 == 'siedem':
+                    a = 7
+                elif record10 == 'jeden':
+                    a = 1
+                else:
+                    a = int(record10)
+
                 print(a)
-                if a <= 1 or a > 49:
+
+                if a < 1 or a > 49:
                     say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                     a = int(input("Podaj liczbę: "))
 
@@ -281,9 +288,21 @@ def lotto_draw():
                     audio_in1.pause_threshold = 2
                     audio_listuj1 = audio_in1.listen(source)
                     print(audio_listuj1)
-                    record20 = int(audio_in1.recognize_google(audio_listuj1, language='pl-PL'))
-                    b = int(record20)
-                    say(b)
+                    record20 = audio_in1.recognize_google(audio_listuj1, language='pl-PL')
+
+                    b = ''
+                    if record20 == 'pięć':
+                        b = 5
+                    elif record20 == 'osiem':
+                        b = 8
+                    elif record20 == 'siedem':
+                        b = 7
+                    elif record20 == 'jeden':
+                        b = 1
+                    else:
+                        b = int(record20)
+
+                    print(b)
 
                     if b <= 0 or b > 49:
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
@@ -298,10 +317,22 @@ def lotto_draw():
                     audio_in2.pause_threshold = 2
                     audio_listuj2 = audio_in2.listen(source)
                     print(audio_listuj2)
-                    record30 = int(audio_in2.recognize_google(audio_listuj2, language='pl-PL'))
-                    c = int(record30)
-                    say(c)
-                    if c <= 0 or c > 49:
+                    record30 = audio_in2.recognize_google(audio_listuj2, language='pl-PL')
+
+                    c = ''
+                    if record30 == 'pięć':
+                        c = 5
+                    elif record30 == 'osiem':
+                        c = 8
+                    elif record30 == 'siedem':
+                        c = 7
+                    elif record30 == 'jeden':
+                        c = 1
+                    else:
+                        c = int(record30)
+
+                    print(c)
+                    if c < 1 or c > 49:
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         c = int(input("Podaj liczbę: "))
 
@@ -313,10 +344,22 @@ def lotto_draw():
                     audio_in3.pause_threshold = 2
                     audio_listuj3 = audio_in3.listen(source)
                     print(audio_listuj3)
-                    record40 = int(audio_in3.recognize_google(audio_listuj3, language='pl-PL'))
-                    d = int(record40)
-                    say(d)
-                    if d <= 0 or d > 49:
+                    record40 = audio_in3.recognize_google(audio_listuj3, language='pl-PL')
+
+                    d = ''
+                    if record40 == 'pięć':
+                        d = 5
+                    elif record40 == 'osiem':
+                        d = 8
+                    elif record40 == 'siedem':
+                        d = 7
+                    elif record40 == 'jeden':
+                        d = 1
+                    else:
+                        d = int(record40)
+
+                    print(d)
+                    if d < 1 or d > 49:
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         d = int(input("Podaj liczbę: "))
 
@@ -328,10 +371,21 @@ def lotto_draw():
                     audio_in4.pause_threshold = 2
                     audio_listuj4 = audio_in4.listen(source)
                     print(audio_listuj4)
-                    record50 = int(audio_in4.recognize_google(audio_listuj4, language='pl-PL'))
-                    f = int(record50)
-                    say(f)
-                    if f <= 0 or f > 49:
+                    record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
+                    f = ''
+                    if record50 == 'pięć':
+                        f = 5
+                    elif record50 == 'osiem':
+                        f = 8
+                    elif record50 == 'siedem':
+                        f = 7
+                    elif record50 == 'jeden':
+                        f = 1
+                    else:
+                        f = int(record50)
+
+                    print(f)
+                    if f < 1 or f > 49:
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         f = int(input("Podaj liczbę: "))
 
@@ -343,21 +397,28 @@ def lotto_draw():
                     audio_in4.pause_threshold = 2
                     audio_listuj4 = audio_in4.listen(source)
                     print(audio_listuj4)
-                    record50 = int(audio_in4.recognize_google(audio_listuj4, language='pl-PL'))
-                    g = int(record50)
-                    say(g)
-                    if g <= 0 or g > 49:
+                    record60 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
+
+                    g = ''
+                    if record60 == 'pięć':
+                        g = 5
+                    elif record60 == 'osiem':
+                        g = 8
+                    elif record60 == 'siedem':
+                        g = 7
+                    elif record60 == 'jeden':
+                        g = 1
+                    else:
+                        g = int(record60)
+
+                    print(g)
+                    if g < 1 or g > 49:
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
                         g = int(input("Podaj liczbę: "))
 
             except Exception as e:
                 print(e)
                 say("Błędnie wprowadzone liczby.")
-
-        # b = int(input("Druga:"))
-        # c = int(input("Trzecia:"))
-        # d = int(input("Czwarta"))
-        # e = int(input("Piąta"))
 
         podane_liczby = [a, b, c, d, f, g]
 
@@ -381,10 +442,12 @@ def lotto_draw():
 
         print("Wybrane Liczby: ")
         print(podane_liczby)
+        losowanie_lotto.sort()
         print("Wylosowane Liczby: ")
         print(losowanie_lotto)
         print("Trafione liczby: ")
         say("Trafione liczby: ")
+        trafiony.sort()
         say(trafiony)
         print(trafiony)
 
@@ -394,6 +457,7 @@ def lotto_draw():
 
 
 def guess_the_number():
+
     number = random.randint(1, 100)
     running = True
     audio_in0 = s_r.Recognizer()
@@ -405,18 +469,38 @@ def guess_the_number():
 
             try:
 
-                say("Odgadnij liczbę.")
+                say("Odgadnij liczbę od 1 do 100 lub powiedz stop aby zakończyć.")
                 audio_in0.pause_threshold = 2
 
                 audio_listuj0 = audio_in0.listen(source, timeout=2)
                 print(audio_listuj0)
 
                 record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
-                a = int(record10)
-                print(a)
-                say("Wybrałeś liczbę " + str(a))
 
-                if number == a:
+                a = ''
+                if record10 == 'pięć':
+                    a = 5
+                elif record10 == 'osiem':
+                    a = 8
+                elif record10 == 'siedem':
+                    a = 7
+                elif record10 == 'jeden':
+                    a = 1
+                elif record10 == 'stop':
+                    say("Następnym razem się uda")
+                    break
+                else:
+                    a = int(record10)
+
+
+                print(a)
+                # //say("Wybrałeś liczbę " + str(a))
+
+                if a < 1 or a > 100:
+                    say("Wybrałeś liczbę z poza zakresu. Proszę jeszcze raz.")
+                    print("Wybrałeś liczbę z poza zakresu. Proszę jeszcze raz.")
+
+                elif number == a:
                     print("Brawo")
                     say("Zgadłeś. brawo")
                     running = False
@@ -443,70 +527,104 @@ def guess_the_number():
     else:
         print('Gra skończona.')
 
-
-def calculator():
-    while True:
-
-        try:
-
-            say("Podaj dwie liczby do działania")
-            x = float(input("Pierwsza: "))
-            y = float(input("Druga: "))
-            dzialanie = int(input(
-                "Jakie działanie wykonać? "
-                "\n1. Dodawanie 2. Odejmowanie 3. Mnożenie 4. Dzielenie "
-                "\nAby wyjść kliknij 00\n "))
-
-            if (dzialanie == 1):
-                z = round((x + y), 2)
-                print(z)
-                say("Wynik dodowania wynosi")
-                say(z)
-            elif (dzialanie == 2):
-                z = round((x - y), 2)
-                print(z)
-                say("Wynik odejmowania wynosi:")
-                say(z)
-            elif (dzialanie == 3):
-                z = round((x * y), 2)
-                print(z)
-                say("Wynik mnożenia wynosi:")
-                say(z)
-            elif (dzialanie == 4):
-
-                if y == 0:
-
-                    say("Pamiętaj cholero nie dziel przez zero")
-
-                else:
-                    z = round((x / y), 2)
-                    print(z)
-                    say("Wynik dzielenia wynosi:")
-                    say(z)
-            elif (dzialanie == 0):
-
-                say("Wychodzę z kalkulatora. ")
-                break
-
-            else:
-
-                say("Błąd.")
-                print("Błąd.")
-
-        except ValueError:
-            print("Bład wartości")
-        except Exception as e:
-            print("Nieobsługiwany błąd", sys.exc_info()[0])
-
+#FUNKCJA WYCOFANA Z UWAGI NA PROBLEMY Z ROZPOZNAWANIEM LICZB
+# def calculator():
+#     while True:
+#
+#         try:
+#
+#             say("Podaj dwie liczby do działania")
+#
+#             with s_r.Microphone() as source:
+#
+#                 try:
+#
+#                     say("Podaj pierwszą liczbę")
+#                     print("Podaj pierwszą liczbę")
+#                     audio_0 = s_r.Recognizer()
+#                     audio_0.pause_threshold = 2
+#                     audio_listuj0 = audio_0.listen(source)
+#                     print(audio_listuj0)
+#                     record10 = audio_0.recognize_google(audio_listuj0, language='pl-PL')
+#
+#                     check = isinstance(record10, float)
+#                     if not check:
+#                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+#                         x = float(input("Pierwsza: "))
+#                     else:
+#                         x = float(record10)
+#
+#                     say("Podaj drugą liczbę")
+#                     print("Podaj drugą liczbę")
+#                     audio_1 = s_r.Recognizer()
+#                     audio_1.pause_threshold = 2
+#                     audio_listuj0 = audio_1.listen(source)
+#                     print(audio_listuj0)
+#                     record11 = audio_1.recognize_google(audio_listuj0, language='pl-PL')
+#
+#                     check2 = isinstance(record11, float)
+#                     if check2 != True:
+#                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
+#                         y = float(input("Druga: "))
+#                     else:
+#                         y = float(record11)
+#
+#                     dzialanie = int(input(
+#                         "Jakie działanie wykonać? "
+#                         "\n1. Dodawanie 2. Odejmowanie 3. Mnożenie 4. Dzielenie "
+#                         "\nAby wyjść kliknij 00\n "))
+#
+#                     if (dzialanie == 1):
+#                         z = round((x + y), 2)
+#                         print(z)
+#                         say("Wynik dodowania wynosi")
+#                         say(z)
+#                     elif (dzialanie == 2):
+#                         z = round((x - y), 2)
+#                         print(z)
+#                         say("Wynik odejmowania wynosi:")
+#                         say(z)
+#                     elif (dzialanie == 3):
+#                         z = round((x * y), 2)
+#                         print(z)
+#                         say("Wynik mnożenia wynosi:")
+#                         say(z)
+#                     elif (dzialanie == 4):
+#
+#                         if y == 0:
+#
+#                             say("Pamiętaj cholero nie dziel przez zero")
+#
+#                         else:
+#                             z = round((x / y), 2)
+#                             print(z)
+#                             say("Wynik dzielenia wynosi:")
+#                             say(z)
+#                     elif (dzialanie == 0):
+#
+#                         say("Wychodzę z kalkulatora. ")
+#                         break
+#
+#                     else:
+#
+#                         say("Błąd.")
+#                         print("Błąd.")
+#
+#                 except Exception as e:
+#                     print("Nieobsługiwany błąd", sys.exc_info()[0])
+#
+#         except Exception as e:
+#             print(e)
+#             say("Spróbuj jeszcze raz")
 
 def klawiatura():
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
-    klawisze = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    klawisze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
                 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
                 'u', 'v', 'w', 'x', 'y', 'z', 'f1', 'f10', 'f11', 'f12',
-                'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'stop']
+                'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'stop'}
 
     spacebar = 'spacja'
     capslock = 'caps lock'
@@ -525,6 +643,10 @@ def klawiatura():
     dot = 'kropka'
     comma = 'przecinek'
     em = 'wykrzynik'
+    one = 'jeden'
+    five = 'pięć'
+    seven = 'siedem'
+    eight = 'osiem'
 
     rec_klawisz = ''
     while rec_klawisz != 'stop':
@@ -548,13 +670,10 @@ def klawiatura():
 
                     if rec_klawisz == spacebar:
                         pag.press("space")
-
                     if rec_klawisz == capslock:
                         pag.press("capslock")
-
                     if rec_klawisz == backspace:
                         pag.press("backspace")
-
                     if rec_klawisz == select:
                         pag.hotkey('ctrl', 'a')
                     if rec_klawisz == copy:
@@ -583,6 +702,14 @@ def klawiatura():
                         pag.press(',')
                     if rec_klawisz == em:
                         pag.press('!')
+                    if rec_klawisz == one:
+                        pag.press('1')
+                    if rec_klawisz == five:
+                        pag.press('5')
+                    if rec_klawisz == seven:
+                        pag.press('7')
+                    if rec_klawisz == eight:
+                        pag.press('8')
 
                 except Exception as e:
                     print(e)
@@ -624,14 +751,6 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-                # if 'dodaj wpis do listy' in record:
-        #     try:
-
-        #         add_entry()
-
-        #     except Exception as e:
-        #         print(e)
-        #         say("Coś poszło nie tak.")
 
         if 'otwórz stronę uniwersytetu' in record:
 
@@ -652,23 +771,17 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-                # if 'dodaj użytkownika' in record:
-        #     try:
-        #         lista_prac()
 
+        #FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
+        # if 'kalkulator' in record:
+        #
+        #     try:
+        #
+        #         calculator()
+        #
         #     except Exception as e:
         #         print(e)
         #         say("Coś poszło nie tak.")
-
-        if 'kalkulator' in record:
-
-            try:
-
-                calculator()
-
-            except Exception as e:
-                print(e)
-                say("Coś poszło nie tak.")
 
         if "otwórz plik" in record:
 
@@ -685,7 +798,6 @@ if __name__ == "__main__":  # funkcja glowna
             try:
 
                 guess_the_number()
-                say("Mam nadzieję, że się podobało.")
 
             except Exception as e:
                 print(e)
@@ -738,4 +850,3 @@ if __name__ == "__main__":  # funkcja glowna
             except Exception as e:
                 print(e)
                 say("Coś poszło nie tak.")
-#License gplv3
