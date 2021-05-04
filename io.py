@@ -204,13 +204,13 @@ def wikipedia_search():
             # return record_wiki
             #
             # record_wiki = command_recognition().lower()
-           
-            
+
+
 def save_to_file_title():
 
     p = s_r.Recognizer()
     record2 = ''
-    
+
     with s_r.Microphone() as source:
 
         say("Podaj tytuł pliku.")
@@ -422,7 +422,7 @@ def google_search():
 
         say("Przeszukuję GOOGLE w poszukiwaniu hasła")
 
-        for url in search(vargoogle, lang='pl'):
+        for url in search(vargoogle, lang='pl', num_results=5):
             print(url)
 
         webbrowser.open("https://www.google.pl/search?q=" + vargoogle)
@@ -850,8 +850,8 @@ def guess_the_number():
     else:
 
         print('Gra skończona.')
-        
-        
+
+
 if __name__ == "__main__":  # funkcja glowna
 
     introduction()
@@ -882,7 +882,7 @@ if __name__ == "__main__":  # funkcja glowna
 
                 print(e)
                 say("Coś poszło nie tak.")
-        
+
         if 'klawiatura' in record:
 
             try:
