@@ -31,7 +31,8 @@ from time import \
 # For related functionality, see also the datetime and calendar modules..
 # The sleep() function suspends (waits) execution
 # of the current thread for a given number of seconds.
-import pyautogui as pag
+import pyautogui #https://github.com/asweigart/pyautogui BSD-3-Clause License
+from googlesearch import search #https://github.com/Nv7-GitHub/googlesearch on MIT License
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
@@ -59,14 +60,24 @@ def command_recognition():
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
 
         print(
-            "Lista dostępnych funkcji:\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii."
-            "\nOtwórz stronę uniwersytetu - uruchamia przegladarke.\nzapisz plik - funkcja zapisujaca "
-            "plik o podanym głosowo tytule i zawartośći podanej.\notwórz plik - otwieranie zapisanego pliku."
-            "\nkalkulator - dodawanie, odejmowanie, mnożenie i dzielenie\nlotto - symulator lotto. "
-            "Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
-            "\notwórz google - otwiera stronę google.\npomocy - masz problem z kodem? Otworzę stackoverflow."
-            "\notwórz youtube - chcesz posłuchać muzyki?\nmuzyka - funkcja otwierajaca zadeklarowana playlistę."
-            "\ngra - rozerwij się i ogadnij wylosowaną liczbę\nzamknij - wyjście z programu.")
+            "Podstawowe funkcje:"
+            "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możlwiością zapisu do pliku."
+            "\nzapisz plik - funkcja zapisujaca plik o podanym głosowo tytule i zawartośći podanej."
+            "\notwórz plik - otwieranie zapisanego pliku."
+            "\ngoogle - wyszukuję 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
+            "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
+            "\n"
+            "\nFunkcje NET:"
+            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
+            "\notwórz youtube - chcesz posłuchać muzyki?"
+            "\npomocy - masz problem z kodem? Otworzę stackoverflow."
+            "\nStrona uniwersytetu - uruchamia stronę główną UG."
+            "\nstrona wydziału - uruchamia stronę wydziału."
+            "\n"
+            "\nFunkcje dodatkowe:"
+            "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
+            "\ngra - rozerwij się i ogadnij wylosowaną liczbę"
+            "\nzamknij - wyjście z programu.")
 
         say("Słucham Cię.")
         print("Słucham Cię.")
@@ -152,7 +163,7 @@ def wikipedia_search():
         wikisearch = wiki.listen(source)
         varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
 
-        say("Przeszukuję wikipedię w poszukiwaniu hasła: " + wikisearch)
+        say("Przeszukuję wikipedię w poszukiwaniu hasła")
 
         wikifound = wikipedia.summary(varwiki, sentences=2)
 
@@ -213,6 +224,28 @@ def wikipedia_search():
             # return record_wiki
             #
             # record_wiki = command_recognition().lower()
+
+
+def google_search():
+
+    google = s_r.Recognizer()
+    with s_r.Microphone() as source:
+        say("Co mam znaleźć w GOOGLE?")
+
+        google.pause_threshold = 2
+        google.adjust_for_ambient_noise(source)
+        googlesearch = google.listen(source)
+        vargoogle = google.recognize_google(googlesearch, language='pl-PL')
+
+        say("Przeszukuję GOOGLE w poszukiwaniu hasła")
+        for url in search(vargoogle, lang='pl'):
+            print(url)
+
+        webbrowser.open("https://www.google.pl/search?q=" + vargoogle)
+        # response = search(vargoogle, num_results=1)
+        # url = str(response[0])
+        # webbrowser(url)
+        # print(url)
 
 
 def open_from_file():
@@ -617,6 +650,31 @@ def guess_the_number():
 #             print(e)
 #             say("Spróbuj jeszcze raz")
 
+def screenshot():
+    try:
+        s = s_r.Recognizer()
+        with s_r.Microphone() as source:
+            say("Podaj nazwę pod jaką mam zapisać plik")
+
+            s.adjust_for_ambient_noise(source)
+            s_audio = s.listen(source)
+            s_screen = s.recognize_google(s_audio, language='pl-PL').lower()
+
+            print(s_screen)
+            try:
+                image = pyautogui.screenshot()
+                image.save(s_screen + '.png')
+                print("Zapisano")
+
+            except Exception as e:
+                print(e)
+                say("Błąd.")
+
+
+    except Exception as e:
+        print(e)
+        say("Nie zrozumiałam, spróbuj jeszcze raz")
+
 def klawiatura():
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
@@ -666,50 +724,51 @@ def klawiatura():
                 try:
                     for x in klawisze:
                         if x == rec_klawisz:
-                            pag.press(x)
+                            pyautogui.press(x)
 
                     if rec_klawisz == spacebar:
-                        pag.press("space")
+                        pyautogui.press("space")
                     if rec_klawisz == capslock:
-                        pag.press("capslock")
+                        pyautogui.press("capslock")
                     if rec_klawisz == backspace:
-                        pag.press("backspace")
+                        pyautogui.press("backspace")
                     if rec_klawisz == select:
-                        pag.hotkey('ctrl', 'a')
+                        pyautogui.hotkey('ctrl', 'a')
                     if rec_klawisz == copy:
-                        pag.hotkey('ctrl', 'c')
+                        pyautogui.hotkey('ctrl', 'c')
                     if rec_klawisz == past:
-                        pag.hotkey('ctrl', 'v')
+                        pyautogui.hotkey('ctrl', 'v')
                     if rec_klawisz == back:
-                        pag.hotkey('ctrl', 'z')
+                        pyautogui.hotkey('ctrl', 'z')
                     if rec_klawisz == delete:
-                        pag.hotkey('del')
+                        pyautogui.hotkey('del')
                     if rec_klawisz == unselect:
-                        pag.hotkey('ctrl', 'right')
+                        pyautogui.hotkey('ctrl', 'right')
                     if rec_klawisz == right:
-                        pag.hotkey('right')
+                        pyautogui.hotkey('right')
                     if rec_klawisz == left:
-                        pag.hotkey('left')
+                        pyautogui.hotkey('left')
                     if rec_klawisz == volumedown:
-                        pag.hotkey('volumedown')
+                        pyautogui.hotkey('volumedown')
                     if rec_klawisz == volumeup:
-                        pag.hotkey('volumeup')
+                        pyautogui.hotkey('volumeup')
                     if rec_klawisz == volumemute:
-                        pag.hotkey('volumemute')
+                        pyautogui.hotkey('volumemute')
                     if rec_klawisz == dot:
-                        pag.press('.')
+                        pyautogui.press('.')
                     if rec_klawisz == comma:
-                        pag.press(',')
+                        pyautogui.press(',')
                     if rec_klawisz == em:
-                        pag.press('!')
+                        pyautogui.press('!')
                     if rec_klawisz == one:
-                        pag.press('1')
+                        pyautogui.press('1')
                     if rec_klawisz == five:
-                        pag.press('5')
+                        pyautogui.press('5')
                     if rec_klawisz == seven:
-                        pag.press('7')
+                        pyautogui.press('7')
                     if rec_klawisz == eight:
-                        pag.press('8')
+                        pyautogui.press('8')
+
 
                 except Exception as e:
                     print(e)
@@ -737,10 +796,35 @@ if __name__ == "__main__":  # funkcja glowna
             except Exception as e:
 
                 print(e)
-                say("Brak wyników w wikipedi...")
+                say("Spróbuj jeszcze raz...")
+
+        if 'google' in record:
+
+            try:
+
+                google_search()
+
+            except Exception as e:
+
+                print(e)
+                say("Spróbuj jeszcze raz...")
 
         if 'klawiatura' in record:
-            klawiatura()
+            try:
+                klawiatura()
+
+            except Exception as e:
+                print(e)
+                say("Coś poszło nie tak.")
+
+        if 'screenshot' in record:
+
+            try:
+                screenshot()
+
+            except Exception as e:
+                print(e)
+                say("Coś poszło nie tak.")
 
         if 'otwórz youtube' in record:
 
@@ -751,11 +835,19 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-
-        if 'otwórz stronę uniwersytetu' in record:
+        if 'strona wydziału' in record:
 
             try:
                 webbrowser.open("https://wzr.ug.edu.pl/")
+
+            except Exception as e:
+                print(e)
+                say("Coś poszło nie tak.")
+
+        if 'strona uniwersytetu' in record:
+
+            try:
+                webbrowser.open("https://ug.edu.pl/")
 
             except Exception as e:
                 print(e)
@@ -814,7 +906,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "otwórz google" in record:
+        if "wyszukiwarka" in record:
 
             try:
                 webbrowser.open("https:\\www.google.com")
