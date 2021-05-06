@@ -31,45 +31,44 @@ from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
 
-def say(audio):
 
+def say(audio):
+    
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
 
 
 def introduction():
-
     say("Witaj w asystencie głosowym")
     print("Witaj w asystencie głosowym")
 
 
 def command_recognition():
-
     # Create voice recognition
     r = s_r.Recognizer()
     record = ''
 
     with s_r.Microphone() as source:
 
-        sleep(2)
+        sleep(1)
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
 
         print(
             "Podstawowe funkcje:"
-            "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możlwiością zapisu do pliku."
-            "\nzapisz plik - funkcja zapisujaca plik o podanym głosowo tytule i zawartośći podanej."
-            "\notwórz plik - otwieranie zapisanego pliku."
-            "\nklawiatura - funckja umożliwiająca wywoływanie pojedyńcych klawiszy i skrótów klawiszowych"
-            "\ngoogle - wyszukuję 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
+            "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku"
+            "\nnotatka - funkcja zapisująca plik o podanym głosowo tytule i zawartością"
+            "\notwórz plik - otwieranie zapisanego pliku"
+            "\nklawiatura - funkcjaa umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
+            "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
             "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
             "\n"
             "\nFunkcje NET:"
             "\nStrona uniwersytetu - uruchamia stronę główną UG."
-            "\nstrona wydziału - uruchamia stronę wydziału."
+            "\nstrona wydziału - uruchamia stronę wydziału WZR"
             "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
             "\nportal studenta - uruchamia stronę portalu studenta"
             "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
-            "\npomocy - masz problem z kodem? Otworzę stackoverflow."
+            "\npomoc - masz problem z kodem? Otworzę stackoverflow."
             "\notwórz youtube - chcesz posłuchać muzyki?"
             "\n"
             "\nFunkcje dodatkowe:"
@@ -109,19 +108,25 @@ def wikipedia_search():
 
         say("Co mam znaleźć na wikipedii?")
 
-        wiki.pause_threshold = 2
+        wiki.pause_threshold = 1
         wiki.adjust_for_ambient_noise(source)
         wikisearch = wiki.listen(source)
         varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
+        print(f"Powiedziano: {varwiki}\n")
 
         with s_r.Microphone() as source2:
 
+            # intnum = ''
+            # check = isinstance(intnum, int)
+            # while check == False:
+
             say("Ile zdań mam przeczytać? Podaj liczbę.")
 
-            sentences.pause_threshold = 2
+            sentences.pause_threshold = 1
             sentences.adjust_for_ambient_noise(source2)
             sentencesnumber = wiki.listen(source2)
             number = wiki.recognize_google(sentencesnumber, language='pl-PL')
+            print(f"Powiedziano: {number}\n")
 
             if number == 'pięć':
                 intnum = 5
@@ -129,12 +134,10 @@ def wikipedia_search():
                 intnum = 8
             elif number == 'siedem':
                 intnum = 7
-            elif number == 'jeden':
+            elif number == 'jeden' or number == 'jedno':
                 intnum = 1
             else:
                 intnum = int(number)
-
-            print(intnum)
 
             say("Przeszukuję wikipedię w poszukiwaniu hasła")
 
@@ -199,15 +202,14 @@ def wikipedia_search():
                 except Exception as y:
 
                     print(y)
-                    say("Spróbuj jeszcze raz.")
+                    say("Coś poszło nie tak. Spróbuj jeszcze raz.")
 
-            # return record_wiki
-            #
-            # record_wiki = command_recognition().lower()
+        # return record_wiki
+        #
+        # record_wiki = command_recognition().lower()
 
 
 def save_to_file_title():
-
     p = s_r.Recognizer()
     record2 = ''
 
@@ -237,7 +239,6 @@ def save_to_file_title():
 
 
 def save_to_file_content():
-
     w = s_r.Recognizer()
     record3 = ''
 
@@ -269,8 +270,40 @@ def save_to_file_content():
     return record3
 
 
-def klawiatura():
+def open_from_file():
+    q = s_r.Recognizer()
+    record4 = ''
 
+    with s_r.Microphone() as source:
+
+        say("Jaki plik mam otworzyć?")
+        print("Słucham...")
+        q.pause_threshold = 2
+        q.adjust_for_ambient_noise(source)
+        audio4 = q.listen(source)
+
+    try:
+
+        print("Otwieram plik...")
+        record4 = q.recognize_google(audio4, language='pl-PL')
+        print(f"Powiedziano: {record4}\n")
+
+        file = open(record4 + ".txt", "r")
+        print(file.read())
+        webbrowser.open(record4 + ".txt")
+
+    except Exception as e:
+
+        print(e)
+        say("Nie udało się otworzyć notatki...")
+
+    # else:
+    #     print("Nieoblisugwany blad", sys.exc_info()[0])
+
+    return record4
+
+
+def klawiatura():
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
     klawisze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -308,7 +341,7 @@ def klawiatura():
             rec = s_r.Recognizer()
             with s_r.Microphone() as source:
 
-                say("Wybierz klawisz?")
+                say("Wybierz klawisz")
 
                 rec.adjust_for_ambient_noise(source)
                 rec_audio = rec.listen(source)
@@ -375,44 +408,10 @@ def klawiatura():
             print(e)
             say("Spróbuj jeszcze raz")
 
-def open_from_file():
-
-    q = s_r.Recognizer()
-    record4 = ''
-
-    with s_r.Microphone() as source:
-
-        say("Jaki plik mam otworzyć?")
-        print("Słucham...")
-        q.pause_threshold = 2
-        q.adjust_for_ambient_noise(source)
-        audio4 = q.listen(source)
-
-    try:
-
-        print("Otwieram plik...")
-        record4 = q.recognize_google(audio4, language='pl-PL')
-        print(f"Powiedziano: {record4}\n")
-
-        file = open(record4 + ".txt", "r")
-        print(file.read())
-        webbrowser.open(record4 + ".txt")
-
-    except Exception as e:
-
-        print(e)
-        say("Nie zrozumiałam, może następnym razem...")
-
-    # else:
-    #     print("Nieoblisugwany blad", sys.exc_info()[0])
-
-    return record4
 
 def google_search():
-
     google = s_r.Recognizer()
     with s_r.Microphone() as source:
-
         say("Co mam znaleźć w GOOGLE?")
 
         google.pause_threshold = 2
@@ -433,7 +432,6 @@ def google_search():
 
 
 def screenshot():
-
     try:
         s = s_r.Recognizer()
         with s_r.Microphone() as source:
@@ -463,7 +461,7 @@ def screenshot():
         say("Nie zrozumiałam, spróbuj jeszcze raz")
 
 
-#FUNKCJA WYCOFANA Z UWAGI NA PROBLEMY Z ROZPOZNAWANIEM LICZB
+# FUNKCJA WYCOFANA Z UWAGI NA PROBLEMY Z ROZPOZNAWANIEM LICZB
 # def calculator():
 #     while True:
 #
@@ -555,7 +553,6 @@ def screenshot():
 
 
 def lotto_draw():
-
     try:
         say("Wybierz liczby:")
         print("Wybierz liczby:")
@@ -588,7 +585,8 @@ def lotto_draw():
                 if a < 1 or a > 49:
 
                     say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    a = int(input("Podaj liczbę: "))
+                    while a < 1 or a > 49:
+                        a = int(input("Podaj liczbę: "))
 
                 b = a
                 while a == b:
@@ -618,7 +616,8 @@ def lotto_draw():
                     if b <= 0 or b > 49:
 
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        b = int(input("Podaj liczbę: "))
+                        while b < 1 or b > 49:
+                            b = int(input("Podaj liczbę: "))
 
                 c = a
                 while a == c or b == c:
@@ -648,7 +647,8 @@ def lotto_draw():
                     if c < 1 or c > 49:
 
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        c = int(input("Podaj liczbę: "))
+                        while c < 1 or c > 49:
+                            c = int(input("Podaj liczbę: "))
 
                 d = a
                 while a == d or b == d or c == d:
@@ -677,7 +677,8 @@ def lotto_draw():
                     if d < 1 or d > 49:
 
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        d = int(input("Podaj liczbę: "))
+                        while d < 1 or d > 49:
+                            d = int(input("Podaj liczbę: "))
 
                 f = a
                 while a == f or b == f or c == f or d == f:
@@ -706,7 +707,8 @@ def lotto_draw():
                     if f < 1 or f > 49:
 
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        f = int(input("Podaj liczbę: "))
+                        while f < 1 or f > 49:
+                            f = int(input("Podaj liczbę: "))
 
                 g = a
                 while a == g or b == g or c == g or d == g or f == g:
@@ -735,7 +737,8 @@ def lotto_draw():
                     if g < 1 or g > 49:
 
                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        g = int(input("Podaj liczbę: "))
+                        while g < 1 or g > 49:
+                            g = int(input("Podaj liczbę: "))
 
             except Exception as e:
 
@@ -779,12 +782,12 @@ def lotto_draw():
         print(e)
         say("Coś poszło nie tak")
 
-def guess_the_number():
 
+def guess_the_number():
     number = random.randint(1, 100)
     running = True
     audio_in0 = s_r.Recognizer()
-    print(number)
+    # print(number)
 
     while running:
 
@@ -793,7 +796,7 @@ def guess_the_number():
             try:
 
                 say("Odgadnij liczbę od 1 do 100 lub powiedz stop aby zakończyć.")
-                audio_in0.pause_threshold = 2
+                audio_in0.pause_threshold = 1
 
                 audio_listuj0 = audio_in0.listen(source, timeout=2)
                 print(audio_listuj0)
@@ -801,6 +804,7 @@ def guess_the_number():
                 record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
 
                 a = ''
+                stop = 'stop'
                 if record10 == 'pięć':
                     a = 5
                 elif record10 == 'osiem':
@@ -809,8 +813,8 @@ def guess_the_number():
                     a = 7
                 elif record10 == 'jeden':
                     a = 1
-                elif record10 == 'stop':
-                    say("Następnym razem się uda")
+                elif record10 == stop:
+                    say("Następnym razem się uda.")
                     break
                 else:
                     a = int(record10)
@@ -871,7 +875,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        if 'zapisz plik' in record:
+        elif 'notatka' in record:
 
             try:
 
@@ -883,7 +887,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'klawiatura' in record:
+        elif 'klawiatura' in record:
 
             try:
 
@@ -894,7 +898,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "otwórz plik" in record:
+        elif "otwórz plik" in record:
 
             try:
 
@@ -905,7 +909,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'google' in record:
+        elif 'google' in record:
 
             try:
 
@@ -916,7 +920,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        if 'screenshot' in record:
+        elif 'screenshot' in record:
 
             try:
 
@@ -927,7 +931,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'strona uniwersytetu' in record:
+        elif 'strona uniwersytetu' in record:
 
             try:
 
@@ -939,7 +943,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'strona wydziału' in record:
+        elif 'strona wydziału' in record:
 
             try:
 
@@ -951,7 +955,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'portal edukacyjny' in record:
+        elif 'portal edukacyjny' in record:
 
             try:
 
@@ -963,7 +967,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'portal studenta' in record:
+        elif 'portal studenta' in record:
 
             try:
 
@@ -975,7 +979,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "wyszukiwarka" in record:
+        elif "wyszukiwarka" in record:
 
             try:
 
@@ -987,7 +991,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'pomocy' in record:
+        elif 'pomoc' in record:
 
             try:
 
@@ -999,7 +1003,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'otwórz youtube' in record:
+        elif 'otwórz youtube' in record:
 
             try:
 
@@ -1011,7 +1015,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        #FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
+        # FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
         # if 'kalkulator' in record:
         #
         #     try:
@@ -1022,7 +1026,7 @@ if __name__ == "__main__":  # funkcja glowna
         #         print(e)
         #         say("Coś poszło nie tak.")
 
-        if "lotto" in record:
+        elif "lotto" in record:
 
             try:
 
@@ -1034,7 +1038,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "gra" in record:
+        elif "gra" in record:
 
             try:
 
@@ -1045,17 +1049,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        # if "muzyka" in record:
-        #
-        #     try:
-        #
-        #         webbrowser.open("https://www.youtube.com/watch?v=vpXlYbstRDs&list=PLIut9bR_W7KX9OK1BwJvLoidfirixgPPN")
-        #
-        #     except Exception as e:
-        #         print(e)
-        #         say("Coś poszło nie tak.")
-
-        if 'zamknij' in record:
+        elif 'zamknij' in record:
 
             try:
 
