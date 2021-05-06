@@ -34,7 +34,6 @@ voice_mechanism = pyttsx3.init('sapi5')
 
 
 def say(audio):
-
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
 
@@ -774,6 +773,7 @@ def lotto_draw():
                 t = t + 1
 
         print("Wybrane Liczby: ")
+        podane_liczby.sort()
         print(podane_liczby)
         losowanie_lotto.sort()
         print("Wylosowane Liczby: ")
@@ -826,7 +826,7 @@ def guess_the_number():
                 else:
                     a = int(record10)
 
-                #print(a)
+                # print(a)
                 # //say("Wybrałeś liczbę " + str(a))
 
                 if a < 1 or a > 100:
@@ -882,7 +882,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        if 'notatka' in record:
+        elif 'notatka' in record:
 
             try:
 
@@ -894,7 +894,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'klawiatura' in record:
+        elif 'klawiatura' in record:
 
             try:
 
@@ -905,7 +905,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "otwórz plik" in record:
+        elif "otwórz plik" in record or 'otwórz notatkę' in record:
 
             try:
 
@@ -916,7 +916,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'google' in record:
+        elif 'google' in record or 'gugle' in record or 'gogle' in record:
 
             try:
 
@@ -927,7 +927,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        if 'screenshot' in record:
+        elif 'screenshot' in record:
 
             try:
 
@@ -938,7 +938,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'strona uniwersytetu' in record:
+        elif 'strona uniwersytetu' in record:
 
             try:
 
@@ -950,7 +950,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'strona wydziału' in record:
+        elif 'strona wydziału' in record:
 
             try:
 
@@ -962,7 +962,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'portal edukacyjny' in record:
+        elif 'portal edukacyjny' in record:
 
             try:
 
@@ -974,7 +974,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'portal studenta' in record:
+        elif 'portal studenta' in record:
 
             try:
 
@@ -986,7 +986,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "wyszukiwarka" in record:
+        elif "wyszukiwarka" in record:
 
             try:
 
@@ -998,7 +998,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'pomoc' in record:
+        elif 'pomoc' in record:
 
             try:
 
@@ -1010,7 +1010,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'otwórz youtube' in record:
+        elif 'otwórz youtube' in record or 'youtube' in record:
 
             try:
 
@@ -1033,7 +1033,7 @@ if __name__ == "__main__":  # funkcja glowna
         #         print(e)
         #         say("Coś poszło nie tak.")
 
-        if "lotto" in record:
+        elif "lotto" in record:
 
             try:
 
@@ -1045,7 +1045,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if "gra" in record:
+        elif "gra" in record:
 
             try:
 
@@ -1056,7 +1056,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        if 'zamknij' in record:
+        elif 'zamknij' in record:
 
             try:
 
