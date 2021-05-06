@@ -27,13 +27,14 @@ from time import sleep  # This module provides various time-related functions.
 # of the current thread for a given number of seconds.
 import pyautogui  # https://github.com/asweigart/pyautogui BSD-3-Clause License
 from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
+import python_weather
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
 
 
 def say(audio):
-    
+
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
 
@@ -57,7 +58,7 @@ def command_recognition():
             "Podstawowe funkcje:"
             "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku"
             "\nnotatka - funkcja zapisująca plik o podanym głosowo tytule i zawartością"
-            "\notwórz plik - otwieranie zapisanego pliku"
+            "\n'otwórz plik' lub 'otwórz notatkę' - otwieranie zapisanego pliku"
             "\nklawiatura - funkcjaa umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
             "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
             "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
@@ -230,7 +231,7 @@ def save_to_file_title():
     except Exception as e:
 
         print(e)
-        say("Polecenie było dla mnie niezrozumiałe...")
+        say("Nie zrozumiałam co mówisz. Plik zostanie zapisany bez tytułu.")
 
     # else:
     #     print("Nieoblisugwany blad", sys.exc_info()[0])
@@ -262,7 +263,7 @@ def save_to_file_content():
 
     except Exception as e:
         print(e)
-        say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem...")
+        say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem. Plik nie został zapisany")
 
     # else:
     #     print("Nieobsługiwany błąd", sys.exc_info()[0])
@@ -295,7 +296,7 @@ def open_from_file():
     except Exception as e:
 
         print(e)
-        say("Nie udało się otworzyć notatki...")
+        say("Nie udało się otworzyć pliku. Notatka o podanym tytule nie istnieje.")
 
     # else:
     #     print("Nieoblisugwany blad", sys.exc_info()[0])
@@ -310,7 +311,7 @@ def klawiatura():
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
                 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
                 'u', 'v', 'w', 'x', 'y', 'z', 'f1', 'f10', 'f11', 'f12',
-                'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'stop'}
+                'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'shift', 'stop'}
 
     spacebar = 'spacja'
     capslock = 'caps lock'
@@ -323,6 +324,7 @@ def klawiatura():
     unselect = 'odznacz'
     right = 'prawo'
     left = 'lewo'
+    altf4 = 'zamknij okno'
     volumedown = 'ścisz'
     volumeup = 'podgłośnij'
     volumemute = 'wycisz'
@@ -333,6 +335,7 @@ def klawiatura():
     five = 'pięć'
     seven = 'siedem'
     eight = 'osiem'
+    windows = 'windows'
 
     rec_klawisz = ''
     while rec_klawisz != 'stop':
@@ -375,6 +378,10 @@ def klawiatura():
                         pyautogui.hotkey('ctrl', 'right')
                     if rec_klawisz == right:
                         pyautogui.hotkey('right')
+                    if rec_klawisz == altf4:
+                        pyautogui.hotkey('alt', 'f4')
+                    if rec_klawisz == windows:
+                        pyautogui.hotkey('win')
                     if rec_klawisz == left:
                         pyautogui.hotkey('left')
                     if rec_klawisz == volumedown:
@@ -819,7 +826,7 @@ def guess_the_number():
                 else:
                     a = int(record10)
 
-                print(a)
+                #print(a)
                 # //say("Wybrałeś liczbę " + str(a))
 
                 if a < 1 or a > 100:
@@ -875,7 +882,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        elif 'notatka' in record:
+        if 'notatka' in record:
 
             try:
 
@@ -887,7 +894,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'klawiatura' in record:
+        if 'klawiatura' in record:
 
             try:
 
@@ -898,7 +905,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif "otwórz plik" in record:
+        if "otwórz plik" in record:
 
             try:
 
@@ -909,7 +916,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'google' in record:
+        if 'google' in record:
 
             try:
 
@@ -920,7 +927,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Spróbuj jeszcze raz...")
 
-        elif 'screenshot' in record:
+        if 'screenshot' in record:
 
             try:
 
@@ -931,7 +938,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'strona uniwersytetu' in record:
+        if 'strona uniwersytetu' in record:
 
             try:
 
@@ -943,7 +950,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'strona wydziału' in record:
+        if 'strona wydziału' in record:
 
             try:
 
@@ -955,7 +962,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'portal edukacyjny' in record:
+        if 'portal edukacyjny' in record:
 
             try:
 
@@ -967,7 +974,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'portal studenta' in record:
+        if 'portal studenta' in record:
 
             try:
 
@@ -979,7 +986,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif "wyszukiwarka" in record:
+        if "wyszukiwarka" in record:
 
             try:
 
@@ -991,7 +998,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'pomoc' in record:
+        if 'pomoc' in record:
 
             try:
 
@@ -1003,7 +1010,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'otwórz youtube' in record:
+        if 'otwórz youtube' in record:
 
             try:
 
@@ -1026,7 +1033,7 @@ if __name__ == "__main__":  # funkcja glowna
         #         print(e)
         #         say("Coś poszło nie tak.")
 
-        elif "lotto" in record:
+        if "lotto" in record:
 
             try:
 
@@ -1038,7 +1045,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif "gra" in record:
+        if "gra" in record:
 
             try:
 
@@ -1049,7 +1056,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'zamknij' in record:
+        if 'zamknij' in record:
 
             try:
 
