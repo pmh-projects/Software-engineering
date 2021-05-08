@@ -4,7 +4,7 @@ def menu():
         "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku"
         "\nnotatka - funkcja zapisująca plik o podanym głosowo tytule i zawartością"
         "\n'otwórz plik' lub 'otwórz notatkę' - otwieranie zapisanego pliku"
-        "\nklawiatura - funkcjaa umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
+        "\nklawiatura - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
         "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
         "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
         "\n"
@@ -20,5 +20,5 @@ def menu():
         "\nFunkcje dodatkowe:"
         '\npogoda "miasto"- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą miejscowości, która chcesz sprawdzić'
         "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
-        "\ngra - rozerwij się i ogadnij wylosowaną liczbę"
+        "\ngierka - rozerwij się i ogadnij wylosowaną liczbę"
         "\nzamknij - wyjście z programu.")
