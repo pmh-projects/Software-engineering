@@ -1,5 +1,4 @@
 import pyowm
-import speech_recognition  # automatic speech recognition (ASR),
 # computer speech recognition, or speech-to-text, is a capability which
 # enables a program to process human speech into a written format.
 import speech_recognition as s_r  #
@@ -7,30 +6,24 @@ import wikipedia  # Wikipedia is a Python library that makes it easy to access a
 import random  # his module implements pseudo-random number generators for various distributions.
 import webbrowser  # The webbrowser module provides a high-level interface
 # to allow displaying Web-based documents to users.
-import os  # The OS module in Python provides functions for interacting with the operating system.
 import pyttsx3  # pyttsx3 is a text-to-speech conversion library in Python.
 # Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
-import pyaudio  # PyAudio provides Python bindings for PortAudio,
 # the cross-platform audio I/O library. With PyAudio, you can easily
 # use Python to play and record audio on a variety of platforms.
 import sys  # This module provides access to some variables used or
 # maintained by the interpreter and to
 # functions that interact strongly with the interpreter.
-import operator  # The operator module exports a set of efficient
 # functions corresponding to the intrinsic operators of Python.
 # For example, operator. add(x, y) is equivalent to the expression x+y
 # import pickle #The pickle module can transform a complex object
 # into a byte stream and it can transform
 # the byte stream into an object with the same internal structure.
-from time import sleep  # This module provides various time-related functions.
 # For related functionality, see also the datetime and calendar modules..
 # The sleep() function suspends (waits) execution
 # of the current thread for a given number of seconds.
 import pyautogui  # https://github.com/asweigart/pyautogui BSD-3-Clause License
-import test
+import menu
 from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
-from pyowm import OWM
-from pyowm.utils import config
 from pyowm.utils import timestamps
 from pyowm.utils.config import get_default_config
 
@@ -58,7 +51,7 @@ def command_recognition():
     with s_r.Microphone() as source:
 
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
-        test.menu()
+        menu.menu()
 
         print("Słucham Cię.")
         say("Słucham Cię.")
@@ -772,7 +765,6 @@ def lotto_draw():
         print(e)
         say("Coś poszło nie tak")
 
-
 def guess_the_number():
     number = random.randint(1, 100)
     running = True
@@ -857,13 +849,12 @@ def weather(record):
 
         else:
             city = check_city
-            #city = check_city.recognize_google(check_city, language='pl-PL')
+
             print(city)
 
             config_dict = get_default_config()
             config_dict['language'] = 'pl'
-
-            owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
+            owm = pyowm.OWM('API_KEY_CODE', config_dict)
             mng = owm.weather_manager()
             obs = mng.weather_at_place(city + ', PL')
             w = obs.weather
@@ -883,6 +874,9 @@ def weather(record):
             print(actstat)
             say("Aktualnie jest na dworze:")
             say(actstat)
+
+            daily_forecast = mng.forecast_at_place(city, 'daily').forecast
+            print(daily_forecast)
 
             if 'deszcz' in actstat or 'burza' in actstat or 'mżawka' in actstat or 'śnieg' in actstat:
 
@@ -1077,7 +1071,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif "gra" in record:
+        elif "gierka" in record:
 
             try:
 
