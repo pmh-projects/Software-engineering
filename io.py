@@ -1,3 +1,4 @@
+import pyowm
 import speech_recognition  # automatic speech recognition (ASR),
 # computer speech recognition, or speech-to-text, is a capability which
 # enables a program to process human speech into a written format.
@@ -7,7 +8,7 @@ import random  # his module implements pseudo-random number generators for vario
 import webbrowser  # The webbrowser module provides a high-level interface
 # to allow displaying Web-based documents to users.
 import os  # The OS module in Python provides functions for interacting with the operating system.
-import pyttsx3  # yttsx3 is a text-to-speech conversion library in Python.
+import pyttsx3  # pyttsx3 is a text-to-speech conversion library in Python.
 # Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
 import pyaudio  # PyAudio provides Python bindings for PortAudio,
 # the cross-platform audio I/O library. With PyAudio, you can easily
@@ -26,8 +27,12 @@ from time import sleep  # This module provides various time-related functions.
 # The sleep() function suspends (waits) execution
 # of the current thread for a given number of seconds.
 import pyautogui  # https://github.com/asweigart/pyautogui BSD-3-Clause License
+import test
 from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
-import python_weather
+from pyowm import OWM
+from pyowm.utils import config
+from pyowm.utils import timestamps
+from pyowm.utils.config import get_default_config
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
@@ -35,7 +40,9 @@ voice_mechanism = pyttsx3.init('sapi5')
 
 def say(audio):
     voice_mechanism.say(audio)
+    # a mechanism for hearing the voice
     voice_mechanism.runAndWait()
+    voice_mechanism.stop()
 
 
 def introduction():
@@ -50,36 +57,13 @@ def command_recognition():
 
     with s_r.Microphone() as source:
 
-        sleep(1)
         say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
+        test.menu()
 
-        print(
-            "Podstawowe funkcje:"
-            "\nwikipedia - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku"
-            "\nnotatka - funkcja zapisująca plik o podanym głosowo tytule i zawartością"
-            "\n'otwórz plik' lub 'otwórz notatkę' - otwieranie zapisanego pliku"
-            "\nklawiatura - funkcjaa umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
-            "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
-            "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
-            "\n"
-            "\nFunkcje NET:"
-            "\nStrona uniwersytetu - uruchamia stronę główną UG."
-            "\nstrona wydziału - uruchamia stronę wydziału WZR"
-            "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
-            "\nportal studenta - uruchamia stronę portalu studenta"
-            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
-            "\npomoc - masz problem z kodem? Otworzę stackoverflow."
-            "\notwórz youtube - chcesz posłuchać muzyki?"
-            "\n"
-            "\nFunkcje dodatkowe:"
-            "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
-            "\ngra - rozerwij się i ogadnij wylosowaną liczbę"
-            "\nzamknij - wyjście z programu.")
-
-        say("Słucham Cię.")
         print("Słucham Cię.")
+        say("Słucham Cię.")
         # period of silence allowed
-        r.pause_threshold = 1
+        # r.pause_threshold = 1
         # listening to calibrate the energy threshold for ambient noise levels
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
@@ -108,7 +92,7 @@ def wikipedia_search():
 
         say("Co mam znaleźć na wikipedii?")
 
-        wiki.pause_threshold = 1
+        # wiki.pause_threshold = 1
         wiki.adjust_for_ambient_noise(source)
         wikisearch = wiki.listen(source)
         varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
@@ -143,8 +127,8 @@ def wikipedia_search():
 
             wikifound = wikipedia.summary(varwiki, sentences=intnum)
 
-            say("Jak mówi wikipedia: ")
             print("Jak mówi wikipedia: ")
+            say("Jak mówi wikipedia: ")
             print(wikifound)
             say(wikifound)
 
@@ -152,9 +136,9 @@ def wikipedia_search():
 
             with s_r.Microphone() as source3:
 
-                say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
                 print("Czy zapisać treść do pliku? TAK/ NIE")
-                r.pause_threshold = 1
+                say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
+                # r.pause_threshold = 1
                 # listening to calibrate the energy threshold for ambient noise levels
                 r.adjust_for_ambient_noise(source3)
                 audio = r.listen(source3)
@@ -186,8 +170,9 @@ def wikipedia_search():
                                 print(f"Podano tytuł: {record_title_wiki}\n")
                                 f = open(record_title_wiki + '.txt', 'w+')
                                 f.write(wikifound)
-                                say("Plik o nazwie " + record_title_wiki + " został zapisany.")
+
                                 print("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                                say("Plik o nazwie " + record_title_wiki + " został zapisany.")
 
                             except Exception as e:
 
@@ -215,8 +200,8 @@ def save_to_file_title():
 
     with s_r.Microphone() as source:
 
-        say("Podaj tytuł pliku.")
         print("Slucham...")
+        say("Podaj tytuł pliku.")
         p.pause_threshold = 1
         p.adjust_for_ambient_noise(source)
         audio2 = p.listen(source)
@@ -244,8 +229,8 @@ def save_to_file_content():
 
     with s_r.Microphone() as source:
 
-        say("Podaj tekst zapisu")
         print("Slucham...")
+        say("Podaj tekst zapisu")
         w.pause_threshold = 3
         w.adjust_for_ambient_noise(source)
         audio3 = w.listen(source)
@@ -257,8 +242,10 @@ def save_to_file_content():
         print(f"Powiedziano: {record3}\n")
         f = open(record2 + '.txt', 'w+')
         f.write(record3)
-        say("Plik został zapisany.")
+        voice_mechanism.save_to_file(record3, record2 + '.mp3')
+
         print("Plik został zapisany.")
+        say("Plik został zapisany.")
 
     except Exception as e:
         print(e)
@@ -276,8 +263,8 @@ def open_from_file():
 
     with s_r.Microphone() as source:
 
-        say("Jaki plik mam otworzyć?")
         print("Słucham...")
+        say("Jaki plik mam otworzyć?")
         q.pause_threshold = 2
         q.adjust_for_ambient_noise(source)
         audio4 = q.listen(source)
@@ -431,11 +418,6 @@ def google_search():
             print(url)
 
         webbrowser.open("https://www.google.pl/search?q=" + vargoogle)
-        # response = search(vargoogle, num_results=1)
-        # url = str(response[0])
-        # webbrowser(url)
-        # print(url)
-
 
 def screenshot():
     try:
@@ -560,15 +542,16 @@ def screenshot():
 
 def lotto_draw():
     try:
-        say("Wybierz liczby:")
+
         print("Wybierz liczby:")
+        say("Wybierz liczby:")
 
         with s_r.Microphone() as source:
 
             try:
 
-                say("Podaj pierwszą liczbę")
                 print("Podaj pierwszą liczbę")
+                say("Podaj pierwszą liczbę")
                 audio_in0 = s_r.Recognizer()
                 audio_in0.pause_threshold = 2
                 audio_listuj0 = audio_in0.listen(source)
@@ -597,8 +580,8 @@ def lotto_draw():
                 b = a
                 while a == b:
 
-                    say("Podaj drugą liczbę")
                     print("Podaj drugą liczbę")
+                    say("Podaj drugą liczbę")
                     audio_in1 = s_r.Recognizer()
                     audio_in1.pause_threshold = 2
                     audio_listuj1 = audio_in1.listen(source)
@@ -628,8 +611,8 @@ def lotto_draw():
                 c = a
                 while a == c or b == c:
 
-                    say("Podaj trzecią liczbę")
                     print("Podaj trzecią liczbę")
+                    say("Podaj trzecią liczbę")
                     audio_in2 = s_r.Recognizer()
                     audio_in2.pause_threshold = 2
                     audio_listuj2 = audio_in2.listen(source)
@@ -659,8 +642,8 @@ def lotto_draw():
                 d = a
                 while a == d or b == d or c == d:
 
-                    say("Podaj czwartą liczbę")
                     print("Podaj czwartą liczbę")
+                    say("Podaj czwartą liczbę")
                     audio_in3 = s_r.Recognizer()
                     audio_in3.pause_threshold = 2
                     audio_listuj3 = audio_in3.listen(source)
@@ -689,8 +672,8 @@ def lotto_draw():
                 f = a
                 while a == f or b == f or c == f or d == f:
 
-                    say("Podaj piątą liczbę")
                     print("Podaj piątą liczbę")
+                    say("Podaj piątą liczbę")
                     audio_in4 = s_r.Recognizer()
                     audio_in4.pause_threshold = 2
                     audio_listuj4 = audio_in4.listen(source)
@@ -719,8 +702,8 @@ def lotto_draw():
                 g = a
                 while a == g or b == g or c == g or d == g or f == g:
 
-                    say("Podaj szóstą liczbę")
                     print("Podaj szóstą liczbę")
+                    say("Podaj szóstą liczbę")
                     audio_in4 = s_r.Recognizer()
                     audio_in4.pause_threshold = 2
                     audio_listuj4 = audio_in4.listen(source)
@@ -781,8 +764,8 @@ def lotto_draw():
         print("Trafione liczby: ")
         say("Trafione liczby: ")
         trafiony.sort()
-        say(trafiony)
         print(trafiony)
+        say(trafiony)
 
     except Exception as e:
 
@@ -805,7 +788,7 @@ def guess_the_number():
                 say("Odgadnij liczbę od 1 do 100 lub powiedz stop aby zakończyć.")
                 audio_in0.pause_threshold = 1
 
-                audio_listuj0 = audio_in0.listen(source, timeout=2)
+                audio_listuj0 = audio_in0.listen(source)
                 print(audio_listuj0)
 
                 record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
@@ -830,8 +813,9 @@ def guess_the_number():
                 # //say("Wybrałeś liczbę " + str(a))
 
                 if a < 1 or a > 100:
-                    say("Wybrałeś liczbę z poza zakresu. Proszę jeszcze raz.")
+
                     print("Wybrałeś liczbę z poza zakresu. Proszę jeszcze raz.")
+                    say("Wybrałeś liczbę z poza zakresu. Proszę jeszcze raz.")
 
                 elif number == a:
                     print("Brawo")
@@ -861,6 +845,53 @@ def guess_the_number():
     else:
 
         print('Gra skończona.')
+
+
+def weather(record):
+
+    try:
+        check_city = record.replace("Pogoda", "")
+
+        if check_city == "":
+            say("Nie podano miasta. Spróbuj jeszcze raz.")
+
+        else:
+            city = check_city
+            #city = check_city.recognize_google(check_city, language='pl-PL')
+            print(city)
+
+            config_dict = get_default_config()
+            config_dict['language'] = 'pl'
+
+            owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
+            mng = owm.weather_manager()
+            obs = mng.weather_at_place(city + ', PL')
+            w = obs.weather
+            temp = w.temperature('celsius')
+
+            print(w)
+            act_temp = int(temp['temp'])
+            print(act_temp)
+            say("Aktualna temperatura w mieście " + city + " wynosi")
+            say(act_temp)
+            say("stopnie celcjusza")
+            say("Minimalna temparatura:")
+            say(temp['temp_min'])
+            say("Maksymalna temperatura:")
+            say(temp["temp_max"])
+            actstat = w.detailed_status
+            print(actstat)
+            say("Aktualnie jest na dworze:")
+            say(actstat)
+
+            if 'deszcz' in actstat or 'burza' in actstat or 'mżawka' in actstat or 'śnieg' in actstat:
+
+                say('Lepiej dobrze się ubierz.')
+
+    except Exception as e:
+
+        print(e)
+        say("Prawdopodnie podano nieprawidłowe parametry. Spróbuj jeszcze raz.")
 
 
 if __name__ == "__main__":  # funkcja glowna
@@ -1022,23 +1053,24 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        # FUNKCJA WYCOFANA Z POWODU NIEROZPOZNAWANIA NIEKTÓRYCH LICZB PRZEZ SR W WERSJI POLSKIEJ
-        # if 'kalkulator' in record:
-        #
-        #     try:
-        #
-        #         calculator()
-        #
-        #     except Exception as e:
-        #         print(e)
-        #         say("Coś poszło nie tak.")
-
         elif "lotto" in record:
 
             try:
 
                 say("Witaj w symulatorze lotto:")
                 lotto_draw()
+
+            except Exception as e:
+
+                print(e)
+                say("Coś poszło nie tak.")
+
+        elif "pogoda" in record:
+
+            try:
+
+                record = record.title()
+                weather(record)
 
             except Exception as e:
 
