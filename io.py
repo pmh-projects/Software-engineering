@@ -26,10 +26,16 @@ import menu
 from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
 from pyowm.utils import timestamps
 from pyowm.utils.config import get_default_config
-
+import tkinter as tk
+from tkinter import *
+from tkinter.ttk import *
+import tkinter.messagebox
+from PIL import ImageTk,Image
+import tkinter.font as tkFont
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
 
+root = tk.Tk()
 
 def say(audio):
     voice_mechanism.say(audio)
@@ -37,6 +43,62 @@ def say(audio):
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
 
+
+def menu_tk():
+
+    #root.configure(background='lightblue')
+    root.title('ASGLOS Asystent głosowy studenta')
+    root.iconbitmap('textspeech.ico')
+    #menubar = tk.Menu(root)
+    #root.config(menu=menubar)
+    #file = tk.Menu(menubar, tearoff=0)
+    #menubar.add_cascade(label='File', menu=file)
+    #file.add_command(label='Exit', command=root.destroy)
+    #others = tk.Menu(menubar, tearoff=0)
+    #menubar.add_cascade(label='Others', menu=others)
+    #others.add_command(label='Exit', command=about_tk)
+# def image_tk():
+#
+#     image1 = Image.open("menu.png")
+#     img = ImageTk.PhotoImage(image1)
+#     label = tkinter.Label(image=img)
+#     label.image = img
+#     label.pack
+
+def view_tk():
+    menu_tk()
+
+    var = StringVar()
+
+    fontStyle = tkFont.Font(family="Lucida Grande", size=12)
+    label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=fontStyle, pady=30)
+    var.set("Witaj w asystencie głosowym\n\n"
+            "Aby wywołać funkcję wystarczy wymówić nazwę funkcji\n\n"
+            "\nPodstawowe funkcje:\n"
+            '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
+            '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
+            '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
+            "\nklawiatura - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
+            "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
+            "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
+            "\n"
+            "\nFunkcje NET:\n"
+            "\nStrona uniwersytetu - uruchamia stronę główną UG."
+            "\nstrona wydziału - uruchamia stronę wydziału WZR"
+            "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
+            "\nportal studenta - uruchamia stronę portalu studenta"
+            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
+            "\npomoc - masz problem z kodem? Otworzę stackoverflow."
+            "\notwórz youtube - chcesz posłuchać muzyki?"
+            "\n"
+            "\nFunkcje dodatkowe:\n"
+            '\npogoda "miasto"- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą miejscowości, która chcesz sprawdzić'
+            "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
+            "\ngierka - rozerwij się i ogadnij wylosowaną liczbę"
+            "\nzamknij - wyjście z programu.")
+    label.pack(anchor=CENTER)
+
+    root.update()
 
 def introduction():
     say("Witaj w asystencie głosowym")
@@ -412,6 +474,7 @@ def google_search():
 
         webbrowser.open("https://www.google.pl/search?q=" + vargoogle)
 
+
 def screenshot():
     try:
         s = s_r.Recognizer()
@@ -765,6 +828,7 @@ def lotto_draw():
         print(e)
         say("Coś poszło nie tak")
 
+
 def guess_the_number():
     number = random.randint(1, 100)
     running = True
@@ -854,11 +918,15 @@ def weather(record):
 
             config_dict = get_default_config()
             config_dict['language'] = 'pl'
-            owm = pyowm.OWM('API_KEY_CODE', config_dict)
+            # df3873af33608947cbbf3861f93e78e4
+            # 74940aca9b5a0b8e0ca18806718b52b3
+            owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
+            # api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7&appid={74940aca9b5a0b8e0ca18806718b52b3}
             mng = owm.weather_manager()
             obs = mng.weather_at_place(city + ', PL')
             w = obs.weather
             temp = w.temperature('celsius')
+            feels = w.fe
 
             print(w)
             act_temp = int(temp['temp'])
@@ -879,7 +947,6 @@ def weather(record):
             print(daily_forecast)
 
             if 'deszcz' in actstat or 'burza' in actstat or 'mżawka' in actstat or 'śnieg' in actstat:
-
                 say('Lepiej dobrze się ubierz.')
 
     except Exception as e:
@@ -891,6 +958,8 @@ def weather(record):
 if __name__ == "__main__":  # funkcja glowna
 
     introduction()
+    view_tk()
+    # root.mainloop()
 
     while True:
 
@@ -1092,4 +1161,4 @@ if __name__ == "__main__":  # funkcja glowna
             except Exception as e:
 
                 print(e)
-                say("Coś poszło nie tak.")
+                say("Coś poszło nie tak")
