@@ -87,15 +87,15 @@ def view_tk():
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
             '\n"Klawiatura" - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych'
-            '\n"Google" - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
+            '\n"Google" - uruchamia wyszukiwarkę z podanych hasłem'
             '\n"Screenshot" - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem'
             "\n"
             "\nFunkcje NET:\n"
-            '\n"Strona uniwersytetu" - uruchamia stronę główną UG.'
+            '\n"Strona Uniwersytetu" - uruchamia stronę główną UG.'
             '\n"Strona wydziału" - uruchamia stronę wydziału WZR'
             '\n"Portal edukacyjny" - uruchamia stronę portalu edukacyjnego'
             '\n"Portal studenta" - otwiera stronę portalu studenta'
-            '\n"Aktualności" - uruchamia naj'
+            '\n"Aktualności" - uruchamia witrynę z aktualnościami studenckimi'
             '\n"Wyszukiwarka" - otwiera wyszukiwarkę bez deklaracji hasła.'
             '\n"Wsparcie" - masz problem z kodem? Otworzę stackoverflow.'
             '\n"Otwórz youtube" - chcesz posłuchać muzyki?'
