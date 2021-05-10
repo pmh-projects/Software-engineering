@@ -30,12 +30,20 @@ import tkinter as tk
 from tkinter import *
 from tkinter.ttk import *
 import tkinter.messagebox
-from PIL import ImageTk,Image
+from PIL import ImageTk, Image
 import tkinter.font as tkFont
 # Voice mechanism
 voice_mechanism = pyttsx3.init('sapi5')
 
 root = tk.Tk()
+img = tk.PhotoImage(file="logo.png")
+
+label = tk.Label(root, image=img)
+label.pack()
+
+img2 = tk.PhotoImage(file="banner.PNG")
+label = tk.Label(root, image=img2)
+label.pack()
 
 def say(audio):
     voice_mechanism.say(audio)
@@ -73,29 +81,30 @@ def view_tk():
     fontStyle = tkFont.Font(family="Lucida Grande", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=fontStyle, pady=30)
     var.set("Witaj w asystencie głosowym\n\n"
-            "Aby wywołać funkcję wystarczy wymówić nazwę funkcji\n\n"
+            "Aby wywołać funkcję wystarczy wymówić jej nazwę.\n\n"
             "\nPodstawowe funkcje:\n"
             '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
-            "\nklawiatura - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych"
-            "\ngoogle - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem"
-            "\nscreenshot - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem"
+            '\n"Klawiatura" - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych'
+            '\n"Google" - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
+            '\n"Screenshot" - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem'
             "\n"
             "\nFunkcje NET:\n"
-            "\nStrona uniwersytetu - uruchamia stronę główną UG."
-            "\nstrona wydziału - uruchamia stronę wydziału WZR"
-            "\nportal edukacyjny - uruchamia stronę portalu edukacyjnego"
-            "\nportal studenta - uruchamia stronę portalu studenta"
-            "\nwyszukiwarka - otwiera wyszukiwarkę bez deklaracji hasła."
-            "\npomoc - masz problem z kodem? Otworzę stackoverflow."
-            "\notwórz youtube - chcesz posłuchać muzyki?"
-            "\n"
-            "\nFunkcje dodatkowe:\n"
-            '\npogoda "miasto"- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą miejscowości, która chcesz sprawdzić'
-            "\nlotto - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się."
-            "\ngierka - rozerwij się i ogadnij wylosowaną liczbę"
-            "\nzamknij - wyjście z programu.")
+            '\n"Strona uniwersytetu" - uruchamia stronę główną UG.'
+            '\n"Strona wydziału" - uruchamia stronę wydziału WZR'
+            '\n"Portal edukacyjny" - uruchamia stronę portalu edukacyjnego'
+            '\n"Portal studenta" - otwiera stronę portalu studenta'
+            '\n"Aktualności" - uruchamia naj'
+            '\n"Wyszukiwarka" - otwiera wyszukiwarkę bez deklaracji hasła.'
+            '\n"Wsparcie" - masz problem z kodem? Otworzę stackoverflow.'
+            '\n"Otwórz youtube" - chcesz posłuchać muzyki?'
+            '\n'
+            '\nFunkcje dodatkowe:\n'
+            '\n"Pogoda + "miasto""- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą miejscowości, która chcesz sprawdzić'
+            '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
+            '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
+            '\n"Zamknij" - wyjście z programu.')
     label.pack(anchor=CENTER)
 
     root.update()
@@ -493,6 +502,7 @@ def screenshot():
                 image = pyautogui.screenshot()
                 image.save(s_screen + '.png')
                 print("Zapisano")
+                say("Zapisano")
 
             except Exception as e:
 
@@ -1080,6 +1090,31 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
+        elif 'aktualności' in record:
+
+            try:
+
+                say("Już otwieram.")
+                webbrowser.open("https://www.dlastudenta.pl/")
+
+            except Exception as e:
+
+                print(e)
+                say("Coś poszło nie tak.")
+
+        elif 'rozkład zajęć' in record:
+
+            try:
+
+                say("Już otwieram.")
+                webbrowser.open("https://wzr.ug.edu.pl/studia/index.php?str=462")
+
+            except Exception as e:
+
+                print(e)
+                say("Coś poszło nie tak.")
+
+
         elif "wyszukiwarka" in record:
 
             try:
@@ -1092,7 +1127,7 @@ if __name__ == "__main__":  # funkcja glowna
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'pomoc' in record:
+        elif 'wsparcie' in record:
 
             try:
 
