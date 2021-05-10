@@ -87,7 +87,7 @@ def view_tk():
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
             '\n"Klawiatura" - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych'
-            '\n"Google" - uruchamia wyszukiwarkę z podanych hasłem'
+            '\n"Google" - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
             '\n"Screenshot" - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem'
             "\n"
             "\nFunkcje NET:\n"
@@ -101,7 +101,7 @@ def view_tk():
             '\n"Otwórz youtube" - chcesz posłuchać muzyki?'
             '\n'
             '\nFunkcje dodatkowe:\n'
-            '\n"Pogoda + "miasto""- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą miejscowości, która chcesz sprawdzić'
+            '\n"Pogoda + "miasto""- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą krajowej miejscowości, która chcesz sprawdzić'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
             '\n"Zamknij" - wyjście z programu.')
@@ -931,12 +931,10 @@ def weather(record):
             # df3873af33608947cbbf3861f93e78e4
             # 74940aca9b5a0b8e0ca18806718b52b3
             owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
-            # api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7&appid={74940aca9b5a0b8e0ca18806718b52b3}
             mng = owm.weather_manager()
             obs = mng.weather_at_place(city + ', PL')
             w = obs.weather
             temp = w.temperature('celsius')
-            feels = w.fe
 
             print(w)
             act_temp = int(temp['temp'])
@@ -944,6 +942,8 @@ def weather(record):
             say("Aktualna temperatura w mieście " + city + " wynosi")
             say(act_temp)
             say("stopnie celcjusza")
+            say("Odczuwalna:")
+            say(temp['feels_like'])
             say("Minimalna temparatura:")
             say(temp['temp_min'])
             say("Maksymalna temperatura:")
@@ -953,8 +953,6 @@ def weather(record):
             say("Aktualnie jest na dworze:")
             say(actstat)
 
-            daily_forecast = mng.forecast_at_place(city, 'daily').forecast
-            print(daily_forecast)
 
             if 'deszcz' in actstat or 'burza' in actstat or 'mżawka' in actstat or 'śnieg' in actstat:
                 say('Lepiej dobrze się ubierz.')
