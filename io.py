@@ -33,55 +33,28 @@ import tkinter.messagebox
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
 # Voice mechanism
-voice_mechanism = pyttsx3.init('sapi5')
+voice_mechanism = pyttsx3.init()
 
 root = tk.Tk()
+root.title('ASGLOS Asystent głosowy studenta')
+root.iconbitmap('textspeech.ico')
 img = tk.PhotoImage(file="logo.png")
-
 label = tk.Label(root, image=img)
-label.pack()
-
-img2 = tk.PhotoImage(file="banner.PNG")
-label = tk.Label(root, image=img2)
 label.pack()
 
 def say(audio):
     voice_mechanism.say(audio)
-    # a mechanism for hearing the voice
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
 
-
-def menu_tk():
-
-    #root.configure(background='lightblue')
-    root.title('ASGLOS Asystent głosowy studenta')
-    root.iconbitmap('textspeech.ico')
-    #menubar = tk.Menu(root)
-    #root.config(menu=menubar)
-    #file = tk.Menu(menubar, tearoff=0)
-    #menubar.add_cascade(label='File', menu=file)
-    #file.add_command(label='Exit', command=root.destroy)
-    #others = tk.Menu(menubar, tearoff=0)
-    #menubar.add_cascade(label='Others', menu=others)
-    #others.add_command(label='Exit', command=about_tk)
-# def image_tk():
-#
-#     image1 = Image.open("menu.png")
-#     img = ImageTk.PhotoImage(image1)
-#     label = tkinter.Label(image=img)
-#     label.image = img
-#     label.pack
-
 def view_tk():
-    menu_tk()
 
     var = StringVar()
 
     fontStyle = tkFont.Font(family="Lucida Grande", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=fontStyle, pady=30)
     var.set("Witaj w asystencie głosowym\n\n"
-            "Aby wywołać funkcję wystarczy wymówić jej nazwę.\n\n"
+            "Aby wywołać funkcję wystarczy wymówić wyraźnie jej nazwę.\n\n"
             "\nPodstawowe funkcje:\n"
             '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
@@ -121,13 +94,12 @@ def command_recognition():
 
     with s_r.Microphone() as source:
 
-        say("Abym mogła Tobie pomóc podaj nazwę funkcji.")
-        menu.menu()
-
+        say("Podaj nazwę funkcji.")
+        #menu.menu()
+        r.pause_threshold = 3
         print("Słucham Cię.")
         say("Słucham Cię.")
-        # period of silence allowed
-        # r.pause_threshold = 1
+
         # listening to calibrate the energy threshold for ambient noise levels
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
@@ -160,13 +132,9 @@ def wikipedia_search():
         wiki.adjust_for_ambient_noise(source)
         wikisearch = wiki.listen(source)
         varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
-        print(f"Powiedziano: {varwiki}\n")
+        print(f"Powiedziano: {varwiki}")
 
         with s_r.Microphone() as source2:
-
-            # intnum = ''
-            # check = isinstance(intnum, int)
-            # while check == False:
 
             say("Ile zdań mam przeczytać? Podaj liczbę.")
 
@@ -174,7 +142,7 @@ def wikipedia_search():
             sentences.adjust_for_ambient_noise(source2)
             sentencesnumber = wiki.listen(source2)
             number = wiki.recognize_google(sentencesnumber, language='pl-PL')
-            print(f"Powiedziano: {number}\n")
+            print(f"Powiedziano: {number}")
 
             if number == 'pięć':
                 intnum = 5
@@ -202,7 +170,6 @@ def wikipedia_search():
 
                 print("Czy zapisać treść do pliku? TAK/ NIE")
                 say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
-                # r.pause_threshold = 1
                 # listening to calibrate the energy threshold for ambient noise levels
                 r.adjust_for_ambient_noise(source3)
                 audio = r.listen(source3)
@@ -211,7 +178,7 @@ def wikipedia_search():
 
                     print("Słucham...")
                     record_wiki = r.recognize_google(audio, language='pl-PL')
-                    print(f"Odpowiedziano: {record_wiki}\n")
+                    print(f"Odpowiedziano: {record_wiki}")
 
                     if "tak" in record_wiki:
 
@@ -231,7 +198,7 @@ def wikipedia_search():
 
                                 print("Przetwarzam...")
                                 record_title_wiki = p.recognize_google(title, language='pl-PL')
-                                print(f"Podano tytuł: {record_title_wiki}\n")
+                                print(f"Podano tytuł: {record_title_wiki}")
                                 f = open(record_title_wiki + '.txt', 'w+')
                                 f.write(wikifound)
 
@@ -253,11 +220,6 @@ def wikipedia_search():
                     print(y)
                     say("Coś poszło nie tak. Spróbuj jeszcze raz.")
 
-        # return record_wiki
-        #
-        # record_wiki = command_recognition().lower()
-
-
 def save_to_file_title():
     p = s_r.Recognizer()
     record2 = ''
@@ -274,15 +236,12 @@ def save_to_file_title():
 
         print("Sprawdzam co powiedziano")
         record2 = p.recognize_google(audio2, language='pl-PL')
-        print(f"Powiedziano: {record2}\n")
+        print(f"Powiedziano: {record2}")
 
     except Exception as e:
 
         print(e)
         say("Nie zrozumiałam co mówisz. Plik zostanie zapisany bez tytułu.")
-
-    # else:
-    #     print("Nieoblisugwany blad", sys.exc_info()[0])
 
     return record2
 
@@ -303,7 +262,7 @@ def save_to_file_content():
 
         print("Sprawdzam co powiedziano")
         record3 = w.recognize_google(audio3, language='pl-PL')
-        print(f"Powiedziano: {record3}\n")
+        print(f"Powiedziano: {record3}")
         f = open(record2 + '.txt', 'w+')
         f.write(record3)
         voice_mechanism.save_to_file(record3, record2 + '.mp3')
@@ -314,9 +273,6 @@ def save_to_file_content():
     except Exception as e:
         print(e)
         say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem. Plik nie został zapisany")
-
-    # else:
-    #     print("Nieobsługiwany błąd", sys.exc_info()[0])
 
     return record3
 
@@ -337,7 +293,7 @@ def open_from_file():
 
         print("Otwieram plik...")
         record4 = q.recognize_google(audio4, language='pl-PL')
-        print(f"Powiedziano: {record4}\n")
+        print(f"Powiedziano: {record4}")
 
         file = open(record4 + ".txt", "r")
         print(file.read())
@@ -347,9 +303,6 @@ def open_from_file():
 
         print(e)
         say("Nie udało się otworzyć pliku. Notatka o podanym tytule nie istnieje.")
-
-    # else:
-    #     print("Nieoblisugwany blad", sys.exc_info()[0])
 
     return record4
 
@@ -513,98 +466,6 @@ def screenshot():
 
         print(e)
         say("Nie zrozumiałam, spróbuj jeszcze raz")
-
-
-# FUNKCJA WYCOFANA Z UWAGI NA PROBLEMY Z ROZPOZNAWANIEM LICZB
-# def calculator():
-#     while True:
-#
-#         try:
-#
-#             say("Podaj dwie liczby do działania")
-#
-#             with s_r.Microphone() as source:
-#
-#                 try:
-#
-#                     say("Podaj pierwszą liczbę")
-#                     print("Podaj pierwszą liczbę")
-#                     audio_0 = s_r.Recognizer()
-#                     audio_0.pause_threshold = 2
-#                     audio_listuj0 = audio_0.listen(source)
-#                     print(audio_listuj0)
-#                     record10 = audio_0.recognize_google(audio_listuj0, language='pl-PL')
-#
-#                     check = isinstance(record10, float)
-#                     if not check:
-#                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-#                         x = float(input("Pierwsza: "))
-#                     else:
-#                         x = float(record10)
-#
-#                     say("Podaj drugą liczbę")
-#                     print("Podaj drugą liczbę")
-#                     audio_1 = s_r.Recognizer()
-#                     audio_1.pause_threshold = 2
-#                     audio_listuj0 = audio_1.listen(source)
-#                     print(audio_listuj0)
-#                     record11 = audio_1.recognize_google(audio_listuj0, language='pl-PL')
-#
-#                     check2 = isinstance(record11, float)
-#                     if check2 != True:
-#                         say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-#                         y = float(input("Druga: "))
-#                     else:
-#                         y = float(record11)
-#
-#                     dzialanie = int(input(
-#                         "Jakie działanie wykonać? "
-#                         "\n1. Dodawanie 2. Odejmowanie 3. Mnożenie 4. Dzielenie "
-#                         "\nAby wyjść kliknij 00\n "))
-#
-#                     if (dzialanie == 1):
-#                         z = round((x + y), 2)
-#                         print(z)
-#                         say("Wynik dodowania wynosi")
-#                         say(z)
-#                     elif (dzialanie == 2):
-#                         z = round((x - y), 2)
-#                         print(z)
-#                         say("Wynik odejmowania wynosi:")
-#                         say(z)
-#                     elif (dzialanie == 3):
-#                         z = round((x * y), 2)
-#                         print(z)
-#                         say("Wynik mnożenia wynosi:")
-#                         say(z)
-#                     elif (dzialanie == 4):
-#
-#                         if y == 0:
-#
-#                             say("Pamiętaj cholero nie dziel przez zero")
-#
-#                         else:
-#                             z = round((x / y), 2)
-#                             print(z)
-#                             say("Wynik dzielenia wynosi:")
-#                             say(z)
-#                     elif (dzialanie == 0):
-#
-#                         say("Wychodzę z kalkulatora. ")
-#                         break
-#
-#                     else:
-#
-#                         say("Błąd.")
-#                         print("Błąd.")
-#
-#                 except Exception as e:
-#                     print("Nieobsługiwany błąd", sys.exc_info()[0])
-#
-#         except Exception as e:
-#             print(e)
-#             say("Spróbuj jeszcze raz")
-
 
 def lotto_draw():
     try:
@@ -843,7 +704,6 @@ def guess_the_number():
     number = random.randint(1, 100)
     running = True
     audio_in0 = s_r.Recognizer()
-    # print(number)
 
     while running:
 
@@ -874,9 +734,6 @@ def guess_the_number():
                     break
                 else:
                     a = int(record10)
-
-                # print(a)
-                # //say("Wybrałeś liczbę " + str(a))
 
                 if a < 1 or a > 100:
 
@@ -912,7 +769,6 @@ def guess_the_number():
 
         print('Gra skończona.')
 
-
 def weather(record):
 
     try:
@@ -926,10 +782,16 @@ def weather(record):
 
             print(city)
 
+            # https://pyowm.readthedocs.io/en/latest/v3/code-recipes.html
+            # from pyowm.owm import OWM
+            # from pyowm.utils.config import get_default_config
+            # config_dict = get_default_config()
+            # config_dict['language'] = 'pt'  # your language here, eg. Portuguese
+            # owm = OWM('your-api-key', config_dict)
+
             config_dict = get_default_config()
             config_dict['language'] = 'pl'
-    
-            owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b', config_dict)
+            owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
             mng = owm.weather_manager()
             obs = mng.weather_at_place(city + ', PL')
             w = obs.weather
@@ -938,9 +800,8 @@ def weather(record):
             print(w)
             act_temp = int(temp['temp'])
             print(act_temp)
-            say("Aktualna temperatura w mieście " + city + " wynosi")
+            say("Aktualna temperatura w stopniach celcjusza w mieście " + city + " wynosi:")
             say(act_temp)
-            say("stopnie celcjusza")
             say("Odczuwalna:")
             say(temp['feels_like'])
             say("Minimalna temparatura:")
@@ -952,7 +813,6 @@ def weather(record):
             say("Aktualnie jest na dworze:")
             say(actstat)
 
-
             if 'deszcz' in actstat or 'burza' in actstat or 'mżawka' in actstat or 'śnieg' in actstat:
                 say('Lepiej dobrze się ubierz.')
 
@@ -962,11 +822,10 @@ def weather(record):
         say("Prawdopodnie podano nieprawidłowe parametry. Spróbuj jeszcze raz.")
 
 
-if __name__ == "__main__":  # funkcja glowna
+if __name__ == "__main__":
 
     introduction()
     view_tk()
-    # root.mainloop()
 
     while True:
 
