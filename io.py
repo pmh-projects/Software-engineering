@@ -44,17 +44,19 @@ img = tk.PhotoImage(file="logo.png")
 label = tk.Label(root, image=img)
 label.pack()
 
+
 def say(audio):
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
 
-def view_tk():
 
+def view_tk():
     var = StringVar()
 
-    fontStyle = tkFont.Font(family="Lucida Grande", size=12)
-    label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=fontStyle, pady=30)
+    font = tkFont.Font(family="Helvetica", size=12)
+    label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
+                       pady=30)
     var.set("Witaj w asystencie głosowym\n\n"
             "Aby wywołać funkcję wystarczy wymówić wyraźnie jej nazwę.\n\n"
             "\nPodstawowe funkcje:\n"
@@ -85,13 +87,13 @@ def view_tk():
 
     root.update()
 
+
 def introduction():
     say("Witaj w asystencie głosowym")
     print("Witaj w asystencie głosowym")
 
 
 def command_recognition():
-
     time.sleep(2)
     # Create voice recognition
     r = s_r.Recognizer()
@@ -100,7 +102,7 @@ def command_recognition():
     with s_r.Microphone() as source:
 
         say("Podaj nazwę funkcji.")
-        #menu.menu()
+        # menu.menu()
         r.pause_threshold = 3
         print("Słucham Cię.")
         say("Słucham Cię.")
@@ -224,6 +226,7 @@ def wikipedia_search():
 
                     print(y)
                     say("Coś poszło nie tak. Spróbuj jeszcze raz.")
+
 
 def save_to_file_title():
     p = s_r.Recognizer()
@@ -471,6 +474,7 @@ def screenshot():
 
         print(e)
         say("Nie zrozumiałam, spróbuj jeszcze raz")
+
 
 def lotto_draw():
     try:
@@ -724,7 +728,6 @@ def guess_the_number():
 
                 record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
 
-                a = ''
                 stop = 'stop'
                 if record10 == 'pięć':
                     a = 5
@@ -774,8 +777,8 @@ def guess_the_number():
 
         print('Gra skończona.')
 
-def weather(record):
 
+def weather(record):
     try:
         check_city = record.replace("Pogoda", "")
 
@@ -974,7 +977,6 @@ if __name__ == "__main__":
 
                 print(e)
                 say("Coś poszło nie tak.")
-
 
         elif "wyszukiwarka" in record:
 
