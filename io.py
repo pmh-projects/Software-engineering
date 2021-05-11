@@ -62,7 +62,7 @@ def view_tk():
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
             '\n"Klawiatura" - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych'
-            '\n"Google" - wyszukuje 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
+            '\n"Google" - wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
             '\n"Screenshot" - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem'
             "\n"
             "\nFunkcje NET:\n"
