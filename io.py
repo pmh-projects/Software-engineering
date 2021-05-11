@@ -32,6 +32,8 @@ from tkinter.ttk import *
 import tkinter.messagebox
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
+import time
+
 # Voice mechanism
 voice_mechanism = pyttsx3.init()
 
@@ -68,6 +70,7 @@ def view_tk():
             '\n"Strona wydziału" - uruchamia stronę wydziału WZR'
             '\n"Portal edukacyjny" - uruchamia stronę portalu edukacyjnego'
             '\n"Portal studenta" - otwiera stronę portalu studenta'
+            '\n"Rozkład zajęć" - wyświetla podstronę z planem zajęć WZR'
             '\n"Aktualności" - uruchamia witrynę z aktualnościami studenckimi'
             '\n"Wyszukiwarka" - otwiera wyszukiwarkę bez deklaracji hasła.'
             '\n"Wsparcie" - masz problem z kodem? Otworzę stackoverflow.'
@@ -88,6 +91,8 @@ def introduction():
 
 
 def command_recognition():
+
+    time.sleep(2)
     # Create voice recognition
     r = s_r.Recognizer()
     record = ''
