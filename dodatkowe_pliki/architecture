@@ -1,0 +1,18 @@
+development architecture:
+Python 3.9 -  latest major release of Python
+PyCharm - an integrated development environment used in computer programming, specifically for the Python languag
+pip - a package-management system written in Python used to install and manage software packages.
+Pipenv is a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world.
+(Pipenv to narzędzie, którego celem jest wprowadzenie najlepszych rozwiązań ze wszystkich światów opakowań do świata Pythona. Łączy Pipfile, pip i virtualenv w jednym poleceniu.)
+Python Virtual Environments (virtualenv)
+Speakers and microphone
+Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser,
+pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(all modules in requirements.txt)
+
+
+runtime architecture:
+
+Python 3.9
+Speakers and microphone
+Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
+(please use command "pip freeze > requirements.txt" to install all modules)
