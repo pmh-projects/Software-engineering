@@ -52,8 +52,8 @@ def say(audio):
 
 
 def view_tk():
-    var = StringVar()
 
+    var = StringVar()
     font = tkFont.Font(family="Helvetica", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
                        pady=30)
@@ -63,8 +63,7 @@ def view_tk():
             '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
-            '\n"Klawiatura" - funkcja umożliwiająca wywoływanie pojedyńczych klawiszy i skrótów klawiszowych'
-            '\n"Google" - wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
+            '\n"Wyszukiwarka" - wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem'
             '\n"Screenshot" - pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem'
             "\n"
             "\nFunkcje NET:\n"
@@ -74,17 +73,17 @@ def view_tk():
             '\n"Portal studenta" - otwiera stronę portalu studenta'
             '\n"Rozkład zajęć" - wyświetla podstronę z planem zajęć WZR'
             '\n"Aktualności" - uruchamia witrynę z aktualnościami studenckimi'
-            '\n"Wyszukiwarka" - otwiera wyszukiwarkę bez deklaracji hasła.'
-            '\n"Wsparcie" - masz problem z kodem? Otworzę stackoverflow.'
+            '\n"Wsparcie" - masz problem z kodem? Otworzę Stack Overflow.'
             '\n"Otwórz youtube" - chcesz posłuchać muzyki?'
             '\n'
             '\nFunkcje dodatkowe:\n'
-            '\n"Pogoda + "miasto""- zapytaj o aktualną pogodę wypowiadając funkcję z nazwą krajowej miejscowości, która chcesz sprawdzić'
+            '\n"Pogoda + {miasto}"- zapytaj o aktualną pogodę wypowiadając funkcję wraz z nazwą krajowej miejscowości, która chcesz sprawdzić'
+            '\n"klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
             '\n"Zamknij" - wyjście z programu.')
-    label.pack(anchor=CENTER)
 
+    label.pack(anchor=CENTER)
     root.update()
 
 
@@ -316,6 +315,7 @@ def open_from_file():
 
 
 def klawiatura():
+
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
     klawisze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -430,14 +430,15 @@ def klawiatura():
 def google_search():
     google = s_r.Recognizer()
     with s_r.Microphone() as source:
-        say("Co mam znaleźć w GOOGLE?")
+        say("Co mam znaleźć w wyszukiwarce?")
 
         google.pause_threshold = 2
         google.adjust_for_ambient_noise(source)
         googlesearch = google.listen(source)
         vargoogle = google.recognize_google(googlesearch, language='pl-PL')
 
-        say("Przeszukuję GOOGLE w poszukiwaniu hasła")
+        print("Przeszukuję sieć...")
+        say("Przeszukuję sieć...")
 
         for url in search(vargoogle, lang='pl', num_results=5):
             print(url)
@@ -485,36 +486,31 @@ def lotto_draw():
         with s_r.Microphone() as source:
 
             try:
+                a = b = c = d = f = g = 0
+                while a < 1 or a > 49:
 
-                print("Podaj pierwszą liczbę")
-                say("Podaj pierwszą liczbę")
-                audio_in0 = s_r.Recognizer()
-                audio_in0.pause_threshold = 2
-                audio_listuj0 = audio_in0.listen(source)
-                print(audio_listuj0)
-                record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
+                    print("Podaj pierwszą liczbę")
+                    say("Podaj pierwszą liczbę")
+                    audio_in0 = s_r.Recognizer()
+                    audio_in0.pause_threshold = 2
+                    audio_listuj0 = audio_in0.listen(source)
+                    print(audio_listuj0)
+                    record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
 
-                if record10 == 'pięć':
-                    a = 5
-                elif record10 == 'osiem':
-                    a = 8
-                elif record10 == 'siedem':
-                    a = 7
-                elif record10 == 'jeden':
-                    a = 1
-                else:
-                    a = int(record10)
+                    if record10 == 'pięć':
+                        a = 5
+                    elif record10 == 'osiem':
+                        a = 8
+                    elif record10 == 'siedem':
+                        a = 7
+                    elif record10 == 'jeden':
+                        a = 1
+                    else:
+                        a = int(record10)
 
-                print(a)
+                    print(a)
 
-                if a < 1 or a > 49:
-
-                    say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                    while a < 1 or a > 49:
-                        a = int(input("Podaj liczbę: "))
-
-                b = a
-                while a == b:
+                while b < 1 or b > 49 or b == a:
 
                     print("Podaj drugą liczbę")
                     say("Podaj drugą liczbę")
@@ -524,7 +520,6 @@ def lotto_draw():
                     print(audio_listuj1)
                     record20 = audio_in1.recognize_google(audio_listuj1, language='pl-PL')
 
-                    b = ''
                     if record20 == 'pięć':
                         b = 5
                     elif record20 == 'osiem':
@@ -538,14 +533,7 @@ def lotto_draw():
 
                     print(b)
 
-                    if b <= 0 or b > 49:
-
-                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        while b < 1 or b > 49:
-                            b = int(input("Podaj liczbę: "))
-
-                c = a
-                while a == c or b == c:
+                while c < 1 or c > 49 or c == a or c == b:
 
                     print("Podaj trzecią liczbę")
                     say("Podaj trzecią liczbę")
@@ -555,7 +543,6 @@ def lotto_draw():
                     print(audio_listuj2)
                     record30 = audio_in2.recognize_google(audio_listuj2, language='pl-PL')
 
-                    c = ''
                     if record30 == 'pięć':
                         c = 5
                     elif record30 == 'osiem':
@@ -569,14 +556,7 @@ def lotto_draw():
 
                     print(c)
 
-                    if c < 1 or c > 49:
-
-                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        while c < 1 or c > 49:
-                            c = int(input("Podaj liczbę: "))
-
-                d = a
-                while a == d or b == d or c == d:
+                while d < 1 or d > 49 or d == a or d == b or d == c:
 
                     print("Podaj czwartą liczbę")
                     say("Podaj czwartą liczbę")
@@ -586,7 +566,6 @@ def lotto_draw():
                     print(audio_listuj3)
                     record40 = audio_in3.recognize_google(audio_listuj3, language='pl-PL')
 
-                    d = ''
                     if record40 == 'pięć':
                         d = 5
                     elif record40 == 'osiem':
@@ -599,14 +578,8 @@ def lotto_draw():
                         d = int(record40)
 
                     print(d)
-                    if d < 1 or d > 49:
 
-                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        while d < 1 or d > 49:
-                            d = int(input("Podaj liczbę: "))
-
-                f = a
-                while a == f or b == f or c == f or d == f:
+                while f < 1 or f > 49 or f == a or f == b or f == c or f == d:
 
                     print("Podaj piątą liczbę")
                     say("Podaj piątą liczbę")
@@ -615,7 +588,7 @@ def lotto_draw():
                     audio_listuj4 = audio_in4.listen(source)
                     print(audio_listuj4)
                     record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
-                    f = ''
+
                     if record50 == 'pięć':
                         f = 5
                     elif record50 == 'osiem':
@@ -629,14 +602,7 @@ def lotto_draw():
 
                     print(f)
 
-                    if f < 1 or f > 49:
-
-                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        while f < 1 or f > 49:
-                            f = int(input("Podaj liczbę: "))
-
-                g = a
-                while a == g or b == g or c == g or d == g or f == g:
+                while g < 1 or g > 49 or a == g or b == g or c == g or d == g or f == g:
 
                     print("Podaj szóstą liczbę")
                     say("Podaj szóstą liczbę")
@@ -646,7 +612,6 @@ def lotto_draw():
                     print(audio_listuj4)
                     record60 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
 
-                    g = ''
                     if record60 == 'pięć':
                         g = 5
                     elif record60 == 'osiem':
@@ -659,11 +624,6 @@ def lotto_draw():
                         g = int(record60)
 
                     print(g)
-                    if g < 1 or g > 49:
-
-                        say("Nie odnotowano liczby z zakresu od 1 do 49. Proszę wprowadź liczbę ręcznie.")
-                        while g < 1 or g > 49:
-                            g = int(input("Podaj liczbę: "))
 
             except Exception as e:
 
@@ -786,9 +746,7 @@ def weather(record):
             say("Nie podano miasta. Spróbuj jeszcze raz.")
 
         else:
-            city = check_city
-
-            print(city)
+            print(check_city)
 
             # https://pyowm.readthedocs.io/en/latest/v3/code-recipes.html
             # from pyowm.owm import OWM
@@ -801,14 +759,14 @@ def weather(record):
             config_dict['language'] = 'pl'
             owm = pyowm.OWM('74940aca9b5a0b8e0ca18806718b52b3', config_dict)
             mng = owm.weather_manager()
-            obs = mng.weather_at_place(city + ', PL')
+            obs = mng.weather_at_place(check_city + ', PL')
             w = obs.weather
             temp = w.temperature('celsius')
 
             print(w)
             act_temp = int(temp['temp'])
             print(act_temp)
-            say("Aktualna temperatura w stopniach celcjusza w mieście " + city + " wynosi:")
+            say("Aktualna temperatura w stopniach celcjusza w mieście " + check_city + " wynosi:")
             say(act_temp)
             say("Odczuwalna:")
             say(temp['feels_like'])
@@ -884,7 +842,7 @@ if __name__ == "__main__":
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif 'google' in record or 'gugle' in record or 'gogle' in record:
+        elif 'wyszukiwarka' in record:
 
             try:
 
@@ -978,17 +936,17 @@ if __name__ == "__main__":
                 print(e)
                 say("Coś poszło nie tak.")
 
-        elif "wyszukiwarka" in record:
-
-            try:
-
-                say("Już otwieram.")
-                webbrowser.open("https:\\www.google.com")
-
-            except Exception as e:
-
-                print(e)
-                say("Coś poszło nie tak.")
+        # elif "wyszukiwarka" in record:
+        #
+        #     try:
+        #
+        #         say("Już otwieram.")
+        #         webbrowser.open("https:\\www.google.com")
+        #
+        #     except Exception as e:
+        #
+        #         print(e)
+        #         say("Coś poszło nie tak.")
 
         elif 'wsparcie' in record:
 
