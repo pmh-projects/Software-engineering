@@ -75,9 +75,9 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 + Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
 + Python Virtual Environments (virtualenv)
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser,
-+ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
+pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
 + Połączenie sieciowe w celu połączenia się z modułami
-+ System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
++ System operacyjny umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
 + Mikrofon (bardzo dobrze wychwytujący dźwięki)
 + Głośniki
 
@@ -86,7 +86,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 + Python 3.9
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
 (w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
-+ Skonfugurowane środowisko (PATH i zmienne środowiskowe)
++ Skonfigurowane środowisko (PATH i zmienne środowiskowe)
 + Połączenie sieciowe w celu połączenia się z modułami
 + System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
 + Mikrofon (bardzo dobrze wychwytujący dźwięki)
