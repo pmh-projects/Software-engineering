@@ -1,21 +1,21 @@
 #  (AG) AsGlos - asystent głosowy
 
-Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwić studiowanie poprzez stworzenie asystenta, który przyśpieszy i usprawni poruszanie się po "sprawach studenckich.
 
 	## Table of contents
-* [1. Charakterystyka  oprogramowania](#general-info)
+* [1. Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [2. Prawa autorskie](#Prawa-autorskie)
-* [3. Specyfikacja wymagań](#setup)
-* [4. Projekt (diagramy UML)](#features)
-* [5. Architektura systemu/oprogramowania](#status)
-* [6. Testy](#inspiration)
-* [7. Kontakt](#contact)
-	## Charakterystyka  oprogramowania
-	<ul>
-	   <li>Nazwa skrócona</li>
-	   <li>Nazwa pełna</li>
-	   <li>Krótki opis ze wskazaniem celów</li>
-	</ul>
+* [3. Specyfikacja wymagań](#Specyfikacja-wymagań)
+* [4. Projekt (diagramy UML)](#Projekt-(diagramy-UML))
+* [5. Architektura systemu/oprogramowania](#Architektura systemu/oprogramowania)
+* [6. Testy](#Testy)
+* [7. Kontakt](#Kontakt)
+
+
+## 1. Charakterystyka  oprogramowania
+
+Nazwa skrócona
+Nazwa pełna
+Krótki opis ze wskazaniem celów
 	
 ## Prawa autorskie
 
@@ -45,7 +45,7 @@ Głośniki'''
 
 Architektura uruchomieniowa:
 
-'''Python 3.9
+Python 3.9
 Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
 (w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
 skonfugurowane środowisko (PATH i zmienne środowiskowe)
@@ -53,7 +53,7 @@ Połączenie sieciowe w celu połączenia się z modułami
 Mikrofon (bardzo dobrze wychwytujący dźwięki)
 Głośniki'''
 
-	## Features
+## Architektura systemu/oprogramowania
 List of features ready and TODOs for future development
 * <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 * Awesome feature 2
@@ -63,6 +63,5 @@ List of features ready and TODOs for future development
 * Wow improvement to be done 2
 	## Status
 Project is: in progress, finished, no longer continue and why?
-	## Inspiration
-Add here credits. Project inspired by..., based on...
-	## Contact
+## Testy
+## Kontakt
