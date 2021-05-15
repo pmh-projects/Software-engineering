@@ -6,7 +6,7 @@
 * [2. Prawa autorskie](#Prawa-autorskie)
 * [3. Specyfikacja wymagań](#Specyfikacja-wymagań)
 * [4. Projekt (diagramy UML)](#Projekt-(diagramy-UML))
-* [5. Architektura systemu/oprogramowania](#Architektura systemu/oprogramowania)
+* [5. Architektura systemu/oprogramowania](#Architektura-systemu/oprogramowania)
 * [6. Testy](#Testy)
 * [7. Kontakt](#Kontakt)
 
@@ -17,17 +17,17 @@ Nazwa skrócona
 Nazwa pełna
 Krótki opis ze wskazaniem celów
 	
-## Prawa autorskie
+## 2. Prawa autorskie
 
 Paweł Mach, Marcin Edel, Damian Jaszewski
 
-## Specyfikacja wymagań
+## 3. Specyfikacja wymagań
 
-## Projekt (diagramy UML)
+## 4. Projekt (diagramy UML)
 	
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 	
-	##Architektura systemu/oprogramowania
+## 5. Architektura systemu/oprogramowania
 
 Architektura rozwoju:
 
@@ -53,7 +53,6 @@ Połączenie sieciowe w celu połączenia się z modułami
 Mikrofon (bardzo dobrze wychwytujący dźwięki)
 Głośniki'''
 
-## Architektura systemu/oprogramowania
 List of features ready and TODOs for future development
 * <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 * Awesome feature 2
@@ -63,5 +62,5 @@ List of features ready and TODOs for future development
 * Wow improvement to be done 2
 	## Status
 Project is: in progress, finished, no longer continue and why?
-## Testy
-## Kontakt
+## 6. Testy
+## 7. Kontakt
