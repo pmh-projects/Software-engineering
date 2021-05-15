@@ -1,15 +1,15 @@
 #  (AG) AsGlos - asystent głosowy
 
-* [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
-* [Prawa autorskie](#Prawa-autorskie)
-* [Specyfikacja wymagań](#Specyfikacja-wymagań)
-* [Projekt (diagramy UML)](#Projekt))
-* [Architektura systemu/oprogramowania](#Architektura-oprogramowania)
-* [Testy](#Testy)
-* [Kontakt](#Kontakt)
+* [1. Charakterystyka  oprogramowania](#1.-Charakterystyka-oprogramowania)
+* [2. Prawa autorskie](#2.-Prawa-autorskie)
+* [3. Specyfikacja wymagań](#3.-Specyfikacja-wymagań)
+* [4. Projekt (diagramy UML)](#4.-Projekt))
+* [5. Architektura systemu/oprogramowania](#5.-Architektura-oprogramowania)
+* [6. Testy](#6.-Testy)
+* [7. Kontakt](#7.-Kontakt)
 
 
-## Charakterystyka  oprogramowania
+## 1. Charakterystyka  oprogramowania
 
 Nazwa skrócona: (S)AG<br>
 Nazwa pełna: (S)AsGlos studencki asystent głosowy
@@ -18,13 +18,13 @@ Krótki opis ze wskazaniem celów:<br>
 Asystent głosowy bla bla bla stworzony z myślą o studentach i dla studentów bla bla bla, który bla bla bla.
 Celem jego jest bla bla, ułatwienie poruszania się po świecie studenckim, bla bla bla.
 	
-## Prawa autorskie
+## 2. Prawa autorskie
 
 Paweł Mach, Marcin Edel, Damian Jaszewski
 Licencja GPLv3
 + info o licencjach poszczególnych modułów
 
-## Specyfikacja wymagań
+## 3. Specyfikacja wymagań
 
 Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator, (2) nazwa, (3) opis, (4) priorytet: 1- wymagane, 2-przydatne, 3-opcjonalne 
 
@@ -32,7 +32,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 + Wymagania niefunkcjonalne.
 
-## Projekt
+## 4. Projekt
 <br><br>
 <p align="center"><b>
 UML:
@@ -69,7 +69,7 @@ Diagram wdrożeń
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=80%/>
 </p>
 
-## Architektura oprogramowania
+## 5. Architektura oprogramowania
 
 Architektura rozwoju:
 
@@ -96,11 +96,11 @@ Architektura uruchomieniowa:
 + Mikrofon (bardzo dobrze wychwytujący dźwięki)
 + Głośniki
 
-## Testy
+## 6. Testy
 
 Processing........................
 
-## Kontakt
+## 7. Kontakt
 
 pawelmach@pm.me<br>
 damian.jaszewski.@<br>
