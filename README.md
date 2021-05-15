@@ -1,7 +1,5 @@
 #  (AG) AsGlos - asystent głosowy
 
-
-	## Table of contents
 * [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [Prawa autorskie](#Prawa-autorskie)
 * [Specyfikacja wymagań](#Specyfikacja-wymagań)
@@ -13,20 +11,42 @@
 
 ## Charakterystyka  oprogramowania
 
-Nazwa skrócona
-Nazwa pełna
-Krótki opis ze wskazaniem celów
+Nazwa skrócona: AG
+Nazwa pełna: AsGlos
+
+Krótki opis ze wskazaniem celów:
+Asystent głosowy bla bla bla stworzony z myślą o studentach i dla studentów bla bla bla, który bla bla bla.
+Celem jego jest bla bla, ułatwienie poruszania się po świecie studenckim, bla bla bla.
 	
 ## Prawa autorskie
 
 Paweł Mach, Marcin Edel, Damian Jaszewski
+Licencja GPLv3
++ info o licencjach poszczególnych modułów
 
 ## Specyfikacja wymagań
 
+Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator, (2) nazwa, (3) opis, (4) priorytet: 1- wymagane, 2-przydatne, 3-opcjonalne 
+
+Wymagania funkcjonalne. 
+
+Wymagania niefunkcjonalne.
+
 ## Projekt
-	
+<br><br>
+<p align="center"><b>
+Diagramy UML:
+</b></p>
+<br>
+<p align="center">
+Przypadków użycia:
+</p>
+<p align="center">
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
-	
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_czynnosci_dla_kazdego_przypadku_uzycia.png" width=50%/>
+</p>	
 ## Architektura oprogramowania
 
 Architektura rozwoju:
