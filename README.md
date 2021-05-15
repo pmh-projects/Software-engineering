@@ -14,7 +14,7 @@
   * [Diagram wdrożeń](#Diagram-wdrożeń)
 * [Architektura systemu/oprogramowania](#Architektura-oprogramowania)
   * [Architektura rozwoju](#Architektura-rozwoju)
-  * [Diagram wdrożeń](#Architektura-uruchomieniowa)
+  * [Architektura uruchomieniowa](#Architektura-uruchomieniowa)
 * [Testy](#Testy)
 * [Kontakt](#Kontakt)
 
