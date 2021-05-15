@@ -1,10 +1,10 @@
 #  (AG) AsGlos - asystent głosowy
 
-* [1. Charakterystyka  oprogramowania](#1.-Charakterystyka-oprogramowania)
+* [1. Charakterystyka  oprogramowania](#1.Charakterystyka-oprogramowania)
 * [2. Prawa autorskie](#2.-Prawa-autorskie)
 * [3. Specyfikacja wymagań](#3.-Specyfikacja-wymagań)
 * [4. Projekt (diagramy UML)](#4.-Projekt))
-* [5. Architektura systemu/oprogramowania](#5.-Architektura-oprogramowania)
+* [5. Architektura systemu/oprogramowania](#5.Architektura-oprogramowania)
 * [6. Testy](#6.-Testy)
 * [7. Kontakt](#7.-Kontakt)
 
