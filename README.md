@@ -4,7 +4,7 @@ Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwi
 
 	## Table of contents
 * [1. Charakterystyka  oprogramowania](#general-info)
-* [2. Prawa autorskie](#Prawa autorskie)
+* [2. Prawa autorskie](#Prawa-autorskie)
 * [3. Specyfikacja wymagań](#setup)
 * [4. Projekt (diagramy UML)](#features)
 * [5. Architektura systemu/oprogramowania](#status)
@@ -17,12 +17,13 @@ Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwi
 	   <li>Krótki opis ze wskazaniem celów</li>
 	</ul>
 	
-	## Prawa autorskie
-	   Paweł Mach, Marcin Edel, Damian Jaszewski
+## Prawa autorskie
 
-	## Specyfikacja wymagań
+Paweł Mach, Marcin Edel, Damian Jaszewski
 
-	## Projekt (diagramy UML)
+## Specyfikacja wymagań
+
+## Projekt (diagramy UML)
 	
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 	
@@ -51,7 +52,6 @@ skonfugurowane środowisko (PATH i zmienne środowiskowe)
 Połączenie sieciowe w celu połączenia się z modułami
 Mikrofon (bardzo dobrze wychwytujący dźwięki)
 Głośniki'''
-
 
 	## Features
 List of features ready and TODOs for future development
