@@ -235,24 +235,26 @@ def save_to_file_title():
 
     with s_r.Microphone() as source:
 
-        print("Slucham...")
-        say("Podaj tytuł pliku.")
-        p.pause_threshold = 1
-        p.adjust_for_ambient_noise(source)
-        audio2 = p.listen(source, timeout=10, phrase_time_limit=15)
+        while record2 == '':
 
-        try:
+            print("Slucham...")
+            say("Podaj tytuł pliku.")
+            p.pause_threshold = 1
+            p.adjust_for_ambient_noise(source)
+            audio2 = p.listen(source, timeout=10, phrase_time_limit=15)
 
-            print("Sprawdzam co powiedziano")
-            record2 = p.recognize_google(audio2, language='pl-PL')
-            print(f"Powiedziano: {record2}")
+            try:
 
-        except Exception as e:
+                print("Sprawdzam co powiedziano")
+                record2 = p.recognize_google(audio2, language='pl-PL')
+                print(f"Powiedziano: {record2}")
 
-            print(e)
-            say("Nie zrozumiałam co mówisz. Plik zostanie zapisany bez tytułu.")
+            except Exception as e:
 
-    return record2
+                print(e)
+                say("Nie zrozumiałam co mówisz.")
+
+        return record2
 
 
 def save_to_file_content():
