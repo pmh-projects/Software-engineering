@@ -2,32 +2,32 @@
 
 
 	## Table of contents
-* [1. Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
-* [2. Prawa autorskie](#Prawa-autorskie)
-* [3. Specyfikacja wymagań](#Specyfikacja-wymagań)
-* [4. Projekt (diagramy UML)](#Projekt-(diagramy-UML))
-* [5. Architektura systemu/oprogramowania](#Architektura-systemu/oprogramowania)
-* [6. Testy](#Testy)
-* [7. Kontakt](#Kontakt)
+* [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
+* [Prawa autorskie](#Prawa-autorskie)
+* [Specyfikacja wymagań](#Specyfikacja-wymagań)
+* [Projekt (diagramy UML)](#Projekt-(diagramy-UML))
+* [Architektura systemu/oprogramowania](#Architektura-systemu/oprogramowania)
+* [Testy](#Testy)
+* [Kontakt](#Kontakt)
 
 
-## 1. Charakterystyka  oprogramowania
+## Charakterystyka  oprogramowania
 
 Nazwa skrócona
 Nazwa pełna
 Krótki opis ze wskazaniem celów
 	
-## 2. Prawa autorskie
+## Prawa autorskie
 
 Paweł Mach, Marcin Edel, Damian Jaszewski
 
-## 3. Specyfikacja wymagań
+## Specyfikacja wymagań
 
-## 4. Projekt (diagramy UML)
+## Projekt (diagramy UML)
 	
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 	
-## 5. Architektura systemu/oprogramowania
+## Architektura systemu/oprogramowania
 
 Architektura rozwoju:
 
@@ -63,4 +63,4 @@ List of features ready and TODOs for future development
 	## Status
 Project is: in progress, finished, no longer continue and why?
 ## Testy
-## 7. Kontakt
+## Kontakt
