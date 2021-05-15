@@ -3,7 +3,7 @@
 Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwić studiowanie poprzez stworzenie asystenta, który przyśpieszy i usprawni poruszanie się po "sprawach studenckich.
 
 	## Table of contents
-* [1. Charakterystyka  oprogramowania](#Charakterystyka  oprogramowania)
+* [1. Charakterystyka  oprogramowania](#general-info)
 * [2. Prawa autorskie](#Prawa autorskie)
 * [3. Specyfikacja wymagań](#setup)
 * [4. Projekt (diagramy UML)](#features)
