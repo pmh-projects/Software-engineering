@@ -59,7 +59,7 @@ def view_tk():
                        pady=30)
     var.set("Witaj w asystencie głosowym\n\n"
             "Aby wywołać funkcję wystarczy wymówić wyraźnie jej nazwę.\n\n"
-            "\nPodstawowe funkcje:\n"
+            "\nFunkcje podstawowe:\n"
             '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
             '\n"Otwórz plik" lub "otwórz notatkę" - otwieranie zapisanego pliku'
@@ -74,11 +74,11 @@ def view_tk():
             '\n"Rozkład zajęć" - wyświetla podstronę z planem zajęć WZR'
             '\n"Aktualności" - uruchamia witrynę z aktualnościami studenckimi'
             '\n"Wsparcie" - masz problem z kodem? Otworzę Stack Overflow.'
-            '\n"Otwórz youtube" - chcesz posłuchać muzyki?'
+            '\n"Otwórz youtube" - chcesz posłuchać muzyki lub obejrzeć video?'
             '\n'
             '\nFunkcje dodatkowe:\n'
             '\n"Pogoda + {miasto}"- zapytaj o aktualną pogodę wypowiadając funkcję wraz z nazwą krajowej miejscowości, która chcesz sprawdzić'
-            '\n"klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
+            '\n"Klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
             '\n"Zamknij" - wyjście z programu.')
@@ -487,7 +487,13 @@ def lotto_draw():
 
             try:
                 a = b = c = d = f = g = 0
-                while a < 1 or a > 49:
+                check_var0 = isinstance('a', int)
+                check_var1 = isinstance('a', int)
+                check_var2 = isinstance('a', int)
+                check_var3 = isinstance('a', int)
+                check_var4 = isinstance('a', int)
+                check_var5 = isinstance('a', int)
+                while check_var0 == False or a < 1 or a > 49:
 
                     print("Podaj pierwszą liczbę")
                     say("Podaj pierwszą liczbę")
@@ -496,21 +502,25 @@ def lotto_draw():
                     audio_listuj0 = audio_in0.listen(source)
                     print(audio_listuj0)
                     record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
-
                     if record10 == 'pięć':
-                        a = 5
+                        a = check_var0 = 5
                     elif record10 == 'osiem':
-                        a = 8
+                        a = check_var0 = 8
                     elif record10 == 'siedem':
-                        a = 7
+                        a = check_var0 = 7
                     elif record10 == 'jeden':
-                        a = 1
+                        a = check_var0 = 1
                     else:
-                        a = int(record10)
+                        try:
+                            a = check_var0 = int(record10)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(a)
 
-                while b < 1 or b > 49 or b == a:
+                while check_var1 == False or b < 1 or b > 49 or b == a:
 
                     print("Podaj drugą liczbę")
                     say("Podaj drugą liczbę")
@@ -521,19 +531,24 @@ def lotto_draw():
                     record20 = audio_in1.recognize_google(audio_listuj1, language='pl-PL')
 
                     if record20 == 'pięć':
-                        b = 5
+                        b = check_var1 = 5
                     elif record20 == 'osiem':
-                        b = 8
+                        b = check_var1 = 8
                     elif record20 == 'siedem':
-                        b = 7
+                        b = check_var1 = 7
                     elif record20 == 'jeden':
-                        b = 1
+                        b = check_var1 = 1
                     else:
-                        b = int(record20)
+                        try:
+                            b = check_var1 = int(record20)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(b)
 
-                while c < 1 or c > 49 or c == a or c == b:
+                while check_var2 == False or c < 1 or c > 49 or c == a or c == b:
 
                     print("Podaj trzecią liczbę")
                     say("Podaj trzecią liczbę")
@@ -544,19 +559,24 @@ def lotto_draw():
                     record30 = audio_in2.recognize_google(audio_listuj2, language='pl-PL')
 
                     if record30 == 'pięć':
-                        c = 5
+                        c = check_var2 = 5
                     elif record30 == 'osiem':
-                        c = 8
+                        c = check_var2 = 8
                     elif record30 == 'siedem':
-                        c = 7
+                        c = check_var2 = 7
                     elif record30 == 'jeden':
-                        c = 1
+                        c = check_var2 = 1
                     else:
-                        c = int(record30)
+                        try:
+                            c = check_var2 = int(record30)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(c)
 
-                while d < 1 or d > 49 or d == a or d == b or d == c:
+                while check_var3 == False or d < 1 or d > 49 or d == a or d == b or d == c:
 
                     print("Podaj czwartą liczbę")
                     say("Podaj czwartą liczbę")
@@ -567,19 +587,24 @@ def lotto_draw():
                     record40 = audio_in3.recognize_google(audio_listuj3, language='pl-PL')
 
                     if record40 == 'pięć':
-                        d = 5
+                        d = check_var3 = 5
                     elif record40 == 'osiem':
-                        d = 8
+                        d = check_var3 = 8
                     elif record40 == 'siedem':
-                        d = 7
+                        d = check_var3 = 7
                     elif record40 == 'jeden':
-                        d = 1
+                        d = check_var3 = 1
                     else:
-                        d = int(record40)
+                        try:
+                            d = check_var3 = int(record40)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(d)
 
-                while f < 1 or f > 49 or f == a or f == b or f == c or f == d:
+                while check_var4 == False or f < 1 or f > 49 or f == a or f == b or f == c or f == d:
 
                     print("Podaj piątą liczbę")
                     say("Podaj piątą liczbę")
@@ -590,19 +615,24 @@ def lotto_draw():
                     record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
 
                     if record50 == 'pięć':
-                        f = 5
+                        f = check_var4 = 5
                     elif record50 == 'osiem':
-                        f = 8
+                        f = check_var4 = 8
                     elif record50 == 'siedem':
-                        f = 7
+                        f = check_var4 =7
                     elif record50 == 'jeden':
-                        f = 1
+                        f = check_var4 = 1
                     else:
-                        f = int(record50)
+                        try:
+                            f = check_var4 = int(record50)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(f)
 
-                while g < 1 or g > 49 or a == g or b == g or c == g or d == g or f == g:
+                while check_var5 == False or g < 1 or g > 49 or a == g or b == g or c == g or d == g or f == g:
 
                     print("Podaj szóstą liczbę")
                     say("Podaj szóstą liczbę")
@@ -613,15 +643,20 @@ def lotto_draw():
                     record60 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
 
                     if record60 == 'pięć':
-                        g = 5
+                        g = check_var5 = 5
                     elif record60 == 'osiem':
-                        g = 8
+                        g = check_var5 = 8
                     elif record60 == 'siedem':
-                        g = 7
+                        g = check_var5 = 7
                     elif record60 == 'jeden':
-                        g = 1
+                        g = check_var5 = 1
                     else:
-                        g = int(record60)
+                        try:
+                            g = check_var5 = int(record60)
+
+                        except Exception as e:
+
+                            say("Nie podałeś prawidłowej wartości.")
 
                     print(g)
 
