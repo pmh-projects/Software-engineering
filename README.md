@@ -19,19 +19,43 @@ Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwi
 	
 	## Prawa autorskie
 	   Paweł Mach, Marcin Edel, Damian Jaszewski
-![Example screenshot](./img/screenshot.png)
+
 	## Specyfikacja wymagań
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
-	## Setup
-Describe how to install / setup your local environement / add link to demo version.
-	## Code Examples
-Show examples of usage:
-put-your-code-here
+
+	## Projekt (diagramy UML)
+	
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
+	
+	##Architektura systemu/oprogramowania
+
+Architektura rozwoju:
+
+'''Python 3.9 -  wydanie Python'a
+PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
+pip - system zarządzania pakietami napisany w Pythonie, używany do instalowania pakietów oprogramowania i zarządzania nimi.
+Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
+Python Virtual Environments (virtualenv)
+Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser,
+pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
+Połączenie sieciowe w celu połączenia się z modułami
+system 
+Mikrofon (bardzo dobrze wychwytujący dźwięki)
+Głośniki'''
+
+Architektura uruchomieniowa:
+
+'''Python 3.9
+Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
+(w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
+skonfugurowane środowisko (PATH i zmienne środowiskowe)
+Połączenie sieciowe w celu połączenia się z modułami
+Mikrofon (bardzo dobrze wychwytujący dźwięki)
+Głośniki'''
+
+
 	## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
+* <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 * Awesome feature 2
 * Awesome feature 3
 	To-do list:
