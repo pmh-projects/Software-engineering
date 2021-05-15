@@ -11,10 +11,10 @@
 
 ## Charakterystyka  oprogramowania
 
-Nazwa skrócona: (S)AG
+Nazwa skrócona: (S)AG<br>
 Nazwa pełna: (S)AsGlos studencki asystent głosowy
-
-Krótki opis ze wskazaniem celów:
+<br><br>
+Krótki opis ze wskazaniem celów:<br>
 Asystent głosowy bla bla bla stworzony z myślą o studentach i dla studentów bla bla bla, który bla bla bla.
 Celem jego jest bla bla, ułatwienie poruszania się po świecie studenckim, bla bla bla.
 	
@@ -28,9 +28,9 @@ Licencja GPLv3
 
 Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator, (2) nazwa, (3) opis, (4) priorytet: 1- wymagane, 2-przydatne, 3-opcjonalne 
 
-Wymagania funkcjonalne. 
++ Wymagania funkcjonalne. 
 
-Wymagania niefunkcjonalne.
++ Wymagania niefunkcjonalne.
 
 ## Projekt
 <br><br>
@@ -73,34 +73,28 @@ Diagram wdrożeń
 
 Architektura rozwoju:
 
-Python 3.9 -  wydanie Python'a
-PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
-pip - system zarządzania pakietami napisany w Pythonie, używany do instalowania pakietów oprogramowania i zarządzania nimi.
-Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
-Python Virtual Environments (virtualenv)
-Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser,
-pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
-Połączenie sieciowe w celu połączenia się z modułami
-system 
-Mikrofon (bardzo dobrze wychwytujący dźwięki)
-Głośniki
++ Python 3.9 -  wydanie Python'a
++ PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
++ pip - system zarządzania pakietami napisany w Pythonie, używany do instalowania pakietów oprogramowania i zarządzania nimi.
++ Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
++ Python Virtual Environments (virtualenv)
++ Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser,
++ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
++ Połączenie sieciowe w celu połączenia się z modułami
++ System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
++ Mikrofon (bardzo dobrze wychwytujący dźwięki)
++ Głośniki
 
 Architektura uruchomieniowa:
 
-Python 3.9
-Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
++ Python 3.9
++ Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
 (w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
-skonfugurowane środowisko (PATH i zmienne środowiskowe)
-Połączenie sieciowe w celu połączenia się z modułami
-Mikrofon (bardzo dobrze wychwytujący dźwięki)
-Głośniki
-
-List of features ready and TODOs for future development
-* Awesome feature 2
-* Awesome feature 3
-	To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
++ Skonfugurowane środowisko (PATH i zmienne środowiskowe)
++ Połączenie sieciowe w celu połączenia się z modułami
++ System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
++ Mikrofon (bardzo dobrze wychwytujący dźwięki)
++ Głośniki
 
 ## Testy
 
