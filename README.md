@@ -3,19 +3,24 @@
 Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwić studiowanie poprzez stworzenie asystenta, który przyśpieszy i usprawni poruszanie się po "sprawach studenckich.
 
 	## Table of contents
-* [1. Charakterystyka  oprogramowania](#general-info)
-* [2. Prawa autorskie](#screenshots)
-* [Technologies](#technologies)
-* [Specyfikacja wymagań](#setup)
-* [Projekt (diagramy UML)](#features)
-* [Architektura systemu/oprogramowania](#status)
-* [Testy](#inspiration)
-* [Kontakt](#contact)
-	## General info
-Add more general information about project. What the purpose of the project is? Motivation?
-	## Screenshots
+* [1. Charakterystyka  oprogramowania](#Charakterystyka  oprogramowania)
+* [2. Prawa autorskie](#Prawa autorskie)
+* [3. Specyfikacja wymagań](#setup)
+* [4. Projekt (diagramy UML)](#features)
+* [5. Architektura systemu/oprogramowania](#status)
+* [6. Testy](#inspiration)
+* [7. Kontakt](#contact)
+	## Charakterystyka  oprogramowania
+	<ul>
+	   <li>Nazwa skrócona</li>
+	   <li>Nazwa pełna</li>
+	   <li>Krótki opis ze wskazaniem celów</li>
+	</ul>
+	
+	## Prawa autorskie
+	   Paweł Mach, Marcin Edel, Damian Jaszewski
 ![Example screenshot](./img/screenshot.png)
-	## Technologies
+	## Specyfikacja wymagań
 * Tech 1 - version 1.0
 * Tech 2 - version 2.0
 * Tech 3 - version 3.0
