@@ -38,11 +38,6 @@ import time
 voice_mechanism = pyttsx3.init()
 
 root = tk.Tk()
-root.title('ASGLOS Asystent głosowy studenta')
-root.iconbitmap('textspeech.ico')
-img = tk.PhotoImage(file="logo.png")
-label = tk.Label(root, image=img)
-label.pack()
 
 
 def say(audio):
@@ -52,7 +47,12 @@ def say(audio):
 
 
 def view_tk():
-
+    
+    root.title('ASGLOS Asystent głosowy studenta')
+    root.iconbitmap('textspeech.ico')
+    img = tk.PhotoImage(file="logo.png")
+    label = tk.Label(root, image=img)
+    label.pack()
     var = StringVar()
     font = tkFont.Font(family="Helvetica", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
@@ -81,7 +81,7 @@ def view_tk():
             '\n"Klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
-            '\n"Zamknij" - wyjście z programu.')
+            '\n\n"Zamknij" - wyjście z programu.')
 
     label.pack(anchor=CENTER)
     root.update()
@@ -200,21 +200,21 @@ def wikipedia_search():
                                 p.adjust_for_ambient_noise(source4)
                                 title = p.listen(source4)
 
-                            try:
+                                try:
 
-                                print("Przetwarzam...")
-                                record_title_wiki = p.recognize_google(title, language='pl-PL')
-                                print(f"Podano tytuł: {record_title_wiki}")
-                                f = open(record_title_wiki + '.txt', 'w+')
-                                f.write(wikifound)
+                                    print("Przetwarzam...")
+                                    record_title_wiki = p.recognize_google(title, language='pl-PL')
+                                    print(f"Podano tytuł: {record_title_wiki}")
+                                    f = open(record_title_wiki + '.txt', 'w+')
+                                    f.write(wikifound)
 
-                                print("Plik o nazwie " + record_title_wiki + " został zapisany.")
-                                say("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                                    print("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                                    say("Plik o nazwie " + record_title_wiki + " został zapisany.")
 
-                            except Exception as e:
+                                except Exception as e:
 
-                                print(e)
-                                say("Nie zrozumiałam, więc plik nie został zapisany")
+                                    print(e)
+                                    say("Nie zrozumiałam, więc plik nie został zapisany")
 
                         except Exception as e:
 
@@ -486,6 +486,7 @@ def lotto_draw():
         with s_r.Microphone() as source:
 
             try:
+
                 a = b = c = d = f = g = 0
                 check_var0 = isinstance('a', int)
                 check_var1 = isinstance('a', int)
