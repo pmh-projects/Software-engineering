@@ -4,15 +4,15 @@
 * [Prawa autorskie](#Prawa-autorskie)
 * [Specyfikacja wymagań](#Specyfikacja-wymagań)
 * [Projekt (diagramy UML)](#Projekt))
-* [Architektura systemu/oprogramowania](#Architektura-oprogramowaa)
+* [Architektura systemu/oprogramowania](#Architektura-oprogramowania)
 * [Testy](#Testy)
 * [Kontakt](#Kontakt)
 
 
 ## Charakterystyka  oprogramowania
 
-Nazwa skrócona: AG
-Nazwa pełna: AsGlos
+Nazwa skrócona: (S)AG
+Nazwa pełna: (S)AsGlos studencki asystent głosowy
 
 Krótki opis ze wskazaniem celów:
 Asystent głosowy bla bla bla stworzony z myślą o studentach i dla studentów bla bla bla, który bla bla bla.
@@ -35,23 +35,45 @@ Wymagania niefunkcjonalne.
 ## Projekt
 <br><br>
 <p align="center"><b>
-Diagramy UML:
+UML:
 </b></p>
 <br>
 <p align="center">
-Przypadków użycia:
+Diagram przypadków użycia:
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=80%/>
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_czynnosci_dla_kazdego_przypadku_uzycia.png" width=50%/>
+Diagram czynnosci dla każdego przypadku użycia
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=80%/>
 </p>	
-## Architektura oprogramowania
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu2.png" width=80%/>
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3.png" width=80%/>
+</p>
+<p align="center">
+Diagram komponentów
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_komponentow.png" width=80%/>
+</p>
+<p align="center">
+Diagram wdrożeń
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=80%/>
+</p>
+
+## Architektura-oprogramowania
 
 Architektura rozwoju:
 
-'''Python 3.9 -  wydanie Python'a
+Python 3.9 -  wydanie Python'a
 PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
 pip - system zarządzania pakietami napisany w Pythonie, używany do instalowania pakietów oprogramowania i zarządzania nimi.
 Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
@@ -61,7 +83,7 @@ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły i
 Połączenie sieciowe w celu połączenia się z modułami
 system 
 Mikrofon (bardzo dobrze wychwytujący dźwięki)
-Głośniki'''
+Głośniki
 
 Architektura uruchomieniowa:
 
@@ -71,7 +93,7 @@ Modules/Librares: speech_recognition, pyowm, wikipedia, random, webbrowser, pytt
 skonfugurowane środowisko (PATH i zmienne środowiskowe)
 Połączenie sieciowe w celu połączenia się z modułami
 Mikrofon (bardzo dobrze wychwytujący dźwięki)
-Głośniki'''
+Głośniki
 
 List of features ready and TODOs for future development
 * <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
@@ -82,4 +104,11 @@ List of features ready and TODOs for future development
 * Wow improvement to be done 2
 
 ## Testy
+
+Processing........................
+
 ## Kontakt
+
+pawelmach@pm.me
+damian.jaszewski.@
+marcin.edel@
