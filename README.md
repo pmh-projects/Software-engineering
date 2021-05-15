@@ -69,7 +69,7 @@ Diagram wdrożeń
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=80%/>
 </p>
 
-## Architektura-oprogramowania
+## Architektura oprogramowania
 
 Architektura rozwoju:
 
