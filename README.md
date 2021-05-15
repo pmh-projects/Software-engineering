@@ -1,15 +1,25 @@
 #  (AG) AsGlos - asystent głosowy
 
-* [1. Charakterystyka  oprogramowania](#1.Charakterystyka-oprogramowania)
-* [2. Prawa autorskie](#2.-Prawa-autorskie)
-* [3. Specyfikacja wymagań](#3.-Specyfikacja-wymagań)
-* [4. Projekt (diagramy UML)](#4.-Projekt))
-* [5. Architektura systemu/oprogramowania](#5. Architektura-oprogramowania)
-* [6. Testy](#6.-Testy)
-* [7. Kontakt](#7.-Kontakt)
+* [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
+* [Prawa autorskie](#Prawa-autorskie)
+  * [Autorzy](#Autorzy)
+  * [Licencja](#Licencja)
+* [Specyfikacja wymagań](#Specyfikacja-wymagań)
+  * [Wymagania funkcjonalne](#Wymagania-funkcjonalne.)
+  * [Wymagania niefunkcjonalne](#Wymagania-niefunkcjonalne.)
+* [Projekt (diagramy UML)](#Projekt))
+  * [Diagram przypadków użycia](#Wymagania-funkcjonalne.)
+  * [Diagram czynnosci dla każdego przypadku użycia](#Wymagania-niefunkcjonalne.)
+  * [Diagram komponentów](#Wymagania-funkcjonalne.)
+  * [Diagram wdrożeń](#Wymagania-niefunkcjonalne.)
+* [Architektura systemu/oprogramowania](#Architektura-oprogramowania)
+  * [Diagram komponentów](#Wymagania-funkcjonalne.)
+  * [Diagram wdrożeń](#Wymagania-niefunkcjonalne.)
+* [Testy](#Testy)
+* [Kontakt](#Kontakt)
 
 
-## 1. Charakterystyka  oprogramowania
+## Charakterystyka  oprogramowania
 
 Nazwa skrócona: (S)AG<br>
 Nazwa pełna: (S)AsGlos studencki asystent głosowy
@@ -18,60 +28,46 @@ Krótki opis ze wskazaniem celów:<br>
 Asystent głosowy bla bla bla stworzony z myślą o studentach i dla studentów bla bla bla, który bla bla bla.
 Celem jego jest bla bla, ułatwienie poruszania się po świecie studenckim, bla bla bla.
 	
-## 2. Prawa autorskie
+## Prawa autorskie
 
+### Autorzy
 Paweł Mach, Marcin Edel, Damian Jaszewski
+
+### Licencja
 Licencja GPLv3
 + info o licencjach poszczególnych modułów
 
-## 3. Specyfikacja wymagań
+## Specyfikacja wymagań
 
 Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator, (2) nazwa, (3) opis, (4) priorytet: 1- wymagane, 2-przydatne, 3-opcjonalne 
 
-+ Wymagania funkcjonalne. 
+### Wymagania funkcjonalne. 
 
-+ Wymagania niefunkcjonalne.
+### Wymagania niefunkcjonalne.
 
-## 4. Projekt
-<br><br>
-<p align="center"><b>
-UML:
-</b></p>
-<br>
-<p align="center">
-Diagram przypadków użycia:
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=80%/>
-</p>
-<p align="center">
-Diagram czynnosci dla każdego przypadku użycia
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=80%/>
-</p>	
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu2.png" width=80%/>
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3.png" width=80%/>
-</p>
-<p align="center">
-Diagram komponentów
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_komponentow.png" width=80%/>
-</p>
-<p align="center">
-Diagram wdrożeń
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=80%/>
-</p>
+## Projekt UML
 
-## 5. Architektura oprogramowania
+### Diagram przypadków użycia:
 
-Architektura rozwoju:
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=90%/>
+
+### Diagram czynnosci dla każdego przypadku użycia
+
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=90%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu2.png" width=90%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3.png" width=90%/>
+
+### Diagram komponentów
+
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_komponentow.png" width=90%/>
+
+### Diagram wdrożeń
+
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=90%/>
+
+## Architektura oprogramowania
+
+### Architektura rozwoju:
 
 + Python 3.9 -  wydanie Python'a
 + PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
@@ -85,7 +81,7 @@ Architektura rozwoju:
 + Mikrofon (bardzo dobrze wychwytujący dźwięki)
 + Głośniki
 
-Architektura uruchomieniowa:
+### Architektura uruchomieniowa:
 
 + Python 3.9
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
@@ -96,11 +92,11 @@ Architektura uruchomieniowa:
 + Mikrofon (bardzo dobrze wychwytujący dźwięki)
 + Głośniki
 
-## 6. Testy
+## Testy
 
 Processing........................
 
-## 7. Kontakt
+## Kontakt
 
 pawelmach@pm.me<br>
 damian.jaszewski.@<br>
