@@ -1,53 +1,41 @@
-import pyowm
-# computer speech recognition, or speech-to-text, is a capability which
-# enables a program to process human speech into a written format.
-import speech_recognition as s_r  #
-import wikipedia  # Wikipedia is a Python library that makes it easy to access and parse data from Wikipedia.
-import random  # his module implements pseudo-random number generators for various distributions.
-import webbrowser  # The webbrowser module provides a high-level interface
-# to allow displaying Web-based documents to users.
-import pyttsx3  # pyttsx3 is a text-to-speech conversion library in Python.
-# Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
-# the cross-platform audio I/O library. With PyAudio, you can easily
-# use Python to play and record audio on a variety of platforms.
-import sys  # This module provides access to some variables used or
-# maintained by the interpreter and to
-# functions that interact strongly with the interpreter.
-# functions corresponding to the intrinsic operators of Python.
-# For example, operator. add(x, y) is equivalent to the expression x+y
-# import pickle #The pickle module can transform a complex object
-# into a byte stream and it can transform
-# the byte stream into an object with the same internal structure.
-# For related functionality, see also the datetime and calendar modules..
-# The sleep() function suspends (waits) execution
-# of the current thread for a given number of seconds.
-import pyautogui  # https://github.com/asweigart/pyautogui BSD-3-Clause License
-import menu
+# Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja, która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
+import speech_recognition as s_r
+# Wikipedia to biblioteka Pythona, która ułatwia dostęp i analizowanie danych z Wikipedii.(License: MIT License (MIT))
+import wikipedia
+import random  # jego moduł implementuje generatory liczb pseudolosowych dla różnych dystrybucji.
+import \
+    webbrowser  # Moduł przeglądarki internetowej zapewnia interfejs wysokiego poziomu, który umożliwia wyświetlanie użytkownikom dokumentów internetowych.
+import pyttsx3  # biblioteka konwersji tekstu na mowę w języku Python.
+import \
+    sys  # Moduł sys w Pythonie zapewnia różne funkcje i zmienne, które są używane do manipulowania różnymi częściami środowiska wykonawczego Pythona.
+import \
+    pyautogui  # wieloplatformowy moduł do automatyzacji GUI w języku Python dla ludzi. Służy do programowego sterowania myszą i klawiaturą. https://pypi.org/project/PyAutoGUI/ BSD License
 from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
-from pyowm.utils import timestamps
+import pyowm  # wrapper do OpenWeatherMap https://pypi.org/project/pyowm/ (MIT Lic)
 from pyowm.utils.config import get_default_config
-import tkinter as tk
+import \
+    tkinter as tk  # Pakiet tkinter („interfejs Tk”) jest standardowym interfejsem Pythona do zestawu narzędzi Tk GUI. https://docs.python.org/3/library/tkinter.html
 from tkinter import *
-from tkinter.ttk import *
-import tkinter.messagebox
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
-import time
+import time  # Ten moduł zapewnia różne funkcje związane z czasem.
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init()
-
+# inicjalizacja tkintera poprzez utworzenia głównego widget'u Tk
 root = tk.Tk()
 
 
+# Funckja głosowa
 def say(audio):
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
 
 
+# Funkcja okienka
 def view_tk():
-    
+    # Ustawienia tytułu, ikonki, oraz tekstu menu w okienku
     root.title('ASGLOS Asystent głosowy studenta')
     root.iconbitmap('textspeech.ico')
     img = tk.PhotoImage(file="logo.png")
@@ -87,11 +75,13 @@ def view_tk():
     root.update()
 
 
+# Funkcja witająca w programie
 def introduction():
     say("Witaj w asystencie głosowym")
     print("Witaj w asystencie głosowym")
 
 
+# Rozpoznanie instrukckji głosowej
 def command_recognition():
     time.sleep(2)
     # Create voice recognition
@@ -100,32 +90,31 @@ def command_recognition():
 
     with s_r.Microphone() as source:
 
-        say("Podaj nazwę funkcji.")
+        say("Podaj nazwę funkcji. Słucham Cię.")
         # menu.menu()
-        r.pause_threshold = 3
-        print("Słucham Cię.")
-        say("Słucham Cię.")
 
-        # listening to calibrate the energy threshold for ambient noise levels
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)
+        try:
 
-    try:
+            # listening to calibrate the energy threshold for ambient noise levels
+            audio = r.adjust_for_ambient_noise(source)
+            audio = r.listen(source, timeout=10, phrase_time_limit=15)
+            r.pause_threshold = 3
 
-        print("Sprawdzam co powiedziano.")
-        record = r.recognize_google(audio, language='pl-PL')
-        print(f"Powiedziano: {record}\n")
+            print("Sprawdzam co powiedziano.")
+            record = r.recognize_google(audio, language='pl-PL')
+            print(f"Powiedziano: {record}\n")
 
-    except Exception as e:
+        except Exception as e:
 
-        print(e)
-        say("Spróbuj jeszcze raz.")
+            print(e)
+            say("Spróbuj jeszcze raz.")
 
-    return record
+        return record
 
 
+# Funkcja wyszukująca podane hasło w wyszukiwarce Wikipiedia
 def wikipedia_search():
-    # wikipedia language declaration
+    # deklaracja języka polskiego
     wikipedia.set_lang("pl")
 
     wiki = s_r.Recognizer()
@@ -134,32 +123,45 @@ def wikipedia_search():
 
         say("Co mam znaleźć na wikipedii?")
 
-        # wiki.pause_threshold = 1
-        wiki.adjust_for_ambient_noise(source)
-        wikisearch = wiki.listen(source)
+        # kalibracja progu energii dla poziomów hałasu otoczenia
+        wikisearch = wiki.adjust_for_ambient_noise(source)
+        # ustawienie czasu czekania max 10 sek i słuchhania mowy max 15 sek
+        wikisearch = wiki.listen(source, timeout=10, phrase_time_limit=15)
         varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
         print(f"Powiedziano: {varwiki}")
 
         with s_r.Microphone() as source2:
 
-            say("Ile zdań mam przeczytać? Podaj liczbę.")
+            intnum = ''
+            check_var_int = isinstance(intnum, int)
+            # pętla sprawdzająca czy zmienna jest liczbą
+            while check_var_int == False:
 
-            sentences.pause_threshold = 1
-            sentences.adjust_for_ambient_noise(source2)
-            sentencesnumber = wiki.listen(source2)
-            number = wiki.recognize_google(sentencesnumber, language='pl-PL')
-            print(f"Powiedziano: {number}")
+                try:
 
-            if number == 'pięć':
-                intnum = 5
-            elif number == 'osiem':
-                intnum = 8
-            elif number == 'siedem':
-                intnum = 7
-            elif number == 'jeden' or number == 'jedno':
-                intnum = 1
-            else:
-                intnum = int(number)
+                    say("Ile zdań mam przeczytać? Podaj liczbę.")
+
+                    sentences.pause_threshold = 1
+                    sentences.adjust_for_ambient_noise(source2)
+                    sentencesnumber = wiki.listen(source2, timeout=10, phrase_time_limit=15)
+                    number = wiki.recognize_google(sentencesnumber, language='pl-PL')
+                    print(f"Powiedziano: {number}")
+
+                    if number == 'pięć':
+                        intnum = check_var_int = 5
+                    elif number == 'osiem':
+                        intnum = check_var_int = 8
+                    elif number == 'siedem':
+                        intnum = check_var_int = 7
+                    elif number == 'jeden' or number == 'jedno':
+                        intnum = check_var_int = 1
+                    else:
+                        intnum = check_var_int = int(number)
+
+                except Exception as y:
+
+                    print(y)
+                    say("Spróbuj jeszcze raz.")
 
             say("Przeszukuję wikipedię w poszukiwaniu hasła")
 
@@ -176,11 +178,11 @@ def wikipedia_search():
 
                 print("Czy zapisać treść do pliku? TAK/ NIE")
                 say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
-                # listening to calibrate the energy threshold for ambient noise levels
-                r.adjust_for_ambient_noise(source3)
-                audio = r.listen(source3)
 
                 try:
+
+                    r.adjust_for_ambient_noise(source3)
+                    audio = r.listen(source3, timeout=10, phrase_time_limit=15)
 
                     print("Słucham...")
                     record_wiki = r.recognize_google(audio, language='pl-PL')
@@ -198,7 +200,7 @@ def wikipedia_search():
                                 print("Slucham...")
                                 p.pause_threshold = 1
                                 p.adjust_for_ambient_noise(source4)
-                                title = p.listen(source4)
+                                title = p.listen(source4, timeout=10, phrase_time_limit=15)
 
                                 try:
 
@@ -237,18 +239,18 @@ def save_to_file_title():
         say("Podaj tytuł pliku.")
         p.pause_threshold = 1
         p.adjust_for_ambient_noise(source)
-        audio2 = p.listen(source)
+        audio2 = p.listen(source, timeout=10, phrase_time_limit=15)
 
-    try:
+        try:
 
-        print("Sprawdzam co powiedziano")
-        record2 = p.recognize_google(audio2, language='pl-PL')
-        print(f"Powiedziano: {record2}")
+            print("Sprawdzam co powiedziano")
+            record2 = p.recognize_google(audio2, language='pl-PL')
+            print(f"Powiedziano: {record2}")
 
-    except Exception as e:
+        except Exception as e:
 
-        print(e)
-        say("Nie zrozumiałam co mówisz. Plik zostanie zapisany bez tytułu.")
+            print(e)
+            say("Nie zrozumiałam co mówisz. Plik zostanie zapisany bez tytułu.")
 
     return record2
 
@@ -263,25 +265,25 @@ def save_to_file_content():
         say("Podaj tekst zapisu")
         w.pause_threshold = 3
         w.adjust_for_ambient_noise(source)
-        audio3 = w.listen(source)
+        audio3 = w.listen(source, timeout=10, phrase_time_limit=None)
 
-    try:
+        try:
 
-        print("Sprawdzam co powiedziano")
-        record3 = w.recognize_google(audio3, language='pl-PL')
-        print(f"Powiedziano: {record3}")
-        f = open(record2 + '.txt', 'w+')
-        f.write(record3)
-        voice_mechanism.save_to_file(record3, record2 + '.mp3')
+            print("Sprawdzam co powiedziano")
+            record3 = w.recognize_google(audio3, language='pl-PL')
+            print(f"Powiedziano: {record3}")
+            f = open(record2 + '.txt', 'w+')
+            f.write(record3)
+            voice_mechanism.save_to_file(record3, record2 + '.mp3')
 
-        print("Plik został zapisany.")
-        say("Plik został zapisany.")
+            print("Plik został zapisany.")
+            say("Plik został zapisany.")
 
-    except Exception as e:
-        print(e)
-        say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem. Plik nie został zapisany")
+        except Exception as e:
+            print(e)
+            say("Nie zrozumiałe jest to co do mnie mówisz, może następnym razem. Plik nie został zapisany")
 
-    return record3
+        return record3
 
 
 def open_from_file():
@@ -294,28 +296,27 @@ def open_from_file():
         say("Jaki plik mam otworzyć?")
         q.pause_threshold = 2
         q.adjust_for_ambient_noise(source)
-        audio4 = q.listen(source)
+        audio4 = q.listen(source, timeout=10, phrase_time_limit=15)
 
-    try:
+        try:
 
-        print("Otwieram plik...")
-        record4 = q.recognize_google(audio4, language='pl-PL')
-        print(f"Powiedziano: {record4}")
+            print("Otwieram plik...")
+            record4 = q.recognize_google(audio4, language='pl-PL')
+            print(f"Powiedziano: {record4}")
 
-        file = open(record4 + ".txt", "r")
-        print(file.read())
-        webbrowser.open(record4 + ".txt")
+            file = open(record4 + ".txt", "r")
+            print(file.read())
+            webbrowser.open(record4 + ".txt")
 
-    except Exception as e:
+        except Exception as e:
 
-        print(e)
-        say("Nie udało się otworzyć pliku. Notatka o podanym tytule nie istnieje.")
+            print(e)
+            say("Nie udało się otworzyć pliku. Notatka o podanym tytule nie istnieje.")
 
-    return record4
+        return record4
 
 
 def klawiatura():
-
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
     klawisze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -353,12 +354,13 @@ def klawiatura():
 
         try:
             rec = s_r.Recognizer()
+
             with s_r.Microphone() as source:
 
                 say("Wybierz klawisz")
 
                 rec.adjust_for_ambient_noise(source)
-                rec_audio = rec.listen(source)
+                rec_audio = rec.listen(source, timeout=10, phrase_time_limit=15)
                 rec_klawisz = rec.recognize_google(rec_audio, language='pl-PL').lower()
 
                 print(rec_klawisz)
@@ -434,7 +436,7 @@ def google_search():
 
         google.pause_threshold = 2
         google.adjust_for_ambient_noise(source)
-        googlesearch = google.listen(source)
+        googlesearch = google.listen(source, timeout=10, phrase_time_limit=15)
         vargoogle = google.recognize_google(googlesearch, language='pl-PL')
 
         print("Przeszukuję sieć...")
@@ -454,7 +456,7 @@ def screenshot():
             say("Podaj nazwę pod jaką mam zapisać plik")
 
             s.adjust_for_ambient_noise(source)
-            s_audio = s.listen(source)
+            s_audio = s.listen(source, timeout=10, phrase_time_limit=15)
             s_screen = s.recognize_google(s_audio, language='pl-PL').lower()
 
             print(s_screen)
@@ -498,11 +500,11 @@ def lotto_draw():
 
                     print("Podaj pierwszą liczbę")
                     say("Podaj pierwszą liczbę")
-                    audio_in0 = s_r.Recognizer()
-                    audio_in0.pause_threshold = 2
-                    audio_listuj0 = audio_in0.listen(source)
+                    audio_0 = s_r.Recognizer()
+                    audio_0.pause_threshold = 2
+                    audio_listuj0 = audio_0.listen(source, timeout=10, phrase_time_limit=15)
                     print(audio_listuj0)
-                    record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
+                    record10 = audio_0.recognize_google(audio_listuj0, language='pl-PL')
                     if record10 == 'pięć':
                         a = check_var0 = 5
                     elif record10 == 'osiem':
@@ -525,11 +527,11 @@ def lotto_draw():
 
                     print("Podaj drugą liczbę")
                     say("Podaj drugą liczbę")
-                    audio_in1 = s_r.Recognizer()
-                    audio_in1.pause_threshold = 2
-                    audio_listuj1 = audio_in1.listen(source)
+                    audio_1 = s_r.Recognizer()
+                    audio_1.pause_threshold = 2
+                    audio_listuj1 = audio_1.listen(source, timeout=10, phrase_time_limit=15)
                     print(audio_listuj1)
-                    record20 = audio_in1.recognize_google(audio_listuj1, language='pl-PL')
+                    record20 = audio_1.recognize_google(audio_listuj1, language='pl-PL')
 
                     if record20 == 'pięć':
                         b = check_var1 = 5
@@ -553,11 +555,11 @@ def lotto_draw():
 
                     print("Podaj trzecią liczbę")
                     say("Podaj trzecią liczbę")
-                    audio_in2 = s_r.Recognizer()
-                    audio_in2.pause_threshold = 2
-                    audio_listuj2 = audio_in2.listen(source)
+                    audio_2 = s_r.Recognizer()
+                    audio_2.pause_threshold = 2
+                    audio_listuj2 = audio_2.listen(source, timeout=10, phrase_time_limit=15)
                     print(audio_listuj2)
-                    record30 = audio_in2.recognize_google(audio_listuj2, language='pl-PL')
+                    record30 = audio_2.recognize_google(audio_listuj2, language='pl-PL')
 
                     if record30 == 'pięć':
                         c = check_var2 = 5
@@ -581,11 +583,11 @@ def lotto_draw():
 
                     print("Podaj czwartą liczbę")
                     say("Podaj czwartą liczbę")
-                    audio_in3 = s_r.Recognizer()
-                    audio_in3.pause_threshold = 2
-                    audio_listuj3 = audio_in3.listen(source)
+                    audio_3 = s_r.Recognizer()
+                    audio_3.pause_threshold = 2
+                    audio_listuj3 = audio_3.listen(source, timeout=10, phrase_time_limit=15)
                     print(audio_listuj3)
-                    record40 = audio_in3.recognize_google(audio_listuj3, language='pl-PL')
+                    record40 = audio_3.recognize_google(audio_listuj3, language='pl-PL')
 
                     if record40 == 'pięć':
                         d = check_var3 = 5
@@ -609,18 +611,18 @@ def lotto_draw():
 
                     print("Podaj piątą liczbę")
                     say("Podaj piątą liczbę")
-                    audio_in4 = s_r.Recognizer()
-                    audio_in4.pause_threshold = 2
-                    audio_listuj4 = audio_in4.listen(source)
+                    audio_4 = s_r.Recognizer()
+                    audio_4.pause_threshold = 2
+                    audio_listuj4 = audio_4.listen(source, timeout=10, phrase_time_limit=15)
                     print(audio_listuj4)
-                    record50 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
+                    record50 = audio_4.recognize_google(audio_listuj4, language='pl-PL')
 
                     if record50 == 'pięć':
                         f = check_var4 = 5
                     elif record50 == 'osiem':
                         f = check_var4 = 8
                     elif record50 == 'siedem':
-                        f = check_var4 =7
+                        f = check_var4 = 7
                     elif record50 == 'jeden':
                         f = check_var4 = 1
                     else:
@@ -637,11 +639,11 @@ def lotto_draw():
 
                     print("Podaj szóstą liczbę")
                     say("Podaj szóstą liczbę")
-                    audio_in4 = s_r.Recognizer()
-                    audio_in4.pause_threshold = 2
-                    audio_listuj4 = audio_in4.listen(source)
-                    print(audio_listuj4)
-                    record60 = audio_in4.recognize_google(audio_listuj4, language='pl-PL')
+                    audio_5 = s_r.Recognizer()
+                    audio_5.pause_threshold = 2
+                    audio_listuj5 = audio_5.listen(source, timeout=10, phrase_time_limit=15)
+                    print(audio_listuj5)
+                    record60 = audio_5.recognize_google(audio_listuj5, language='pl-PL')
 
                     if record60 == 'pięć':
                         g = check_var5 = 5
@@ -666,38 +668,38 @@ def lotto_draw():
                 print(e)
                 say("Błędnie wprowadzone liczby.")
 
-        podane_liczby = [a, b, c, d, f, g]
+        given_numbers = [a, b, c, d, f, g]
 
-        losowanie_lotto = []
+        lotto_draw = []
         i = 0
 
         while i < 6:
             r = random.randint(1, 49)
-            if losowanie_lotto.count(r) == 0:
-                losowanie_lotto.append(r)
+            if lotto_draw.count(r) == 0:
+                lotto_draw.append(r)
                 i += 1
-        trafiony = []
+        hit_numbers = []
 
-        for x in losowanie_lotto:
-            y = len(podane_liczby)
+        for x in lotto_draw:
+            y = len(given_numbers)
             t = 0
             while t < y:
-                z = podane_liczby[t]
+                z = given_numbers[t]
                 if x == z:
-                    trafiony.append(z)
+                    hit_numbers.append(z)
                 t = t + 1
 
         print("Wybrane Liczby: ")
-        podane_liczby.sort()
-        print(podane_liczby)
-        losowanie_lotto.sort()
+        given_numbers.sort()
+        print(given_numbers)
+        lotto_draw.sort()
         print("Wylosowane Liczby: ")
-        print(losowanie_lotto)
+        print(lotto_draw)
         print("Trafione liczby: ")
         say("Trafione liczby: ")
-        trafiony.sort()
-        print(trafiony)
-        say(trafiony)
+        hit_numbers.sort()
+        print(hit_numbers)
+        say(hit_numbers)
 
     except Exception as e:
 
@@ -708,7 +710,7 @@ def lotto_draw():
 def guess_the_number():
     number = random.randint(1, 100)
     running = True
-    audio_in0 = s_r.Recognizer()
+    audio = s_r.Recognizer()
 
     while running:
 
@@ -717,12 +719,11 @@ def guess_the_number():
             try:
 
                 say("Odgadnij liczbę od 1 do 100 lub powiedz stop aby zakończyć.")
-                audio_in0.pause_threshold = 1
+                audio.pause_threshold = 1
 
-                audio_listuj0 = audio_in0.listen(source)
-                print(audio_listuj0)
+                audio_guess = audio.listen(source, timeout=10, phrase_time_limit=15)
 
-                record10 = audio_in0.recognize_google(audio_listuj0, language='pl-PL')
+                record10 = audio.recognize_google(audio_guess, language='pl-PL')
 
                 stop = 'stop'
                 if record10 == 'pięć':
@@ -823,6 +824,9 @@ def weather(record):
         print(e)
         say("Prawdopodnie podano nieprawidłowe parametry. Spróbuj jeszcze raz.")
 
+
+# Metoda główna
+# Sprawdzenie czy __name__ jest równe __main__ ma na celu sprawdzenie czy plik jest uruchamiany bezpośrednio, czy poprzez import.
 
 if __name__ == "__main__":
 
