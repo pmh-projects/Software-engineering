@@ -5,8 +5,8 @@
 * [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [Prawa autorskie](#Prawa-autorskie)
 * [Specyfikacja wymagań](#Specyfikacja-wymagań)
-* [Projekt (diagramy UML)](#Projekt-(diagramy-UML))
-* [Architektura systemu/oprogramowania](#Architektura-systemu/oprogramowania)
+* [Projekt (diagramy UML)](#Projekt))
+* [Architektura systemu/oprogramowania](#Architektura-oprogramowaa)
 * [Testy](#Testy)
 * [Kontakt](#Kontakt)
 
@@ -23,11 +23,11 @@ Paweł Mach, Marcin Edel, Damian Jaszewski
 
 ## Specyfikacja wymagań
 
-## Projekt (diagramy UML)
+## Projekt
 	
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 	
-## Architektura systemu/oprogramowania
+## Architektura oprogramowania
 
 Architektura rozwoju:
 
@@ -60,7 +60,6 @@ List of features ready and TODOs for future development
 	To-do list:
 * Wow improvement to be done 1
 * Wow improvement to be done 2
-	## Status
-Project is: in progress, finished, no longer continue and why?
+
 ## Testy
 ## Kontakt
