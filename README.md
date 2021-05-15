@@ -1,4 +1,4 @@
-# ASGLOS (AG) - asystent głosowy
+#  (AG) AsGlos - asystent głosowy
 
 Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwić studiowanie poprzez stworzenie asystenta, który przyśpieszy i usprawni poruszanie się po "sprawach studenckich.
 
@@ -42,4 +42,3 @@ Project is: in progress, finished, no longer continue and why?
 	## Inspiration
 Add here credits. Project inspired by..., based on...
 	## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
