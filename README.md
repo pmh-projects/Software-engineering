@@ -3,14 +3,14 @@
 Fantastyczny projekt trójki extra studentów, którzy postanowili sobie ułatwić studiowanie poprzez stworzenie asystenta, który przyśpieszy i usprawni poruszanie się po "sprawach studenckich.
 
 	## Table of contents
-* [General info](#general-info)
-* [Screenshots](#screenshots)
+* [1. Charakterystyka  oprogramowania](#general-info)
+* [2. Prawa autorskie](#screenshots)
 * [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Specyfikacja wymagań](#setup)
+* [Projekt (diagramy UML)](#features)
+* [Architektura systemu/oprogramowania](#status)
+* [Testy](#inspiration)
+* [Kontakt](#contact)
 	## General info
 Add more general information about project. What the purpose of the project is? Motivation?
 	## Screenshots
