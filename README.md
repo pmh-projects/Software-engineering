@@ -54,7 +54,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 ### Diagram czynnosci dla każdego przypadku użycia
 
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=90%/>
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu5.png" width=90%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu22.png" width=90%/>
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3.png" width=90%/>
 
 ### Diagram komponentów
