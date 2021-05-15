@@ -62,5 +62,5 @@ List of features ready and TODOs for future development
 * Wow improvement to be done 2
 	## Status
 Project is: in progress, finished, no longer continue and why?
-## 6. Testy
+## Testy
 ## 7. Kontakt
