@@ -96,7 +96,6 @@ Mikrofon (bardzo dobrze wychwytujący dźwięki)
 Głośniki
 
 List of features ready and TODOs for future development
-* <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=50%/>
 * Awesome feature 2
 * Awesome feature 3
 	To-do list:
@@ -109,6 +108,6 @@ Processing........................
 
 ## Kontakt
 
-pawelmach@pm.me
-damian.jaszewski.@
+pawelmach@pm.me<br>
+damian.jaszewski.@<br>
 marcin.edel@
