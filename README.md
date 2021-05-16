@@ -1,4 +1,4 @@
-#  (AG) AsGlos - asystent głosowy
+#  (AG) AsGlos - asystent głosowy  --- DOKUMENTACJA IN PROGRESS
 
 * [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [Prawa autorskie](#Prawa-autorskie)
