@@ -205,7 +205,7 @@ def wikipedia_search():
                                     say("Podaj tytuł pliku.")
                                     print("Slucham...")
                                     p.pause_threshold = 1
-                                    p.adjust_for_ambient_noise(source4, duration = 0,5)
+                                    p.adjust_for_ambient_noise(source4, duration = 0.5)
                                     title = p.listen(source4, timeout=10, phrase_time_limit=15)
 
                                     try:
@@ -445,7 +445,7 @@ def google_search():
         say("Co mam znaleźć w wyszukiwarce?")
 
         google.pause_threshold = 2
-        google.adjust_for_ambient_noise(source,duration(0.5)
+        google.adjust_for_ambient_noise(source, duration=0.5)
         googlesearch = google.listen(source, timeout=10, phrase_time_limit=15)
         vargoogle = google.recognize_google(googlesearch, language='pl-PL')
 
@@ -932,7 +932,7 @@ if __name__ == "__main__":
             try:
 
                 say("Już otwieram.")
-                webbrowser.open("https://wzr.pl/kie/index.php?str=302")
+                webbrowser.open("http://wzr.pl/kie/index.php?str=301")
 
             except Exception as e:
 
