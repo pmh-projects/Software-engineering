@@ -69,7 +69,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 ### Architektura rozwoju:
 
-+ Python 3.9 -  wydanie Python'a
++ Python 3.9.4 - minimalna wersja wydania Python'a
 + PyCharm - zintegrowane środowisko programistyczne używane w programowaniu komputerowym, specjalnie dla języka Python
 + pip - system zarządzania pakietami napisany w Pythonie, używany do instalowania pakietów oprogramowania i zarządzania nimi.
 + Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
@@ -81,7 +81,7 @@ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły w
 
 ### Architektura uruchomieniowa:
 
-+ Python 3.9
++ Python 3.9.4 - minimalna wersja wydania Python'a
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
 (w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
 + Skonfigurowane środowisko (PATH i zmienne środowiskowe)
