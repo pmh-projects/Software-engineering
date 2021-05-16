@@ -932,7 +932,7 @@ if __name__ == "__main__":
             try:
 
                 say("Już otwieram.")
-                webbrowser.open("https://wzr.ug.edu.pl/")
+                webbrowser.open("https://wzr.pl/kie/index.php?str=302")
 
             except Exception as e:
 
