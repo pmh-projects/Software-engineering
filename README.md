@@ -19,7 +19,7 @@
 * [Kontakt](#Kontakt)
 
 
-## Charakterystyka  oprogramowania
+## Charakterystyka oprogramowania
 
 Nazwa skrócona: (S)AG<br>
 Nazwa pełna: (S)AsGlos studencki asystent głosowy
