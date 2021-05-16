@@ -2,12 +2,12 @@
 
 * [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [Prawa autorskie](#Prawa-autorskie)
-  * [Autorzy](#Autorzy)
+  * [Autorzy](#Autorzy-projektu)
   * [Licencja](#Licencja)
 * [Specyfikacja wymagań](#Specyfikacja-wymagań)
   * [Wymagania funkcjonalne](#Wymagania-funkcjonalne)
   * [Wymagania niefunkcjonalne](#Wymagania-niefunkcjonalne)
-* [Projekt (diagramy UML)](#Projekt)
+* [Projekt (diagramy UML)](#Projekt-UML)
   * [Diagram przypadków użycia](#Diagram-przypadków-użycia)
   * [Diagram czynnosci dla każdego przypadku użycia](#Diagram-czynnosci-dla-każdego-przypadku-użycia)
   * [Diagram komponentów](#Diagram-komponentów)
@@ -30,7 +30,7 @@ Celem jego jest bla bla, ułatwienie poruszania się po świecie studenckim, bla
 	
 ## Prawa autorskie
 
-### Autorzy
+### Autorzy projektu
 Paweł Mach, Marcin Edel, Damian Jaszewski
 
 ### Licencja
