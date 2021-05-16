@@ -75,11 +75,9 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 + Pipenv - narzędzie, które ma na celu wprowadzenie do świata Pythona tego, co najlepsze ze wszystkich światów pakowania (bundler, composer, npm, cargo, yarn, itp.).
 + Python Virtual Environments (virtualenv)
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser,
-pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły in requirements.txt)
-+ Połączenie sieciowe w celu połączenia się z modułami
-+ System operacyjny umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
-+ Mikrofon (bardzo dobrze wychwytujący dźwięki)
-+ Głośniki
+pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły w requirements.txt)
++ System operacyjny umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim
++ Git i GitHub
 
 ### Architektura uruchomieniowa:
 
@@ -87,10 +85,11 @@ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły i
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
 (w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
 + Skonfigurowane środowisko (PATH i zmienne środowiskowe)
-+ Połączenie sieciowe w celu połączenia się z modułami
 + System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
-+ Mikrofon (bardzo dobrze wychwytujący dźwięki)
-+ Głośniki
+
+Pozostałe niezbędne elementy(zarówno przy tworzeniu jak i korzystaniu z aplikacji):
++ Mikrofon (bardzo dobrze wychwytujący dźwięki) i głośniki
++ Połączenie sieciowe w celu nawiązania komunikacji z modułami odpowiadającymi za niektóre funkcje
 
 ## Testy
 
