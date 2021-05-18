@@ -581,7 +581,7 @@ Funkcje dodatkowe:
             <td></td>
             <td>Pozytywny</td>
             <td>Wybierz głosowo funkcje pod hasłem "Lotto"</td>
-            <td>Asystent pobiera od użytkownika po kolei 6 liczb z zakresu 1 - 49, aplikacja przujmuje tylko liczby. Aplikacja pokazuje wylosowane liczby i informuje o wyniku.</td>
+            <td>Asystent pobiera od użytkownika po kolei 6 liczb z zakresu 1 - 49, aplikacja przyjmuje tylko liczby. Aplikacja pokazuje wylosowane liczby i informuje o wyniku.</td>
             <td>Asystent pobrał 6 liczb, zaznaczając każdą z nich. Następnie wylosował liczby i pokazał wynik.</td>
         </tr>
     </tbody>
