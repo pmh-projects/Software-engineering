@@ -43,7 +43,17 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 ### Wymagania funkcjonalne. 
 
+| ID | Nazwa | Opis | Priorytet |
+| --- | --- | --- | --- |
+| git status | List all new or modified files | ? | ? | 
+| git diff | Show file differences that haven't been staged | ? | ? |
+
 ### Wymagania niefunkcjonalne.
+
+| ID | Nazwa | Opis | Priorytet |
+| --- | --- | --- | --- |
+| git status | List all new or modified files | ? | ? | 
+| git diff | Show file differences that haven't been staged | ? | ? |
 
 ## Projekt UML
 
@@ -397,7 +407,6 @@ Funkcje dodatkowe:
             <td>Asystent wykona screenshot okna, poprosi o podanie nazwy i zapiszę go do pliku</td>
             <td>Asystent wykonał screenshot okna, poprosił o podanie nazwy i zapisał go do pliku</td>
         </tr>
-         c
     </tbody>
 </table>
 
