@@ -652,5 +652,5 @@ Funkcje dodatkowe:
 ## Kontakt
 
 pawelmach@pm.me<br>
-damian.jaszewski.@<br>
+damianjaszewski@gmail.com<br>
 marcin.edel@
