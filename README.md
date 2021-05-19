@@ -37,7 +37,7 @@ Motywem stowrzenia aplikacji była, chęć pomocy studentom z niepełnosprawnoś
 Paweł Mach, Marcin Edel, Damian Jaszewski
 
 ### Licencja
-Licencja GPLv3
+Licencja aplikacji: GPLv3
 | nazwa modułu | licencja |
 | --- | --- |
 | aiohttp | Apache Software License (Apache 2) |
