@@ -35,7 +35,94 @@ Paweł Mach, Marcin Edel, Damian Jaszewski
 
 ### Licencja
 Licencja GPLv3
-+ info o licencjach poszczególnych modułów
+| nazwa modułu | licencja |
+| --- | --- |
+| aiohttp | Apache Software License (Apache 2) |
+altgraph	|	MIT License (MIT)
+async-timeout	|	Apache Software License (Apache 2)
+attrs		|	MIT License (MIT)
+beautifulsoup4	|	MIT License (MIT)
+bottle-websocket |	MIT License (MIT)
+bs4		|	brak licencji
+cachetools	|	MIT License (MIT)
+certifi		|	Mozilla Public License 2.0 (MPL 2.0) (MPL-2.0)
+cffi		|	MIT License (MIT)
+chardet		|	GNU Library or Lesser General Public License (LGPL) (LGPL)
+comtypes	|	MIT License (MIT License)
+cx-Freeze	|	Python Software Foundation License (Python Software Foundation License)
+cx-Logging	|	Python Software Foundation License (Python Software Foundation License)
+distutils-pytest|	Apache Software License (Apache-2.0)
+docopt		|	MIT License (MIT)
+Eel		|	MIT License (MIT)
+future		|	OSI Approved, MIT License (MIT)
+geojson		|	BSD License (BSD)
+gevent		|	MIT License (MIT)
+gevent-websocket|	Apache Software License (Apache-2.0)
+google		|	BSD License
+google-search	|	MIT License (MIT license)
+google-search-results	|MIT License (MIT)
+googlesearch-python	|MIT License
+greenlet	|	MIT License (MIT License)
+idna		|	BSD License (BSD-3-Clause)
+importlib-metadata |	Apache Software License
+Js2Py		|	MIT License (MIT)
+lxml		|	BSD License (BSD)
+MouseInfo	|	GNU General Public License v3 or later (GPLv3+) (GPLv3+)
+multidict	|	Apache Software License (Apache 2)
+numpy		|	BSD License (BSD)
+packaging	|	Apache Software License, BSD License (BSD-2-Clause or Apache-2.0)
+pandas		|	Apache License, Version 2.0
+pefile==2019.4.18|	brak licencji
+Pillow		|	Historical Permission Notice and Disclaimer (HPND) (HPND)
+pipwin		|	BSD License (BSD)
+py2exe		|	MIT License, Mozilla Public License 2.0 (MPL 2.0) (MIT/X11)
+PyAudio		|	brak licencji
+PyAutoGUI	|	BSD License (BSD)
+pycparser	|	BSD License (BSD)
+PyGetWindow	|	BSD License (BSD)
+pyinstaller	|	GNU General Public License v2 (GPLv2) 
+pyinstaller-hooks-contrib	|brak licencji
+pyjsparser	|	MIT License
+PyMsgBox	|	GNU General Public License v3 or later (GPLv3+)
+pyowm		|	MIT License (MIT)
+pyparsing	|	MIT License (MIT License)
+pyperclip	|	Apache Software License (Apache)
+pypiwin32==223	|	brak licencji
+PyPrind		|	BSD License (BSD 3-Clause)
+PyQt5		|	GPL v3
+PyQt5-Qt5	|	LGPL v3
+PyQt5-sip	|	SIP
+PyQt5-stubs	|	GNU General Public License v3 (GPLv3)
+PyRect		|	BSD License (BSD)
+PyScreeze	|	MIT License (MIT)
+PySimpleGUI	|	GNU Lesser General Public License v3 or later (LGPLv3+)
+pySmartDL	|	Public Domain (Public Domain)
+PySocks		|	BSD License
+python-dateutil	|	Apache Software License, BSD License (Dual License)
+python-weather	|	MIT License (MIT)
+pyttsx3		|	GNU General Public License v3 (GPLv3)
+PyTweening	|	BSD License (BSD)
+pytz		|	MIT License (MIT)
+PyUserInput	|	GNU General Public License v3 (GPLv3)
+pywin32		|	BSD License (BSD 3-clause)
+pywin32-ctypes	|	BSD License (BSD 3-clause)
+PyYAML		|	MIT License (MIT)
+requests	|	Apache Software License (Apache 2.0)
+six		|	MIT License (MIT)
+soupsieve	|	MIT License (MIT)
+SpeechRecognition|	BSD License (BSD)
+typing-extensions|	Python Software Foundation License (PSF)
+tzlocal		|	MIT License (MIT)
+urllib3		|	MIT License (MIT)
+whichcraft	|	BSD License (BSD)
+wikipedia	|	MIT License (MIT)
+wxPython	|	OSI Approved (wxWindows Library License)
+xmltodict	|	MIT License (MIT)
+yarl		|	Apache Software License (Apache 2)
+zipp		|	MIT License
+zope.event	|	Zope Public License (ZPL 2.1)
+zope.interface	|	Zope Public License (ZPL 2.1)
+
 
 ## Specyfikacja wymagań
 
