@@ -183,7 +183,10 @@ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły w
 
 + Python 3.9.4 - minimalna wersja wydania Python'a
 + Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
-(w celu instalacji wszystkich modułów za jednym razem proszę użyć "pip freeze > requirements.txt")
+W celu instalacji wszystkich modułów za jednym razem proszę użyć:
+```
+$  pip install -r /path/to/requirements.txt
+```
 + Skonfigurowane środowisko (PATH i zmienne środowiskowe)
 + System umożliwiający wykorzystanie Pyttsx3 i Speech Recognition przy konwersji z tesktu do głosu i głosu do tekstu w języku polskim 
 
