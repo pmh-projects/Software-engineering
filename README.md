@@ -27,11 +27,11 @@ Nazwa skrócona: AG<br>
 Nazwa pełna: AsGlos studencki asystent głosowy
 <br><br>
 Krótki opis ze wskazaniem celów:<br>
-Asystent głosowy stworzony z myślą o studentach mających niepełnosprawność ruchową. 
+Asystent głosowy stworzony głównie z myślą o studentach mających niepełnosprawność ruchową. 
 Prawo do nauki jest jednym z  fundamentalnych praw człowieka, którego 
 realizacja umożliwia rozwój osobisty oraz pozwala na osiągnięcie samodzielności 
 i niezależności, a także pełny udział we wszystkich sferach życia.
-Motywem stowrzenia aplikacji była, chęć pomocy studentom z niepełnosprawnością ruchową w poruszaniu się po świecie akademickim.
+Motywem stworzenia aplikacji była, chęć pomocy studentom z niepełnosprawnością ruchową w poruszaniu się po świecie akademickim.
 	
 ## Prawa autorskie
 
