@@ -766,7 +766,7 @@ Funkcje dodatkowe:
     <thead>
         <tr>
 	    <th>Id</th>
-            <th>Nazwa funkcjonalności</th>
+            <th>Nazwa scenariusza testowe</th>
             <th>Rezultat</th>
             <th>Uwagi</th>
         </tr>
