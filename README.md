@@ -133,17 +133,34 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 ### Wymagania funkcjonalne. 
 
-| ID | Nazwa | Opis | Priorytet |
-| --- | --- | --- | --- |
-| git status | List all new or modified files | ? | ? | 
-| git diff | Show file differences that haven't been staged | ? | ? |
+| 	ID 	| 	Nazwa 		| 	Opis 											| 	Priorytet 	|
+| 	--- 	|	 --- 		| 	--- 											| 	--- 		|
+|	1	| 	Wikipedia 	| 	uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku 	|	1		|
+|	2	|	Notatka		|	funkcja zapisująca plik o podanym głosowo tytule i zawartością				|	1		|
+|	3	|	Otwórz plik	|	otwieranie zapisanego pliku								|	1		|
+|	4	|	Wyszukiwarka	|	wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem		|	1		|
+|	5	|	Screenshot	|	pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem	|	1		|
+|	6	|	Strona WWW	|	uruchamia zdefiniowane strony www (stronę UG, stackoverflow, yputube, inne		|	2		|
+|	7	|	Pogoda		|	podaje pogodę w wybranym mieście							|	2		|
+|	8	|	Klawiatura	|	sterowanie głosowe klawiaturą								|	1		|
+|	9	|	Skróty klawiszowe	|	Obsługa podstawowych skrótów klawiszowych					|	2		|
+|	10	|	Gra		|	prosta gra typu lotto, lub zgadywanie liczb						|	3		|
 
 ### Wymagania niefunkcjonalne.
 
-| ID | Nazwa | Opis | Priorytet |
-| --- | --- | --- | --- |
-| git status | List all new or modified files | ? | ? | 
-| git diff | Show file differences that haven't been staged | ? | ? |
+| 	ID 	| 	Nazwa 		| 	Opis 											| 	Priorytet 	|
+| 	---	| 	--- 		| 	--- 											| 	--- 		|
+|	1	|	Niezawodność	|	program powinien działać bez zarzutów; nie powinno być sytuacji, w które aplikacja nie działa stabilnie lub generuje błędy|	1	|
+|	2	|	Użyteczność	|	aplikacja nie powinna sprawiać problemów w obsłudze					|	1		|
+|	3	|	Szybkość działania|	aplikacja powinna działać nie powodując dyskomfortu spowodowanego zbyt długim oczekiwaniem na reakcję|	1	|
+|	4	|	Estetyka	|	aplikacja powinna mieć wysoki poziom estetyki						|	2		|
+|	5	|	Bezpłatna	|	aplikacja powinna być bezpłatna, korzystająca z darmowych modułów			|	1		|
+|	6	|	Krótki czas wdrożenia	|	aplikacja powinna zostać wdrożona wciągu 30 dni					|	3		|
+|	7	|	Otwartość	|	aplikacja powinna mieć możliwość rozbudowy o kolejne funkcje				|	2		|
+|	8	|	Lekka		|	aplikacja powinna wykorzystywać minimalny poziom zasobów komputera			|	2		|
+
+
+
 
 ## Projekt UML
 
