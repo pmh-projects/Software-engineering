@@ -807,10 +807,14 @@ Funkcje dodatkowe:
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
-	    <tr>
+	 <tr>
   	    <td>Korzystanie z funkcji "Zamykanie programu"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
+	    </tr>
+	    <tr>
+            <th colspan=3>Uwagi i wyniki testów zostały uwzględnione w rozwoju aplikacji. Naniesiono poprawki i udoskonalenia.</th>
+        </tr>
     </tbody>
 </table>
 
