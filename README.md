@@ -396,14 +396,14 @@ Funkcje dodatkowe:
             <td>Rzeczywisty wynik</td>
         </tr>
       <tr>
-            <td></td>
+            <td>3.1</td>
             <td>Pozytywny</td>
             <td>Wprowadź tytuł notatki.</td>
             <td>Program po wybraniu funkcji zapyta nas o tytuł notatki.</td>
             <td>Program po wybraniu funkcji zapytał o tytuł notatki, w przypadku nie zrozumienia tytułu, program utworzył notatkę bez tytułu.</td>
         </tr>
         <tr>
-            <td></td>
+            <td>3.2</td>
             <td>Pozytywny</td>
             <td>Wprowadź treść notatki.</td>
             <td>Program pobierze od użytkownika treść notatki.</td>
@@ -438,14 +438,14 @@ Funkcje dodatkowe:
             <td>Rzeczywisty wynik</td>
         </tr>
       <tr>
-            <td></td>
+            <td>4.1</td>
             <td>Pozytywny</td>
             <td>Wybierz głosowo funkcję pod hasłem "Otwórz notatkę"</td>
             <td>Asystent po wybraniu funkcji zapyta o nazwę pliku i wyświetli użytkownikowi notatkę.</td>
             <td>Po wybraniu funkcji asystent zapytał o tytuł notatki, następnie ją wyswietlił.</td>
         </tr>
         <tr>
-            <td></td>
+            <td>4.2</td>
             <td>Negatywny</td>
             <td>Wybierz głosowo funkcję pod hasłem "Otwórz plik"</td>
             <td>Asystent po wybraniu funkcji zapyta o nazwę pliku i wyświetli ją użytkownikowi.</td>
