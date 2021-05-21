@@ -16,6 +16,8 @@
   * [Architektura rozwoju](#Architektura-rozwoju)
   * [Architektura uruchomieniowa](#Architektura-uruchomieniowa)
 * [Testy](#Testy)
+  * [Scenariusze testów](#Scenariusze-testów)
+  * [Sprawozdanie z wykonania scenariuszy testów](#Sprawozdanie-z-wykonania-scenariuszy-testów)
 * [Kontakt](#Kontakt)
 
 
