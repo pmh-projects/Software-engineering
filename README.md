@@ -9,7 +9,7 @@
   * [Wymagania niefunkcjonalne](#Wymagania-niefunkcjonalne)
 * [Projekt (diagramy UML)](#Projekt-UML)
   * [Diagram przypadków użycia](#Diagram-przypadków-użycia)
-  * [Diagram czynnosci dla każdego przypadku użycia](#Diagram-czynnosci-dla-każdego-przypadku-użycia)
+  * [Diagram czynności dla każdego przypadku użycia](#Diagram-czynności-dla-każdego-przypadku-użycia)
   * [Diagram komponentów](#Diagram-komponentów)
   * [Diagram wdrożeń](#Diagram-wdrożeń)
 * [Architektura systemu/oprogramowania](#Architektura-oprogramowania)
@@ -138,7 +138,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=100%/>
 
-### Diagram czynnosci dla każdego przypadku użycia
+### Diagram czynności dla każdego przypadku użycia
 
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=100%/>
 <img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu22.png" width=100%/>
