@@ -1,6 +1,7 @@
 # Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja, która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
 import speech_recognition as s_r
-import wikipedia # Wikipedia to biblioteka Pythona, która ułatwia dostęp i analizowanie danych z Wikipedii.(License: MIT License (MIT))
+import \
+    wikipedia  # Wikipedia to biblioteka Pythona, która ułatwia dostęp i analizowanie danych z Wikipedii.(License: MIT License (MIT))
 import random  # jego moduł implementuje generatory liczb pseudolosowych dla różnych dystrybucji.
 import \
     webbrowser  # Moduł przeglądarki internetowej zapewnia interfejs wysokiego poziomu, który umożliwia wyświetlanie użytkownikom dokumentów internetowych.
@@ -30,6 +31,7 @@ img = tk.PhotoImage(file="logo.png")
 label = tk.Label(root, image=img)
 label.pack()
 
+
 # Funckja głosowa
 def say(audio):
     voice_mechanism.say(audio)
@@ -39,7 +41,6 @@ def say(audio):
 
 # Funkcja okienka
 def view_tk():
-
     var = StringVar()
     font = tkFont.Font(family="Helvetica", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
@@ -94,11 +95,11 @@ def command_recognition():
 
         try:
 
-            #Nasłuchiwanie w celu kalibracji progu energetycznego dla poziomów hałasu otoczenia
-            audio = r.adjust_for_ambient_noise(source, duration = 1)
+            # Nasłuchiwanie w celu kalibracji progu energetycznego dla poziomów hałasu otoczenia
+            audio = r.adjust_for_ambient_noise(source, duration=1)
             audio = r.listen(source, timeout=20, phrase_time_limit=15)
-			#Reprezentuje minimalną długość ciszy (w sekundach), która zostanie zarejestrowana jako koniec frazy. Może być zmienione.
-            #Mniejsze wartości powodują szybsze zakończenie rozpoznawania, ale mogą spowodować odcięcie wolniejszych głośników.
+            # Reprezentuje minimalną długość ciszy (w sekundach), która zostanie zarejestrowana jako koniec frazy. Może być zmienione.
+            # Mniejsze wartości powodują szybsze zakończenie rozpoznawania, ale mogą spowodować odcięcie wolniejszych głośników.
             r.pause_threshold = 1
 
             print("Sprawdzam co powiedziano.")
@@ -124,11 +125,10 @@ def wikipedia_search():
 
         varwiki = ''
         while varwiki == '':
-
             say("Co mam znaleźć na wikipedii?")
 
             # kalibracja progu energii dla poziomów hałasu otoczenia
-            wikisearch = wiki.adjust_for_ambient_noise(source, duration = 1)
+            wikisearch = wiki.adjust_for_ambient_noise(source, duration=1)
             # ustawienie czasu czekania max 10 sek i słuchhania mowy max 15 sek
             wikisearch = wiki.listen(source, timeout=10, phrase_time_limit=15)
             varwiki = wiki.recognize_google(wikisearch, language='pl-PL')
@@ -137,7 +137,7 @@ def wikipedia_search():
         with s_r.Microphone() as source2:
 
             intnum = ''
-			#True - zmienna jest typu int, False - nie jest int
+            # True - zmienna jest typu int, False - nie jest int
             check_var_int = isinstance(intnum, int)
             # pętla sprawdzająca czy zmienna jest liczbą
             while check_var_int == False:
@@ -147,7 +147,7 @@ def wikipedia_search():
                     say("Ile zdań mam przeczytać? Podaj proszę liczbę.")
 
                     sentences.pause_threshold = 1
-                    sentences.adjust_for_ambient_noise(source2, duration = 0.5)
+                    sentences.adjust_for_ambient_noise(source2, duration=1)
                     sentencesnumber = wiki.listen(source2, timeout=10, phrase_time_limit=15)
                     number = wiki.recognize_google(sentencesnumber, language='pl-PL')
                     print(f"Powiedziano: {number}")
@@ -181,65 +181,66 @@ def wikipedia_search():
 
             with s_r.Microphone() as source3:
 
-                print("Czy zapisać treść do pliku? TAK/ NIE")
-                say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
+                record_wiki = ''
+                while record_wiki == '':
+                    print("Czy zapisać treść do pliku? TAK/ NIE")
+                    say("Powiedz TAK, jeśli mam zapisać treść do pliku.")
 
-                try:
+                    try:
 
-                    r.adjust_for_ambient_noise(source3, duration = 0.5)
-                    audio = r.listen(source3, timeout=10, phrase_time_limit=15)
+                        r.adjust_for_ambient_noise(source3, duration=0.5)
+                        audio = r.listen(source3, timeout=10, phrase_time_limit=15)
 
-                    record_wiki = r.recognize_google(audio, language='pl-PL')
-                    print(f"Odpowiedziano: {record_wiki}")
+                        record_wiki = r.recognize_google(audio, language='pl-PL')
+                        print(f"Odpowiedziano: {record_wiki}")
 
-                    if "tak" in record_wiki:
+                        if "tak" in record_wiki:
 
-                        try:
+                            try:
 
-                            p = s_r.Recognizer()
+                                p = s_r.Recognizer()
 
-                            with s_r.Microphone() as source4:
-                                record_title_wiki = ''
-                                while record_title_wiki == '':
+                                with s_r.Microphone() as source4:
+                                    record_title_wiki = ''
+                                    while record_title_wiki == '':
 
-                                    say("Podaj tytuł pliku.")
-                                    print("Slucham...")
-                                    p.pause_threshold = 1
-                                    p.adjust_for_ambient_noise(source4, duration = 0.5)
-                                    title = p.listen(source4, timeout=10, phrase_time_limit=15)
+                                        say("Podaj tytuł pliku.")
+                                        print("Slucham...")
+                                        p.pause_threshold = 1
+                                        p.adjust_for_ambient_noise(source4, duration=0.5)
+                                        title = p.listen(source4, timeout=10, phrase_time_limit=15)
 
-                                    try:
+                                        try:
 
-                                        print("Przetwarzam...")
-                                        record_title_wiki = p.recognize_google(title, language='pl-PL')
-                                        print(f"Podano tytuł: {record_title_wiki}")
-                                        f = open(record_title_wiki + '.txt', 'w+')
-                                        f.write(wikifound)
+                                            print("Przetwarzam...")
+                                            record_title_wiki = p.recognize_google(title, language='pl-PL')
+                                            print(f"Podano tytuł: {record_title_wiki}")
+                                            f = open(record_title_wiki + '.txt', 'w+')
+                                            f.write(wikifound)
 
-                                        print("Plik o nazwie " + record_title_wiki + " został zapisany.")
-                                        say("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                                            print("Plik o nazwie " + record_title_wiki + " został zapisany.")
+                                            say("Plik o nazwie " + record_title_wiki + " został zapisany.")
 
-                                    except Exception as e:
+                                        except Exception as e:
 
-                                        print(e)
-                                        say("Nie zrozumiałam.")
+                                            print(e)
+                                            say("Nie zrozumiałam.")
 
-                        except Exception as e:
+                            except Exception as e:
 
-                            print(e)
-                            say("Coś poszło nie tak.")
+                                print(e)
+                                say("Coś poszło nie tak.")
 
-                    else:
-                        say("Wychodzę bez zapisywania.")
+                        else:
+                            say("Wychodzę bez zapisywania.")
 
-                except Exception as y:
+                    except Exception as y:
 
-                    print(y)
-                    say("Coś poszło nie tak. Spróbuj jeszcze raz.")
+                        print(y)
+                        say("Coś poszło nie tak. Spróbuj jeszcze raz.")
 
 
 def save_to_file_title():
-
     p = s_r.Recognizer()
     record2 = ''
 
@@ -250,7 +251,7 @@ def save_to_file_title():
             print("Slucham...")
             say("Podaj tytuł pliku.")
             p.pause_threshold = 1
-            p.adjust_for_ambient_noise(source, duration = 1)
+            p.adjust_for_ambient_noise(source, duration=1)
             audio2 = p.listen(source, timeout=10, phrase_time_limit=15)
 
             try:
@@ -275,7 +276,7 @@ def save_to_file_content():
 
         say("Podaj tekst zapisu")
         w.pause_threshold = 3
-        w.adjust_for_ambient_noise(source, duration = 1)
+        w.adjust_for_ambient_noise(source, duration=1)
         audio3 = w.listen(source, timeout=10, phrase_time_limit=None)
 
         try:
