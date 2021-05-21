@@ -36,7 +36,7 @@ root2 = Tk()
 root2.title('ASGLOS funkcje klawiatury')
 root2.iconbitmap('textspeech.ico')
 
-# Funckja głosowa
+# Funkcja głosowa
 # https://pypi.org/project/pyttsx3/
 def say(audio):
     voice_mechanism.say(audio)
