@@ -1,20 +1,21 @@
-# Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja, która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
+# Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja,
+# która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
 import speech_recognition as s_r
-import \
-    wikipedia  # Wikipedia to biblioteka Pythona, która ułatwia dostęp i analizowanie danych z Wikipedii.(License: MIT License (MIT))
+import wikipedia  # Wikipedia to biblioteka Pythona, która ułatwia dostęp
+# i analizowanie danych z Wikipedii.(License: MIT License (MIT))
 import random  # jego moduł implementuje generatory liczb pseudolosowych dla różnych dystrybucji.
-import \
-    webbrowser  # Moduł przeglądarki internetowej zapewnia interfejs wysokiego poziomu, który umożliwia wyświetlanie użytkownikom dokumentów internetowych.
+import webbrowser  # Moduł przeglądarki internetowej zapewnia interfejs
+# wysokiego poziomu, który umożliwia wyświetlanie użytkownikom dokumentów internetowych.
 import pyttsx3  # biblioteka konwersji tekstu na mowę w języku Python.
-import \
-    sys  # Moduł sys w Pythonie zapewnia różne funkcje i zmienne, które są używane do manipulowania różnymi częściami środowiska wykonawczego Pythona.
-import \
-    pyautogui  # wieloplatformowy moduł do automatyzacji GUI w języku Python dla ludzi. Służy do programowego sterowania myszą i klawiaturą. https://pypi.org/project/PyAutoGUI/ BSD License
-from googlesearch import search  # https://github.com/Nv7-GitHub/googlesearch on MIT License
+import sys  # Moduł sys w Pythonie zapewnia różne funkcje i zmienne,
+# które są używane do manipulowania różnymi częściami środowiska wykonawczego Pythona.
+import pyautogui  # wieloplatformowy moduł do automatyzacji GUI w języku Python dla ludzi.
+# Służy do programowego sterowania myszą i klawiaturą. https://pypi.org/project/PyAutoGUI/ BSD License
+from googlesearch import search  # https://pypi.org/project/googlesearch-python/
 import pyowm  # wrapper do OpenWeatherMap https://pypi.org/project/pyowm/ (MIT Lic)
 from pyowm.utils.config import get_default_config
-import \
-    tkinter as tk  # Pakiet tkinter („interfejs Tk”) jest standardowym interfejsem Pythona do zestawu narzędzi Tk GUI. https://docs.python.org/3/library/tkinter.html
+import tkinter as tk  # Pakiet tkinter („interfejs Tk”) jest standardowym interfejsem
+# Pythona do zestawu narzędzi Tk GUI. https://docs.python.org/3/library/tkinter.html
 from tkinter import *
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
@@ -31,8 +32,12 @@ img = tk.PhotoImage(file="logo.png")
 label = tk.Label(root, image=img)
 label.pack()
 
+root2 = Tk()
+root2.title('ASGLOS funkcje klawiatury')
+root2.iconbitmap('textspeech.ico')
 
 # Funckja głosowa
+# https://pypi.org/project/pyttsx3/
 def say(audio):
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
@@ -45,8 +50,9 @@ def view_tk():
     font = tkFont.Font(family="Helvetica", size=12)
     label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
                        pady=30)
+
     var.set("Witaj w asystencie głosowym\n\n"
-            "Aby wywołać funkcję wystarczy wymówić wyraźnie jej nazwę.\n\n"
+            "Aby wywołać funkcję proszę wymówić wyraźnie jej nazwę.\n\n"
             "\nFunkcje podstawowe:\n"
             '\n"Wikipedia" - uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku'
             '\n"Notatka" - funkcja zapisująca plik o podanym głosowo tytule i zawartością'
@@ -65,7 +71,8 @@ def view_tk():
             '\n"Otwórz youtube" - chcesz posłuchać muzyki lub obejrzeć video?'
             '\n'
             '\nFunkcje dodatkowe:\n'
-            '\n"Pogoda + {miasto}"- zapytaj o aktualną pogodę wypowiadając funkcję wraz z nazwą krajowej miejscowości, która chcesz sprawdzić'
+            '\n"Pogoda + {miasto}"- zapytaj o aktualną pogodę wypowiadając'
+            '\nfunkcję wraz z nazwą krajowej miejscowości, która chcesz sprawdzić'
             '\n"Klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
@@ -74,6 +81,31 @@ def view_tk():
     label.pack(anchor=CENTER)
     root.update()
 
+
+def view_klaw():
+
+    label1 = Label(root2, text='\nSkróty można wywołać poprzez następujące komendy:\n\n'
+                               '\nspacja = "spacja"\n'
+                               '\ncapslock = "caps lock "\n'
+                               '\nbackspace = "back space"\n'
+                               '\nselect = "zaznacz wszystko"\n'
+                               '\ncopy = "kopiuj"\n'
+                               '\npast = "wklej"\n'
+                               '\nback = "cofnij"\n'
+                               '\ndelete = "usuń"\n'
+                               '\nunselect = "odznacz"\n'
+                               '\nright = "prawo"\n'
+                               '\nleft = "lewo"\n'
+                               '\nalt+f4 = "zamknij okno"\n'
+                               '\nvolume-up = "podgłośnij"\n'
+                               '\nvolume-mute = "wycisz"\n'
+                               '\nkropka = "kropka"\n'
+                               '\nprzecinek = "przecinek"\n'
+                               '\n! = "wykrzynik"\n'
+                               '\nklawisz windows = "windows"\n')
+    label1.pack()
+
+    root2.update()
 
 # Funkcja witająca w programie
 def introduction():
@@ -98,8 +130,10 @@ def command_recognition():
             # Nasłuchiwanie w celu kalibracji progu energetycznego dla poziomów hałasu otoczenia
             audio = r.adjust_for_ambient_noise(source, duration=1)
             audio = r.listen(source, timeout=20, phrase_time_limit=15)
-            # Reprezentuje minimalną długość ciszy (w sekundach), która zostanie zarejestrowana jako koniec frazy. Może być zmienione.
-            # Mniejsze wartości powodują szybsze zakończenie rozpoznawania, ale mogą spowodować odcięcie wolniejszych głośników.
+            # Reprezentuje minimalną długość ciszy (w sekundach),
+            # która zostanie zarejestrowana jako koniec frazy. Może być zmienione.
+            # Mniejsze wartości powodują szybsze zakończenie rozpoznawania,
+            # ale mogą spowodować odcięcie wolniejszych głośników.
             r.pause_threshold = 1
 
             print("Sprawdzam co powiedziano.")
@@ -115,6 +149,7 @@ def command_recognition():
 
 
 # Funkcja wyszukująca podane hasło w wyszukiwarce Wikipiedia
+# https://pypi.org/project/wikipedia/
 def wikipedia_search():
     # deklaracja języka polskiego
     wikipedia.set_lang("pl")
@@ -140,7 +175,7 @@ def wikipedia_search():
             # True - zmienna jest typu int, False - nie jest int
             check_var_int = isinstance(intnum, int)
             # pętla sprawdzająca czy zmienna jest liczbą
-            while check_var_int == False:
+            while check_var_int is False:
 
                 try:
 
@@ -327,6 +362,7 @@ def open_from_file():
         return record4
 
 
+# https://pypi.org/project/PyAutoGUI/
 def klawiatura():
     say("Proszę podaj co mam wybrać z klawiatury. Jeśli chcesz zakończyć działanie funkcji powiedz STOP")
 
@@ -440,6 +476,7 @@ def klawiatura():
             say("Spróbuj jeszcze raz")
 
 
+# https://pypi.org/project/googlesearch-python/
 def google_search():
     google = s_r.Recognizer()
     with s_r.Microphone() as source:
@@ -459,6 +496,7 @@ def google_search():
         webbrowser.open("https://www.google.pl/search?q=" + vargoogle)
 
 
+# https://pypi.org/project/PyAutoGUI/
 def screenshot():
     try:
         s = s_r.Recognizer()
@@ -507,7 +545,7 @@ def lotto_draw():
                 check_var3 = isinstance('a', int)
                 check_var4 = isinstance('a', int)
                 check_var5 = isinstance('a', int)
-                while check_var0 == False or a < 1 or a > 49:
+                while check_var0 is False or a < 1 or a > 49:
 
                     print("Podaj pierwszą liczbę")
                     say("Podaj pierwszą liczbę")
@@ -534,7 +572,7 @@ def lotto_draw():
 
                     print(a)
 
-                while check_var1 == False or b < 1 or b > 49 or b == a:
+                while check_var1 is False or b < 1 or b > 49 or b == a:
 
                     print("Podaj drugą liczbę")
                     say("Podaj drugą liczbę")
@@ -562,7 +600,7 @@ def lotto_draw():
 
                     print(b)
 
-                while check_var2 == False or c < 1 or c > 49 or c == a or c == b:
+                while check_var2 is False or c < 1 or c > 49 or c == a or c == b:
 
                     print("Podaj trzecią liczbę")
                     say("Podaj trzecią liczbę")
@@ -590,7 +628,7 @@ def lotto_draw():
 
                     print(c)
 
-                while check_var3 == False or d < 1 or d > 49 or d == a or d == b or d == c:
+                while check_var3 is False or d < 1 or d > 49 or d == a or d == b or d == c:
 
                     print("Podaj czwartą liczbę")
                     say("Podaj czwartą liczbę")
@@ -618,7 +656,7 @@ def lotto_draw():
 
                     print(d)
 
-                while check_var4 == False or f < 1 or f > 49 or f == a or f == b or f == c or f == d:
+                while check_var4 is False or f < 1 or f > 49 or f == a or f == b or f == c or f == d:
 
                     print("Podaj piątą liczbę")
                     say("Podaj piątą liczbę")
@@ -646,7 +684,7 @@ def lotto_draw():
 
                     print(f)
 
-                while check_var5 == False or g < 1 or g > 49 or a == g or b == g or c == g or d == g or f == g:
+                while check_var5 is False or g < 1 or g > 49 or a == g or b == g or c == g or d == g or f == g:
 
                     print("Podaj szóstą liczbę")
                     say("Podaj szóstą liczbę")
@@ -786,6 +824,7 @@ def guess_the_number():
         print('Gra skończona.')
 
 
+# https://pypi.org/project/pyowm/
 def weather(record):
     try:
         check_city = record.replace("Pogoda", "")
@@ -837,16 +876,18 @@ def weather(record):
 
 
 # Metoda główna
-# Sprawdzenie czy __name__ jest równe __main__ ma na celu sprawdzenie czy plik jest uruchamiany bezpośrednio, czy poprzez import.
+# Sprawdzenie czy __name__ jest równe __main__ ma
+# na celu sprawdzenie czy plik jest uruchamiany bezpośrednio, czy poprzez import.
 
 if __name__ == "__main__":
 
     introduction()
     view_tk()
+    view_klaw()
 
     while True:
 
-        # Konwersja do miniskuły
+        # Konwersja do miniskuły po to aby został spełniony warunek
         record = command_recognition().lower()
 
         if 'wikipedia' in record:
