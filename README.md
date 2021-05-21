@@ -821,7 +821,7 @@ Funkcje dodatkowe:
             <td></td>
         </tr>
 	<tr>
-  	    <th colspan=3>Funkcje dodatkowe</th>
+  	    <td colspan=4>Funkcje dodatkowe</td>
         </tr>
 	    <tr>
 		<th>8</th>
