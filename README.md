@@ -1,4 +1,4 @@
-#  (AG) AsGlos - asystent głosowy  --- DOKUMENTACJA IN PROGRESS
+#  (AG) AsGlos - asystent głosowy
 
 * [Charakterystyka  oprogramowania](#Charakterystyka-oprogramowania)
 * [Prawa autorskie](#Prawa-autorskie)
@@ -38,26 +38,17 @@ Paweł Mach, Marcin Edel, Damian Jaszewski
 
 ### Licencja
 Licencja aplikacji: GPLv3
-| nazwa modułu | licencja |
+
+Przy pracach związanych z wytworzeniem, testowaniem oraz korzystaniem z oprogramowania korzystano z następujących modułów:
+| Nazwa modułu | Licencja |
 | --- | --- |
-| aiohttp | Apache Software License (Apache 2) |
-altgraph	|	MIT License (MIT)
-async-timeout	|	Apache Software License (Apache 2)
-attrs		|	MIT License (MIT)
 beautifulsoup4	|	MIT License (MIT)
-bottle-websocket |	MIT License (MIT)
 bs4		|	brak licencji
-cachetools	|	MIT License (MIT)
 certifi		|	Mozilla Public License 2.0 (MPL 2.0) (MPL-2.0)
-cffi		|	MIT License (MIT)
 chardet		|	GNU Library or Lesser General Public License (LGPL) (LGPL)
 comtypes	|	MIT License (MIT License)
-cx-Freeze	|	Python Software Foundation License (Python Software Foundation License)
-cx-Logging	|	Python Software Foundation License (Python Software Foundation License)
 distutils-pytest|	Apache Software License (Apache-2.0)
 docopt		|	MIT License (MIT)
-Eel		|	MIT License (MIT)
-future		|	OSI Approved, MIT License (MIT)
 geojson		|	BSD License (BSD)
 gevent		|	MIT License (MIT)
 gevent-websocket|	Apache Software License (Apache-2.0)
@@ -65,23 +56,18 @@ google		|	BSD License
 google-search	|	MIT License (MIT license)
 google-search-results	|MIT License (MIT)
 googlesearch-python	|MIT License
-greenlet	|	MIT License (MIT License)
 idna		|	BSD License (BSD-3-Clause)
-importlib-metadata |	Apache Software License
 Js2Py		|	MIT License (MIT)
-lxml		|	BSD License (BSD)
 MouseInfo	|	GNU General Public License v3 or later (GPLv3+) (GPLv3+)
 multidict	|	Apache Software License (Apache 2)
 numpy		|	BSD License (BSD)
 packaging	|	Apache Software License, BSD License (BSD-2-Clause or Apache-2.0)
 pandas		|	Apache License, Version 2.0
-pefile==2019.4.18|	brak licencji
 Pillow		|	Historical Permission Notice and Disclaimer (HPND) (HPND)
 pipwin		|	BSD License (BSD)
 py2exe		|	MIT License, Mozilla Public License 2.0 (MPL 2.0) (MIT/X11)
 PyAudio		|	brak licencji
 PyAutoGUI	|	BSD License (BSD)
-pycparser	|	BSD License (BSD)
 PyGetWindow	|	BSD License (BSD)
 pyinstaller	|	GNU General Public License v2 (GPLv2) 
 pyinstaller-hooks-contrib	|brak licencji
@@ -92,10 +78,6 @@ pyparsing	|	MIT License (MIT License)
 pyperclip	|	Apache Software License (Apache)
 pypiwin32==223	|	brak licencji
 PyPrind		|	BSD License (BSD 3-Clause)
-PyQt5		|	GPL v3
-PyQt5-Qt5	|	LGPL v3
-PyQt5-sip	|	SIP
-PyQt5-stubs	|	GNU General Public License v3 (GPLv3)
 PyRect		|	BSD License (BSD)
 PyScreeze	|	MIT License (MIT)
 PySimpleGUI	|	GNU Lesser General Public License v3 or later (LGPLv3+)
@@ -109,29 +91,19 @@ pytz		|	MIT License (MIT)
 PyUserInput	|	GNU General Public License v3 (GPLv3)
 pywin32		|	BSD License (BSD 3-clause)
 pywin32-ctypes	|	BSD License (BSD 3-clause)
-PyYAML		|	MIT License (MIT)
-requests	|	Apache Software License (Apache 2.0)
 six		|	MIT License (MIT)
 soupsieve	|	MIT License (MIT)
 SpeechRecognition|	BSD License (BSD)
-typing-extensions|	Python Software Foundation License (PSF)
 tzlocal		|	MIT License (MIT)
 urllib3		|	MIT License (MIT)
-whichcraft	|	BSD License (BSD)
 wikipedia	|	MIT License (MIT)
-wxPython	|	OSI Approved (wxWindows Library License)
-xmltodict	|	MIT License (MIT)
-yarl		|	Apache Software License (Apache 2)
-zipp		|	MIT License
-zope.event	|	Zope Public License (ZPL 2.1)
-zope.interface	|	Zope Public License (ZPL 2.1)
 
 
 ## Specyfikacja wymagań
 
 Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator, (2) nazwa, (3) opis, (4) priorytet: 1- wymagane, 2-przydatne, 3-opcjonalne 
 
-### Wymagania funkcjonalne. 
+### Wymagania funkcjonalne: 
 
 | 	ID 	| 	Nazwa 		| 	Opis 											| 	Priorytet 	|
 | 	--- 	|	 --- 		| 	--- 											| 	--- 		|
@@ -146,7 +118,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 |	9	|	Skróty klawiszowe	|	Obsługa podstawowych skrótów klawiszowych					|	2		|
 |	10	|	Gra		|	prosta gra typu lotto, lub zgadywanie liczb						|	3		|
 
-### Wymagania niefunkcjonalne.
+### Wymagania niefunkcjonalne:
 
 | 	ID 	| 	Nazwa 		| 	Opis 											| 	Priorytet 	|
 | 	---	| 	--- 		| 	--- 											| 	--- 		|
@@ -158,8 +130,6 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 |	6	|	Krótki czas wdrożenia	|	aplikacja powinna zostać wdrożona wciągu 30 dni					|	3		|
 |	7	|	Otwartość	|	aplikacja powinna mieć możliwość rozbudowy o kolejne funkcje				|	2		|
 |	8	|	Lekka		|	aplikacja powinna wykorzystywać minimalny poziom zasobów komputera			|	2		|
-
-
 
 
 ## Projekt UML
@@ -199,8 +169,8 @@ pyttsx3, pyautogui, googlesearch, tkinter, time, freeze etc.(wszystkie moduły w
 ### Architektura uruchomieniowa:
 
 + Python 3.9.4 - minimalna wersja wydania Python'a
-+ Niezbędne moduły/biblioteki: speech_recognition, pyowm, wikipedia, random, webbrowser, pyttsx3, pyautogui, googlesearch, tkinter, time
-W celu instalacji wszystkich modułów za jednym razem proszę użyć:
++ Niezbędne moduły do działania oprogramowania: Pillow, PyAudio, SpeechRecognition, Pyowm, Wikipedia, Random, Webbrowser, Pyttsx3, Pyautogui, Googlesearch, tkinter, time
+W celu instalacji wszystkich modułów z pliku requirements.txt za jednym razem proszę użyć:
 ```
 $  pip install -r /path/to/requirements.txt
 ```
@@ -765,90 +735,77 @@ Funkcje dodatkowe:
 <table>
     <thead>
         <tr>
-	    <th>Id</th>
-            <th>Nazwa scenariusza testowe</th>
+            <th>Nazwa funkcjonalności</th>
             <th>Rezultat</th>
             <th>Uwagi</th>
         </tr>
     </thead>
     <tbody>
        <tr>
-	       <th>1</th>
             <td>Wyświetlenie menu asystenta głosowego</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
        </tr>
        <tr>
-            <td colspan=4>Funkcje podstawowe</td>
+            <th colspan=3>Funkcje podstawowe</th>
         </tr>
 	<tr>
-		<th>2</th>
             <td>Korzystanie z funkcji "Wikipedia"</td>
             <td>2/2 Pozytywnie przetestowane przypadki testowe.</td>
             <td>W przypadku problemu z pobraniem hasła od użytkownika asystent przekazuje komunikat "Spróbuj jeszcze raz" i wraca do podstawowych funkcji nie dając nam możliwości kontynuowania.</td>
         </tr>
 	<tr>
-		<th>3</th>
             <td>Korzystanie z funkcji "Notatka"</td>
             <td>2/2 Pozytywnie przetestowane przypadki testowe.</td>
             <td>W przypadku nie zrozumienia tytułu, program utworzył notatkę bez tytułu.</td>
         </tr>
 	<tr>
-		<th>4</th>
             <td>Korzystanie z funkcji "Otwórz plik" lub "Otwórz notatkę"</td>
             <td>1/2 Pozytywne przypadki testowe, funkcja otwórz plik działa identycznie jak otwórz notatkę i nie spełnia swoich założeń.</td>
             <td>W przypadku wybrania funkcji otwórz plik nie ma możliwości wyboru rozszerzenia pliku w praktyce można otworzyć jedynie notatkę.</td>
         </tr>
 	<tr>
-		<th>5</th>
             <td>Korzystanie z funkcji "Wyszukiwarka"</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	<tr>
-		<th>6</th>
             <td>Korzystanie z funkcji "Screenshot"</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	<tr>
-            <td colspan=4>Funkcje NET</td>
+            <th colspan=3>Funkcje NET</th>
         </tr>
 	<tr>
-		<th>7</th>
             <td>Korzystanie z funkcji wyświetlania wybranych stron inernetowych</td>
             <td>8/8 Pozytywnie przetestowane przypadki testowe, wszystkie strony otwierają się równie sprawnie.</td>
             <td></td>
         </tr>
 	<tr>
-  	    <td colspan=4>Funkcje dodatkowe</td>
+  	    <th colspan=3>Funkcje dodatkowe</th>
         </tr>
 	    <tr>
-		<th>8</th>
   	    <td>Korzystanie z funkcji "Pogoda"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
-	    <th>9</th>
   	    <td>Korzystanie z funkcji "Klawiatura"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td>Pomimo wpisania hasła brak obsługi skrótów klawiszowych, albo jest to niejasne, program pobiera np. hasło "enter", "backspace", ale nie wiążę się to z właściwą akcją.</td>
         </tr>
 	    <tr>
-       	    <th>10</th>
   	    <td>Korzystanie z funkcji "Lotto"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
-	    <th>11</th>
   	    <td>Korzystanie z funkcji "Gierka"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
- 	    <th>12</th>
   	    <td>Korzystanie z funkcji "Zamykanie programu"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
