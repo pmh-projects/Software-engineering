@@ -21,8 +21,8 @@
 
 ## Charakterystyka oprogramowania
 
-Nazwa skrócona: (S)AG<br>
-Nazwa pełna: (S)AsGlos studencki asystent głosowy
+Nazwa skrócona: AG<br>
+Nazwa pełna: AsGlos studencki asystent głosowy
 <br><br>
 Krótki opis ze wskazaniem celów:<br>
 Asystent głosowy stworzony z myślą o studentach mających niepełnosprawność ruchową. 
