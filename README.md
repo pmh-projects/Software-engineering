@@ -765,6 +765,7 @@ Funkcje dodatkowe:
 <table>
     <thead>
         <tr>
+	    <th>Id</th>
             <th>Nazwa funkcjonalności</th>
             <th>Rezultat</th>
             <th>Uwagi</th>
@@ -772,42 +773,49 @@ Funkcje dodatkowe:
     </thead>
     <tbody>
        <tr>
+	       <th>1</th>
             <td>Wyświetlenie menu asystenta głosowego</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
        </tr>
        <tr>
-            <th colspan=3>Funkcje podstawowe</th>
+            <td colspan=4>Funkcje podstawowe</td>
         </tr>
 	<tr>
+		<th>2</th>
             <td>Korzystanie z funkcji "Wikipedia"</td>
             <td>2/2 Pozytywnie przetestowane przypadki testowe.</td>
             <td>W przypadku problemu z pobraniem hasła od użytkownika asystent przekazuje komunikat "Spróbuj jeszcze raz" i wraca do podstawowych funkcji nie dając nam możliwości kontynuowania.</td>
         </tr>
 	<tr>
+		<th>3</th>
             <td>Korzystanie z funkcji "Notatka"</td>
             <td>2/2 Pozytywnie przetestowane przypadki testowe.</td>
             <td>W przypadku nie zrozumienia tytułu, program utworzył notatkę bez tytułu.</td>
         </tr>
 	<tr>
+		<th>4</th>
             <td>Korzystanie z funkcji "Otwórz plik" lub "Otwórz notatkę"</td>
             <td>1/2 Pozytywne przypadki testowe, funkcja otwórz plik działa identycznie jak otwórz notatkę i nie spełnia swoich założeń.</td>
             <td>W przypadku wybrania funkcji otwórz plik nie ma możliwości wyboru rozszerzenia pliku w praktyce można otworzyć jedynie notatkę.</td>
         </tr>
 	<tr>
+		<th>5</th>
             <td>Korzystanie z funkcji "Wyszukiwarka"</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	<tr>
+		<th>6</th>
             <td>Korzystanie z funkcji "Screenshot"</td>
             <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	<tr>
-            <th colspan=3>Funkcje NET</th>
+            <td colspan=4>Funkcje NET</td>
         </tr>
 	<tr>
+		<th>7</th>
             <td>Korzystanie z funkcji wyświetlania wybranych stron inernetowych</td>
             <td>8/8 Pozytywnie przetestowane przypadki testowe, wszystkie strony otwierają się równie sprawnie.</td>
             <td></td>
@@ -816,26 +824,31 @@ Funkcje dodatkowe:
   	    <th colspan=3>Funkcje dodatkowe</th>
         </tr>
 	    <tr>
+		<th>8</th>
   	    <td>Korzystanie z funkcji "Pogoda"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
+	    <th>9</th>
   	    <td>Korzystanie z funkcji "Klawiatura"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td>Pomimo wpisania hasła brak obsługi skrótów klawiszowych, albo jest to niejasne, program pobiera np. hasło "enter", "backspace", ale nie wiążę się to z właściwą akcją.</td>
         </tr>
 	    <tr>
+       	    <th>10</th>
   	    <td>Korzystanie z funkcji "Lotto"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
+	    <th>11</th>
   	    <td>Korzystanie z funkcji "Gierka"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
         </tr>
 	    <tr>
+ 	    <th>12</th>
   	    <td>Korzystanie z funkcji "Zamykanie programu"</td>
      	    <td>Pozytywnie przetestowany przypadek testowy.</td>
             <td></td>
