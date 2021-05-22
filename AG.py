@@ -110,9 +110,9 @@ def view_klaw():
                                '\nalt+f4 = "zamknij okno"\n'
                                '\nvolume-up = "podgłośnij"\n'
                                '\nvolume-mute = "wycisz"\n'
-                               '\n. = "kropka"\n'
-                               '\n, = "przecinek"\n'
-                               '\n! = "wykrzynik"\n'
+                               '\nkropka(.) = "kropka"\n'
+                               '\nprzecinek(,) = "przecinek"\n'
+                               '\nwykrzyknik(!) = "wykrzynik"\n'
                                '\nklawisz windows = "windows"\n')
     label1.pack()
 
