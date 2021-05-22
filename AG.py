@@ -87,7 +87,7 @@ def view_tk():
             '\n"Klawiatura" - funkcja umożliwiająca wybór pojedynczego klawisza lub skrótu klawiszowego'
             '\n"Lotto" - symulator lotto. Zastanawiałeś się jakie masz szczęście w grach losowych? Sprawdź się.'
             '\n"Gierka" - rozerwij się i ogadnij wylosowaną liczbę'
-            '\n\n"Zamknij" - wyjście z programu.')
+            '\n\n"Zamknij" - wyjście z oprogramawnia.')
 
     label.pack(anchor=CENTER)
     root.update()
