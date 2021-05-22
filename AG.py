@@ -47,12 +47,13 @@ root2 = Tk()
 root2.title('ASGLOS funkcje klawiatury')
 root2.iconbitmap('textspeech.ico')
 
-# Funkcja głosowa
+# Funckja głosowa
 # https://pypi.org/project/pyttsx3/
 def say(audio):
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
+
 
 # Funkcja okienka
 def view_tk():
@@ -94,7 +95,7 @@ def view_tk():
 
 def view_klaw():
 
-    label1 = Label(root2, text='\nSkróty można wywołać poprzez następujące komendy:\n\n'
+    label1 = Label(root2, text='\nSkróty i dodatkowe klawisze można wywołać\n poprzez następujące komendy:\n\n'
                                '\nspacja = "spacja"\n'
                                '\ncapslock = "caps lock "\n'
                                '\nbackspace = "back space"\n'
@@ -109,8 +110,8 @@ def view_klaw():
                                '\nalt+f4 = "zamknij okno"\n'
                                '\nvolume-up = "podgłośnij"\n'
                                '\nvolume-mute = "wycisz"\n'
-                               '\nkropka = "kropka"\n'
-                               '\nprzecinek = "przecinek"\n'
+                               '\n. = "kropka"\n'
+                               '\n, = "przecinek"\n'
                                '\n! = "wykrzynik"\n'
                                '\nklawisz windows = "windows"\n')
     label1.pack()
