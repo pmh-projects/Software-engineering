@@ -1,25 +1,36 @@
 # Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja,
 # która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
 import speech_recognition as s_r
-import wikipedia  # Wikipedia to biblioteka Pythona, która ułatwia dostęp
+# Wikipedia to biblioteka Pythona, która ułatwia dostęp
 # i analizowanie danych z Wikipedii.(License: MIT License (MIT))
-import random  # jego moduł implementuje generatory liczb pseudolosowych dla różnych dystrybucji.
-import webbrowser  # Moduł przeglądarki internetowej zapewnia interfejs
+import wikipedia
+# jego moduł implementuje generatory liczb pseudolosowych dla różnych dystrybucji.
+import random
+# Moduł przeglądarki internetowej zapewnia interfejs
 # wysokiego poziomu, który umożliwia wyświetlanie użytkownikom dokumentów internetowych.
-import pyttsx3  # biblioteka konwersji tekstu na mowę w języku Python.
-import sys  # Moduł sys w Pythonie zapewnia różne funkcje i zmienne,
+import webbrowser
+# biblioteka konwersji tekstu na mowę w języku Python.
+import pyttsx3
+# Moduł sys w Pythonie zapewnia różne funkcje i zmienne,
 # które są używane do manipulowania różnymi częściami środowiska wykonawczego Pythona.
-import pyautogui  # wieloplatformowy moduł do automatyzacji GUI w języku Python dla ludzi.
+import sys
+# wieloplatformowy moduł do automatyzacji GUI w języku Python dla ludzi.
 # Służy do programowego sterowania myszą i klawiaturą. https://pypi.org/project/PyAutoGUI/ BSD License
-from googlesearch import search  # https://pypi.org/project/googlesearch-python/
-import pyowm  # wrapper do OpenWeatherMap https://pypi.org/project/pyowm/ (MIT Lic)
+import pyautogui
+# https://pypi.org/project/googlesearch-python/
+from googlesearch import search
+# wrapper do OpenWeatherMap https://pypi.org/project/pyowm/ (MIT Lic)
+import pyowm
 from pyowm.utils.config import get_default_config
-import tkinter as tk  # Pakiet tkinter („interfejs Tk”) jest standardowym interfejsem
+# Pakiet tkinter („interfejs Tk”) jest standardowym interfejsem
 # Pythona do zestawu narzędzi Tk GUI. https://docs.python.org/3/library/tkinter.html
+import tkinter as tk
 from tkinter import *
+# Pillow to fork Pillow. PIL to biblioteka obrazowania języka Python autorstwa Fredrika Lundha i współautorów.
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
-import time  # Ten moduł zapewnia różne funkcje związane z czasem.
+# Ten moduł zapewnia różne funkcje związane z czasem.
+import time
 
 # Voice mechanism
 voice_mechanism = pyttsx3.init()
@@ -42,7 +53,6 @@ def say(audio):
     voice_mechanism.say(audio)
     voice_mechanism.runAndWait()
     voice_mechanism.stop()
-
 
 # Funkcja okienka
 def view_tk():
