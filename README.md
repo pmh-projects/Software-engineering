@@ -822,4 +822,4 @@ Funkcje dodatkowe:
 
 pawelmach@pm.me<br>
 damianjaszewski@gmail.com<br>
-marcin.edel@
+medel@wp.pl
