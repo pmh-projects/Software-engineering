@@ -35,6 +35,11 @@ Motywem stworzenia aplikacji była, chęć pomocy studentom z niepełnosprawnoś
 
 Demonstracja działania:<br>
 https://www.youtube.com/watch?v=ghJcbn2s8w0&list=PLHxWWb2HNJ16eMpLckSj9EbWnLvfGoEfh
+<br>
+(Nagrania przeznaczone tylko do użytku niekomercyjnego w myśl licencji użytego oprogramowania.<br>
+Demonstracja jest niepubliczna i wyłącznie do zastosowań domowych.<br>
+Prosimy o nierozpowszechnianie materiałów.)
+<br>
 	
 ## Prawa autorskie
 
