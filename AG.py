@@ -70,8 +70,10 @@ def say(audio):
 # Funkcja okienka
 def view_tk():
     var = StringVar()
+    # deklaracja rodzaju czcionki
     font = tkFont.Font(family="Helvetica", size=12)
-    label = tk.Message(root, textvariable=var, relief=RAISED, border=20, bg='lightblue', justify=CENTER, font=font,
+    # deklaracja wyglądu części menu
+    label = tk.Message(root, textvariable=var, relief=GROOVE, border=20, bg='lightblue', justify=CENTER, font=font,
                        pady=30)
 
     var.set("Witaj w asystencie głosowym\n\n"
