@@ -94,7 +94,7 @@ def view_tk():
     root.update()
 
 # Funkcja dodatkowego okna z opisem funkcji klawiatury
-def view_klaw():
+def view_keyboard():
 
     label1 = Label(root2, text='\nSkróty i dodatkowe klawisze można wywołać\n poprzez następujące komendy:\n\n'
                                '\nspacja = "spacja"\n'
@@ -896,7 +896,7 @@ if __name__ == "__main__":
 
     introduction()
     view_tk()
-    view_klaw()
+    view_keyboard()
 
     while True:
 
