@@ -915,7 +915,9 @@ if __name__ == "__main__":
 
         # Konwersja do miniskuły po to aby został spełniony warunek
         record = command_recognition().lower()
-
+        
+        # Sprawdzenie, która funkcja została wypowiedziana
+        
         if 'wikipedia' in record:
 
             try:
