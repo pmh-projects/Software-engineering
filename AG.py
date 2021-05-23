@@ -773,8 +773,12 @@ def lotto_draw():
         print("Trafione liczby: ")
         say("Trafione liczby: ")
         hit_numbers.sort()
-        print(hit_numbers)
-        say(hit_numbers)
+        
+        if not hit_numbers:
+            say("Brak.")
+        else:
+            print(hit_numbers)
+            say(hit_numbers)
 
     except Exception as e:
 
