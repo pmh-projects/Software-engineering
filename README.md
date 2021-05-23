@@ -32,6 +32,9 @@ Prawo do nauki jest jednym z  fundamentalnych praw człowieka, którego
 realizacja umożliwia rozwój osobisty oraz pozwala na osiągnięcie samodzielności 
 i niezależności, a także pełny udział we wszystkich sferach życia.
 Motywem stworzenia aplikacji była, chęć pomocy studentom z niepełnosprawnością ruchową w poruszaniu się po świecie akademickim.
+
+Demonstracja działania:<br>
+https://www.youtube.com/watch?v=ghJcbn2s8w0&list=PLHxWWb2HNJ16eMpLckSj9EbWnLvfGoEfh
 	
 ## Prawa autorskie
 
