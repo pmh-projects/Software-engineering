@@ -32,7 +32,7 @@ import tkinter.font as tkFont
 # Ten moduł zapewnia różne funkcje związane z czasem.
 import time
 
-# Voice mechanism
+# Tworzenie obiektu (mechanizmu/silnika głosowego)
 voice_mechanism = pyttsx3.init()
 # inicjalizacja tkintera poprzez utworzenia głównego widget'u Tk
 root = tk.Tk()
@@ -43,6 +43,7 @@ img = tk.PhotoImage(file="logo.png")
 label = tk.Label(root, image=img)
 label.pack()
 
+# Utworzenie drugiego okna z funkcjami klawiatury
 root2 = Tk()
 root2.title('ASGLOS funkcje klawiatury')
 root2.iconbitmap('textspeech.ico')
@@ -92,7 +93,7 @@ def view_tk():
     label.pack(anchor=CENTER)
     root.update()
 
-
+# Funkcja dodatkowego okna z opisem funkcji klawiatury
 def view_klaw():
 
     label1 = Label(root2, text='\nSkróty i dodatkowe klawisze można wywołać\n poprzez następujące komendy:\n\n'
@@ -115,7 +116,6 @@ def view_klaw():
                                '\nwykrzyknik(!) = "wykrzynik"\n'
                                '\nklawisz windows = "windows"\n')
     label1.pack()
-
     root2.update()
 
 # Funkcja witająca w programie
@@ -126,11 +126,12 @@ def introduction():
 
 # Rozpoznanie instrukckji głosowej
 def command_recognition():
+    # Przerwa po wykonaniu ostatniej fukcji
     time.sleep(2)
-    # Create voice recognition
+    # Utwórzenie rozpoznawania głosu
     r = s_r.Recognizer()
     record = ''
-
+    # Użycie domyślnego mikrofonu jako źródła dźwięku
     with s_r.Microphone() as source:
 
         say("Podaj nazwę funkcji. Słucham Cię.")
@@ -148,6 +149,7 @@ def command_recognition():
             r.pause_threshold = 1
 
             print("Sprawdzam co powiedziano.")
+            # Rozpoznanie mowy za pomocą Google Speech Recognition
             record = r.recognize_google(audio, language='pl-PL')
             print(f"Powiedziano: {record}\n")
 
@@ -162,7 +164,7 @@ def command_recognition():
 # Funkcja wyszukująca podane hasło w wyszukiwarce Wikipiedia
 # https://pypi.org/project/wikipedia/
 def wikipedia_search():
-    # deklaracja języka polskiego
+    # Deklaracja języka polskiego
     wikipedia.set_lang("pl")
 
     wiki = s_r.Recognizer()
@@ -215,7 +217,7 @@ def wikipedia_search():
                     say("Spróbuj jeszcze raz.")
 
             say("Przeszukuję wikipedię w poszukiwaniu hasła")
-
+            # Podsumowanie i zapis treści do zmiennej wikifound wraz z ograniczeniem liczby zdań do podanej wartości
             wikifound = wikipedia.summary(varwiki, sentences=intnum)
 
             print("Jak mówi wikipedia: ")
