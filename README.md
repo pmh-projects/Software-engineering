@@ -120,7 +120,7 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 |	1	| 	Wikipedia 	| 	uruchamia funkcję wyszukiwania haseł na wikipedii z możliwością zapisu do pliku 	|	1		|
 |	2	|	Notatka		|	funkcja zapisująca plik o podanym głosowo tytule i zawartością				|	1		|
 |	3	|	Otwórz plik	|	otwieranie zapisanego pliku								|	1		|
-|	4	|	Wyszukiwarka	|	wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanych hasłem		|	1		|
+|	4	|	Wyszukiwarka	|	wyświetla 5 pierwszych wyników i uruchamia wyszukiwarkę z podanym hasłem		|	1		|
 |	5	|	Screenshot	|	pobiera i zapisuje zawartość ekranu do pliku png z podanym przez użytkownika tytułem	|	1		|
 |	6	|	Strona WWW	|	uruchamia zdefiniowane strony www (stronę UG, stackoverflow, yputube, inne		|	2		|
 |	7	|	Pogoda		|	podaje pogodę w wybranym mieście							|	2		|
