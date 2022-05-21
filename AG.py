@@ -1,10 +1,3 @@
-################################################
-##  Asystent głosowy przygotowany na projekt  ##
-##   z przedmiotu Inżynierii Oprogramowania   ##
-##           Coded by: Pawel Mach     ##
-#################################################
-
-
 # Komputerowe rozpoznawanie mowy lub zamiana mowy na tekst to funkcja,
 # która umożliwia programowi przetwarzanie ludzkiej mowy na format pisemny.
 # https://pypi.org/project/SpeechRecognition/
