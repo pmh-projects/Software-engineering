@@ -1,6 +1,6 @@
 ################################################
 ##  Asystent głosowy przygotowany na projekt  ##
-##   z przedmiotu Inżynierii Oprogramowania	  ##
+##   z przedmiotu Inżynierii Oprogramowania   ##
 ##           Coded by: Pawel Mach		      ##
 #################################################
 
