@@ -48,7 +48,7 @@ voice_mechanism = pyttsx3.init()
 # inicjalizacja tkintera poprzez utworzenia głównego widget'u Tk
 root = tk.Tk()
 # Ustawienia tytułu, ikonki, oraz tekstu menu w okienku
-root.title('ASGLOS Asystent głosowy studenta')
+root.title('SAG Asystent głosowy studenta')
 root.iconbitmap('textspeech.ico')
 img = tk.PhotoImage(file="logo.png")
 label = tk.Label(root, image=img)
@@ -56,7 +56,7 @@ label.pack()
 
 # Utworzenie drugiego okna z funkcjami klawiatury
 root2 = Tk()
-root2.title('ASGLOS funkcje klawiatury')
+root2.title('SAG funkcje klawiatury')
 root2.iconbitmap('textspeech.ico')
 
 # Funckja głosowa
