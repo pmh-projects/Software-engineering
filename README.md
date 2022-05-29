@@ -34,7 +34,7 @@ i niezależności, a także pełny udział we wszystkich sferach życia.
 Motywem stworzenia aplikacji była chęć pomocy studentom z niepełnosprawnością ruchową w poruszaniu się po świecie akademickim.
 
 Demonstracja działania:<br>
-[![IMAGE ALT TEXT HERE](https://github.com/pmh-projects/io/blob/master/dodatkowe_pliki/click-here-g7ea01f86a_640.png)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=ghJcbn2s8w0&list=PLHxWWb2HNJ16eMpLckSj9EbWnLvfGoEfh))
+[![IMAGE ALT TEXT HERE](https://github.com/pmh-projects/io/blob/master/dodatkowe_pliki/click-here-g7ea01f86a_640.png)](https://www.youtube.com/watch?v=ghJcbn2s8w0&list=PLHxWWb2HNJ16eMpLckSj9EbWnLvfGoEfh)
 
 <br>
 	
