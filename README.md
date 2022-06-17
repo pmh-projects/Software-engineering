@@ -143,21 +143,21 @@ Pogrupowana lista składająca się z następujących kolumn: (1) identyfikator,
 
 ### Diagram przypadków użycia:
 
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_przypadkow_uzycia.png" width=100%/>
 
 ### Diagram czynności dla każdego przypadku użycia
 
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1" width=100%/>
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu22" width=100%/>
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu1.png" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu22.png" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_dpu3.png" width=100%/>
 
 ### Diagram komponentów
 
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_komponentow" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_komponentow.png" width=100%/>
 
 ### Diagram wdrożeń
 
-<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen" width=100%/>
+<img src="https://raw.githubusercontent.com/pmh-projects/io/master/diagramy/UML_diagram_wdrozen.png" width=100%/>
 
 ## Architektura oprogramowania
 
