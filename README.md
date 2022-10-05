@@ -26,18 +26,8 @@
 Nazwa skrócona: SAG<br>
 Nazwa pełna: Studencki asystent głosowy
 <br><br>
-Krótki opis ze wskazaniem celów:<br>
-Asystent głosowy stworzony głównie z myślą o studentach mających niepełnosprawność ruchową. 
-Prawo do nauki jest jednym z  fundamentalnych praw człowieka, którego 
-realizacja umożliwia rozwój osobisty oraz pozwala na osiągnięcie samodzielności 
-i niezależności, a także pełny udział we wszystkich sferach życia.
-Motywem stworzenia aplikacji była chęć pomocy studentom z niepełnosprawnością ruchową w poruszaniu się po świecie akademickim.
-
 Demonstracja działania:<br>
 [![IMAGE ALT TEXT HERE](https://github.com/pmh-projects/io/blob/master/dodatkowe_pliki/click-here-g7ea01f86a_640.png)](https://www.youtube.com/watch?v=ghJcbn2s8w0&list=PLHxWWb2HNJ16eMpLckSj9EbWnLvfGoEfh)
-
-<br>
-	
 ## Prawa autorskie
 
 ### Autorzy projektu
@@ -822,9 +812,3 @@ Funkcje dodatkowe:
         </tr>
     </tbody>
 </table>
-
-## Kontakt
-
-pawel.mach@zohomail.eu<br>
-damianjaszewski@gmail.com<br>
-medel@wp.pl
